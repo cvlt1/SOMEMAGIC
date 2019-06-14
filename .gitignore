@@ -1,1 +1,4 @@
-/bin/
+web/target/
+dao-jdbc-impl/target/
+service/target/
+dao-api/target/
