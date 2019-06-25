@@ -12,48 +12,46 @@ import com.itacademy.jd2.yi.cms.service.IUserAccountService;
 
 public class UserAccountServiceImpl implements IUserAccountService {
 
-    //private static final Logger LOGGER = LoggerFactory.getLogger(UserAccountServiceImpl.class);
-
     private IUserAccountDao dao = new UserAccountDaoImpl();
 
-	@Override
-	public IUserAccount createEntity() {
-		return dao.createEntity();
-	}
+    @Override
+    public IUserAccount createEntity() {
+        return dao.createEntity();
+    }
 
-	@Override
-	public void save(final IUserAccount entity) {
-		final Date modifedOn = new Date(0);
-		entity.setUpdated(modifedOn);
-		if (entity.getId() == null) {
-			entity.setCreated(modifedOn);
-			dao.insert(entity);
-		} else {
-			dao.update(entity);
-		}
-	}
+    @Override
+    public void save(final IUserAccount entity) {
+        final Date modifedOn = new Date();
+        entity.setUpdated(modifedOn);
+        if (entity.getId() == null) {
+            entity.setCreated(modifedOn);
+            dao.insert(entity);
+        } else {
+            dao.update(entity);
+        }
+    }
 
-	@Override
-	public IUserAccount get(final Integer id) {
-		final IUserAccount entity = dao.get(id);
-		return entity;
-	}
+    @Override
+    public IUserAccount get(final Integer id) {
+        final IUserAccount entity = dao.get(id);
+        return entity;
+    }
 
-	@Override
-	public void delete(final Integer id) {
-		dao.delete(id);
-	}
+    @Override
+    public void delete(final Integer id) {
+        dao.delete(id);
+    }
 
-	@Override
-	public void deleteAll() {
-		dao.deleteAll();
-	}
+    @Override
+    public void deleteAll() {
+        dao.deleteAll();
+    }
 
-	@Override
-	public List<IUserAccount> getAll() {
-		final List<IUserAccount> all = dao.selectAll();
-		return all;
-	}
+    @Override
+    public List<IUserAccount> getAll() {
+        final List<IUserAccount> all = dao.selectAll();
+        return all;
+    }
 
 	@Override
 	public List<IUserAccount> find(UserAccountFilter filter) {
@@ -64,4 +62,8 @@ public class UserAccountServiceImpl implements IUserAccountService {
 	public long getCount(UserAccountFilter filter) {
 		return dao.getCount(filter);
 	}
+
+   
+
+
 }

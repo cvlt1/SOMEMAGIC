@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
 
-
 public abstract class AbstractTest {
     protected IUserAccountService userAccountService = new UserAccountServiceImpl();
    // protected IModelService modelService = new ModelServiceImpl();

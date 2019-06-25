@@ -2,13 +2,12 @@ package com.itacademy.jd2.yi.cms.service.impl;
 
 
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UserAccountServiceTest extends AbstractTest {
 
@@ -25,4 +24,9 @@ public class UserAccountServiceTest extends AbstractTest {
         assertNotNull(entityFromDb.getUpdated());
         assertTrue(entityFromDb.getCreated().equals(entityFromDb.getUpdated()));
     }
+    
+    
+    
+    
+    
 }
