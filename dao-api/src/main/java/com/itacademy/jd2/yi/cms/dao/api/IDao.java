@@ -16,4 +16,6 @@ public interface IDao<ENTITY, ID> {
     void deleteAll();
 
     List<ENTITY> selectAll();
+
+
 }

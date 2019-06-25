@@ -1,0 +1,8 @@
+20:48:46.339 [main] INFO  mylogger - info message1
+20:48:46.340 [main] WARN  mylogger - warn message1
+20:48:46.356 [main] INFO  com.itacademy.jd2.yi.cms.logger.LoggerTest - info message2
+20:48:46.357 [main] WARN  com.itacademy.jd2.yi.cms.logger.LoggerTest - warn message2
+20:52:24.176 [main] INFO  mylogger - info message1
+20:52:24.177 [main] WARN  mylogger - warn message1
+20:52:24.185 [main] INFO  com.itacademy.jd2.yi.cms.logger.LoggerTest - info message2
+20:52:24.186 [main] WARN  com.itacademy.jd2.yi.cms.logger.LoggerTest - warn message2
