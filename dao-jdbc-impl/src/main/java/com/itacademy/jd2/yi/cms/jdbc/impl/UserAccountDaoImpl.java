@@ -65,12 +65,6 @@ public class UserAccountDaoImpl extends AbstractDaoImpl<IUserAccount, Integer> i
 		throw new RuntimeException ("NOOOOT IMPLEMENTED");
 		
 	}
-
-	@Override
-	public void save(IUserAccount... entities) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 
 }
