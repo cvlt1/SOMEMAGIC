@@ -209,7 +209,8 @@ public abstract class AbstractDaoImpl<ENTITY, ID> implements IDao<ENTITY, ID> {
     protected Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }
-    protected ENTITY parseRow(final ResultSet resultSet) throws SQLException {
+    
+	protected ENTITY parseRow(final ResultSet resultSet) throws SQLException {
         throw new UnsupportedOperationException(
                 "this method should be overriden in particular *Impl class or use alternative "
                         + "com.itacademy.jd2.dz.cardealer.dao.jdbc.AbstractDaoImpl.parseRow(ResultSet, List<String>)");
