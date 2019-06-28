@@ -4,6 +4,8 @@ import java.util.Random;
 
 import org.junit.jupiter.api.BeforeEach;
 
+import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
+import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserStatus;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.impl.UserAccountServiceImpl;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
@@ -38,6 +40,10 @@ public abstract class AbstractTest {
     protected IUserAccount saveNewUserAccount() {
         final IUserAccount entity = userAccountService.createEntity();
         entity.setName("user_account" + getRandomPrefix());
+        entity.setEmail("user_account@" + getRandomPrefix() + "gmail.com");
+        entity.setPassword("userpassword" + getRandomPrefix());
+        entity.setRole(UserRole.BASIC);
+        entity.setStatus(UserStatus.ACTIVE);
         userAccountService.save(entity);
         return entity;
     }

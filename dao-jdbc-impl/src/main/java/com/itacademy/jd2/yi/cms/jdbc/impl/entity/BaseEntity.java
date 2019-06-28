@@ -10,18 +10,22 @@ public abstract class BaseEntity implements IBaseEntity {
 	private Date created;
 	private Date updated;
 
+	@Override
 	public Date getCreated() {
 		return created;
 	}
 
+	@Override
 	public void setCreated(Date created) {
 		this.created = created;
 	}
 
+	@Override
 	public Date getUpdated() {
 		return updated;
 	}
 
+	@Override
 	public void setUpdated(Date updated) {
 		this.updated = updated;
 	}

@@ -2,6 +2,9 @@ package com.itacademy.jd2.yi.cms.dao.api.entity.table;
 
 import java.util.Date;
 
+import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
+import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserStatus;
+
 
 
 public interface IUserAccount extends IBaseEntity {
@@ -15,9 +18,34 @@ public interface IUserAccount extends IBaseEntity {
 	Date getCreated();
 
 	void setName(String name);
-
+	
 	String getName();
 
+	void setStatus(UserStatus userStatus);
 
-//TODO pull up from UserAccount
+	UserStatus getStatus();
+
+	void setRole(UserRole userRole);
+
+	UserRole getRole();
+
+	void setPassword(String password);
+
+	String getPassword();
+
+	void setEmail(String email);
+
+	String getEmail();
+
+	
+
+	
+
+
+
+
+
+
+
+//TODO pull up from UserAccount DONE
 }
