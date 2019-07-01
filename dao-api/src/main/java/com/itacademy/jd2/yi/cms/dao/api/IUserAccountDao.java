@@ -8,6 +8,8 @@ import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
 
 public interface IUserAccountDao extends IDao<IUserAccount, Integer> {
 	
+	void save(IUserAccount... entities);
+	
 	List <IUserAccount> find (UserAccountFilter filter);
 	
 	long getCount (UserAccountFilter filter);

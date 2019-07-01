@@ -6,13 +6,16 @@ import org.junit.jupiter.api.BeforeEach;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserStatus;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
+import com.itacademy.jd2.yi.cms.impl.TemplateServiceImpl;
 import com.itacademy.jd2.yi.cms.impl.UserAccountServiceImpl;
+import com.itacademy.jd2.yi.cms.service.ITemplateService;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
 
 public abstract class AbstractTest {
     protected IUserAccountService userAccountService = new UserAccountServiceImpl();
-   // protected IModelService modelService = new ModelServiceImpl();
+    protected ITemplateService templateService = new TemplateServiceImpl();
    // protected IEngineService engineService = new EngineServiceImpl();
 
     private static final Random RANDOM = new Random();
@@ -48,6 +51,13 @@ public abstract class AbstractTest {
         return entity;
     }
 
+    protected ITemplate saveNewTemplate() {
+        final ITemplate entity = templateService.createEntity();
+        entity.setJspPath("D:\\templates\\" + getRandomPrefix() + ".jsp");
+
+        templateService.save(entity);
+        return entity;
+    }
 
 
 }

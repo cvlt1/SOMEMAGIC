@@ -3,23 +3,28 @@ package com.itacademy.jd2.yi.cms.impl;
 import java.util.Date;
 import java.util.List;
 
+import com.itacademy.jd2.yi.cms.dao.api.ITemplateDao;
 import com.itacademy.jd2.yi.cms.dao.api.IUserAccountDao;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
+import com.itacademy.jd2.yi.cms.dao.api.filter.TemplateFilter;
 import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
+import com.itacademy.jd2.yi.cms.jdbc.impl.TemplateDaoImpl;
 import com.itacademy.jd2.yi.cms.jdbc.impl.UserAccountDaoImpl;
+import com.itacademy.jd2.yi.cms.service.ITemplateService;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
 
-public class UserAccountServiceImpl implements IUserAccountService {
+public class TemplateServiceImpl implements ITemplateService {
 
-    private IUserAccountDao dao = new UserAccountDaoImpl();
+    private ITemplateDao dao = new TemplateDaoImpl();
 
     @Override
-    public IUserAccount createEntity() {
+    public ITemplate createEntity() {
         return dao.createEntity();
     }
 
     @Override
-    public void save(final IUserAccount entity) {
+    public void save(final ITemplate entity) {
         final Date modifedOn = new Date();
         entity.setUpdated(modifedOn);
         if (entity.getId() == null) {
@@ -31,8 +36,8 @@ public class UserAccountServiceImpl implements IUserAccountService {
     }
 
     @Override
-    public IUserAccount get(final Integer id) {
-        final IUserAccount entity = dao.get(id);
+    public ITemplate get(final Integer id) {
+        final ITemplate entity = dao.get(id);
         return entity;
     }
 
@@ -47,28 +52,28 @@ public class UserAccountServiceImpl implements IUserAccountService {
     }
 
     @Override
-    public List<IUserAccount> getAll() {
-        final List<IUserAccount> all = dao.selectAll();
+    public List<ITemplate> getAll() {
+        final List<ITemplate> all = dao.selectAll();
         return all;
     }
 
 	@Override
-	public List<IUserAccount> find(UserAccountFilter filter) {
+	public List<ITemplate> find(TemplateFilter filter) {
 		return dao.find(filter);
 	}
 
 	@Override
-	public long getCount(UserAccountFilter filter) {
+	public long getCount(TemplateFilter filter) {
 		return dao.getCount(filter);
 	}
 
     @Override
-    public void save(IUserAccount... entities) {
+    public void save(ITemplate... entities) {
         Date modified = new Date();
-        for (IUserAccount iUserAccount : entities) {
+        for (ITemplate iTemplate : entities) {
 
-            iUserAccount.setUpdated(modified);
-            iUserAccount.setCreated(modified);
+            iTemplate.setUpdated(modified);
+            iTemplate.setCreated(modified);
 
         }
 
@@ -80,3 +85,4 @@ public class UserAccountServiceImpl implements IUserAccountService {
 
 
 }
+

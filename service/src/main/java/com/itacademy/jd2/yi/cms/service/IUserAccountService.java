@@ -11,7 +11,7 @@ public interface IUserAccountService {
 
     List<IUserAccount> getAll();
 
-    void save(IUserAccount entity);
+    void save(IUserAccount... entities);
 
     void delete(Integer id);
 
@@ -22,6 +22,8 @@ public interface IUserAccountService {
 	long getCount(UserAccountFilter filter);
 
 	List<IUserAccount> find(UserAccountFilter filter);
+
+	void save(IUserAccount entity);
 
     //List<IBrand> find(BrandFilter filter);
 
