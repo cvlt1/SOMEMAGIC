@@ -2,14 +2,11 @@ package com.itacademy.jd2.yi.cms.dao.api.entity.table;
 
 import java.util.Date;
 
-<<<<<<< HEAD
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserStatus;
 
 
 
-=======
->>>>>>> master
 public interface IUserAccount extends IBaseEntity {
 
 	void setUpdated(Date updated);
@@ -21,7 +18,6 @@ public interface IUserAccount extends IBaseEntity {
 	Date getCreated();
 
 	void setName(String name);
-<<<<<<< HEAD
 	
 	String getName();
 
@@ -40,23 +36,4 @@ public interface IUserAccount extends IBaseEntity {
 	void setEmail(String email);
 
 	String getEmail();
-
-	
-
-	
-
-
-
-
-
-
-
-//TODO pull up from UserAccount DONE
-=======
-
-	String getName();
-
-
-//TODO pull up from UserAccount
->>>>>>> master
 }

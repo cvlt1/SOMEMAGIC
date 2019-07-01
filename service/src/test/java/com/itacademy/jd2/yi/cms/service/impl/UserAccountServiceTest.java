@@ -2,7 +2,6 @@ package com.itacademy.jd2.yi.cms.service.impl;
 
 import org.junit.jupiter.api.Test;
 
-<<<<<<< HEAD
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -11,15 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.List;
-=======
-
-import org.junit.jupiter.api.Test;
-
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
->>>>>>> master
 
 public class UserAccountServiceTest extends AbstractTest {
 
@@ -43,7 +33,6 @@ public class UserAccountServiceTest extends AbstractTest {
         assertTrue(entityFromDb.getCreated().equals(entityFromDb.getUpdated()));
     }
     
-<<<<<<< HEAD
     @Test
     public void testCreateMultiple() {
         int initialSize = userAccountService.getAll().size();
@@ -123,12 +112,4 @@ public class UserAccountServiceTest extends AbstractTest {
         userAccountService.deleteAll();
         assertEquals(0, userAccountService.getAll().size());
     }
-=======
-    
-    
-    
-    
->>>>>>> master
 }
-    
-    

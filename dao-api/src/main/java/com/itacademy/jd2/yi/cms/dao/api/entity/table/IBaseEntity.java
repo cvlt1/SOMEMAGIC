@@ -5,7 +5,6 @@ import java.util.Date;
 public interface IBaseEntity {
 
 	void setId(Integer id);
-<<<<<<< HEAD
 
 	Integer getId();
 
@@ -19,13 +18,6 @@ public interface IBaseEntity {
 	
 	
 	//TODO pull up from BaseEntity DONE
-=======
-
-	Integer getId();
-	
-	
-	//TODO pull up from BaseEntity
->>>>>>> master
 
 
 }
