@@ -10,6 +10,7 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 
 public class UserAccount extends BaseEntity implements IUserAccount {
 	
+<<<<<<< HEAD
 	
 	
 	private String name;
@@ -17,6 +18,13 @@ public class UserAccount extends BaseEntity implements IUserAccount {
 	private String password;
 	private UserRole role;
 	private UserStatus status;
+=======
+	private String name;
+	private String email;
+	private String password;
+	private String role;
+	private String status;
+>>>>>>> master
 	private Date created;
 	private Date updated;
 	
@@ -34,6 +42,7 @@ public class UserAccount extends BaseEntity implements IUserAccount {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+<<<<<<< HEAD
 	public UserRole getRole() {
 		return role;
 	}
@@ -44,6 +53,18 @@ public class UserAccount extends BaseEntity implements IUserAccount {
 		return status;
 	}
 	public void setStatus(UserStatus status) {
+=======
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+>>>>>>> master
 		this.status = status;
 	}
 	
@@ -70,6 +91,7 @@ public class UserAccount extends BaseEntity implements IUserAccount {
 	@Override
 	public void setUpdated(Date updated) {
 		this.updated = updated;
+<<<<<<< HEAD
 	}
 	@Override
 	public String toString() {
@@ -81,6 +103,15 @@ public class UserAccount extends BaseEntity implements IUserAccount {
 
 	
 
+=======
+	}
+	
+	@Override
+	public String toString() {
+		return "UserAccount [name=" + name + ", email=" + email + ", password=" + password + ", role=" + role
+				+ ", status=" + status + ", created=" + created + ", updated=" + updated + "]";
+	}
+>>>>>>> master
 	
 	
 	

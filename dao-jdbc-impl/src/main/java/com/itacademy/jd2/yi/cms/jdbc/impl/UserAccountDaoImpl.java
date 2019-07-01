@@ -15,7 +15,10 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
 import com.itacademy.jd2.yi.cms.jdbc.impl.entity.UserAccount;
 import com.itacademy.jd2.yi.cms.jdbc.impl.util.PreparedStatementAction;
+<<<<<<< HEAD
 import com.itacademy.jd2.yi.cms.jdbc.impl.util.SQLExecutionException;
+=======
+>>>>>>> master
 
 public class UserAccountDaoImpl extends AbstractDaoImpl<IUserAccount, Integer> implements IUserAccountDao {
 
@@ -25,6 +28,7 @@ public class UserAccountDaoImpl extends AbstractDaoImpl<IUserAccount, Integer> i
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void update(final IUserAccount entity) {
 		executeStatement(new PreparedStatementAction<IUserAccount>(String.format(
 				"update %s set name=?, email=?, password=?, role=?, status=?, updated=? where id=?", getTableName())) {
@@ -42,10 +46,16 @@ public class UserAccountDaoImpl extends AbstractDaoImpl<IUserAccount, Integer> i
 				return entity;
 			}
 		});
+=======
+	public void update(IUserAccount entity) {
+		throw new RuntimeException("not implemented");
+		
+>>>>>>> master
 	}
 
 	@Override
 	public void insert(final IUserAccount entity) {
+<<<<<<< HEAD
 		executeStatement(new PreparedStatementAction<IUserAccount>(String.format(
 				"insert into %s (name, email, password, role, status, created, updated) values(?,?,?,?,?,?,?)",
 				getTableName()), true) {
@@ -58,6 +68,15 @@ public class UserAccountDaoImpl extends AbstractDaoImpl<IUserAccount, Integer> i
 				pStmt.setString(5, entity.getStatus().name());
 				pStmt.setObject(6, entity.getCreated(), Types.TIMESTAMP);
 				pStmt.setObject(7, entity.getUpdated(), Types.TIMESTAMP);
+=======
+		executeStatement(new PreparedStatementAction<IUserAccount>(
+				String.format("insert into %s (name, created, updated) values(?,?,?)", getTableName()), true) {
+			@Override
+			public IUserAccount doWithPreparedStatement(final PreparedStatement pStmt) throws SQLException {
+				pStmt.setString(1, entity.getName());
+				pStmt.setObject(2, entity.getCreated(), Types.TIMESTAMP);
+				pStmt.setObject(3, entity.getUpdated(), Types.TIMESTAMP);
+>>>>>>> master
 
 				pStmt.executeUpdate();
 
@@ -71,6 +90,7 @@ public class UserAccountDaoImpl extends AbstractDaoImpl<IUserAccount, Integer> i
 				return entity;
 			}
 		});
+<<<<<<< HEAD
 
 	}
 
@@ -147,4 +167,26 @@ public class UserAccountDaoImpl extends AbstractDaoImpl<IUserAccount, Integer> i
 		return executeCountQuery("");
 	}
 
+=======
+
+	}
+
+	@Override
+	protected String getTableName() {
+		return "user_account";
+	}
+
+	@Override
+	public List<IUserAccount> find(UserAccountFilter filter) {
+		throw new RuntimeException ("NOOOOT IMPLEMENTED");
+	}
+
+	@Override
+	public long getCount(UserAccountFilter filter) {
+		throw new RuntimeException ("NOOOOT IMPLEMENTED");
+		
+	}
+	
+
+>>>>>>> master
 }
