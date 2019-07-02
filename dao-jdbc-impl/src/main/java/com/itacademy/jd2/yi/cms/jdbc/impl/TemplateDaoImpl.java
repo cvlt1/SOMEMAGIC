@@ -8,13 +8,15 @@ import java.sql.Statement;
 import java.sql.Types;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.itacademy.jd2.yi.cms.dao.api.ITemplateDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
 import com.itacademy.jd2.yi.cms.dao.api.filter.TemplateFilter;
 import com.itacademy.jd2.yi.cms.jdbc.impl.entity.Template;
 import com.itacademy.jd2.yi.cms.jdbc.impl.util.PreparedStatementAction;
 import com.itacademy.jd2.yi.cms.jdbc.impl.util.SQLExecutionException;
-
+@Repository
 public class TemplateDaoImpl extends AbstractDaoImpl<ITemplate, Integer> implements ITemplateDao {
 
 	@Override

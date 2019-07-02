@@ -3,17 +3,26 @@ package com.itacademy.jd2.yi.cms.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.itacademy.jd2.yi.cms.dao.api.IUserAccountDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
-import com.itacademy.jd2.yi.cms.jdbc.impl.UserAccountDaoImpl;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
-
+@Service
 public class UserAccountServiceImpl implements IUserAccountService {
 
-    private IUserAccountDao dao = new UserAccountDaoImpl();
+    private IUserAccountDao dao; //= new UserAccountDaoImpl();
+    
+    
+    @Autowired
+    public UserAccountServiceImpl(IUserAccountDao dao) {
+		super();
+		this.dao = dao;
+	}
 
-    @Override
+	@Override
     public IUserAccount createEntity() {
         return dao.createEntity();
     }

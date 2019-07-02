@@ -3,6 +3,9 @@ package com.itacademy.jd2.yi.cms.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.itacademy.jd2.yi.cms.dao.api.ITemplateDao;
 import com.itacademy.jd2.yi.cms.dao.api.IUserAccountDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
@@ -13,12 +16,17 @@ import com.itacademy.jd2.yi.cms.jdbc.impl.TemplateDaoImpl;
 import com.itacademy.jd2.yi.cms.jdbc.impl.UserAccountDaoImpl;
 import com.itacademy.jd2.yi.cms.service.ITemplateService;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
-
+@Service
 public class TemplateServiceImpl implements ITemplateService {
 
-    private ITemplateDao dao = new TemplateDaoImpl();
+    private ITemplateDao dao; // = new TemplateDaoImpl();
+    @Autowired
+    public TemplateServiceImpl(ITemplateDao dao) {
+		super();
+		this.dao = dao;
+	}
 
-    @Override
+	@Override
     public ITemplate createEntity() {
         return dao.createEntity();
     }

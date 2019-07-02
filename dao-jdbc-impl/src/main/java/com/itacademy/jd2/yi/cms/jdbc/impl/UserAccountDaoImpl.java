@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.sql.Types;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.itacademy.jd2.yi.cms.dao.api.IUserAccountDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserStatus;
@@ -16,7 +18,7 @@ import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
 import com.itacademy.jd2.yi.cms.jdbc.impl.entity.UserAccount;
 import com.itacademy.jd2.yi.cms.jdbc.impl.util.PreparedStatementAction;
 import com.itacademy.jd2.yi.cms.jdbc.impl.util.SQLExecutionException;
-
+@Repository
 public class UserAccountDaoImpl extends AbstractDaoImpl<IUserAccount, Integer> implements IUserAccountDao {
 
 	@Override

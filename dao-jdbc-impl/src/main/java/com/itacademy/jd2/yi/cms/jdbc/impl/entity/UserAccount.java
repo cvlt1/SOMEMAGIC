@@ -2,6 +2,8 @@ package com.itacademy.jd2.yi.cms.jdbc.impl.entity;
 
 import java.util.Date;
 
+import javax.annotation.PostConstruct;
+
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserStatus;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
@@ -19,6 +21,7 @@ public class UserAccount extends BaseEntity implements IUserAccount {
 	private UserStatus status;
 	private Date created;
 	private Date updated;
+	
 	
 	
 
