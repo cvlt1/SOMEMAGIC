@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 import org.springframework.beans.factory.annotation.Value;
 
@@ -23,8 +24,6 @@ import com.itacademy.jd2.yi.cms.jdbc.impl.util.SQLExecutionException;
 import com.itacademy.jd2.yi.cms.jdbc.impl.util.StatementAction;
 
 public abstract class AbstractDaoImpl<ENTITY, ID> implements IDao<ENTITY, ID> {
-
-
 
 	@Value("${jdbc.url}")
 	private String url;
@@ -47,6 +46,11 @@ public abstract class AbstractDaoImpl<ENTITY, ID> implements IDao<ENTITY, ID> {
 		if (user == null) {
 			throw new IllegalArgumentException("[user] cant be null");
 		}
+	}
+
+	@PreDestroy
+	private void clean() {
+
 	}
 
 	@Override

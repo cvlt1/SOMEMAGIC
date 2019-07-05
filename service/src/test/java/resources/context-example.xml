@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="bean1Name"
+		class="com.itacademy.jd2.yi.cms.spring.InnerBean1">
+	</bean>
+
+	<bean id="bean2Name"
+		class="com.itacademy.jd2.yi.cms.spring.InnerBean2">
+	</bean>
+
+	<bean id="bean2Name"
+		class="com.itacademy.jd2.yi.cms.spring.InnerBean3">
+	</bean>
+
+	<bean id="mainBean"
+		class="com.itacademy.jd2.yi.cms.spring.MainBean">
+		<property name="bean1" ref="bean1Name" />
+		<property name="bean2" ref="bean2Name" />
+		<property name="bean3" ref="bean3Name" />
+	</bean>
+
+
+</beans>

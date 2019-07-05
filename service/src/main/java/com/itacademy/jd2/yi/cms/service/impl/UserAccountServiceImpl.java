@@ -4,15 +4,31 @@ package com.itacademy.jd2.yi.cms.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.itacademy.jd2.yi.cms.dao.api.IUserAccountDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
-import com.itacademy.jd2.yi.cms.jdbc.impl.UserAccountDaoImpl;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
 
-public class UserAccountServiceImpl implements IUserAccountService {
 
-    private IUserAccountDao dao = new UserAccountDaoImpl();
+
+@Service
+public class UserAccountServiceImpl implements IUserAccountService {
+	
+	 private static final Logger LOGGER = LoggerFactory.getLogger(UserAccountServiceImpl.class);
+
+    private IUserAccountDao dao; 
+    
+    
+    @Autowired
+    public UserAccountServiceImpl(IUserAccountDao dao) {
+        super();
+        this.dao = dao;
+    }
 
     @Override
     public IUserAccount createEntity() {
@@ -24,9 +40,11 @@ public class UserAccountServiceImpl implements IUserAccountService {
         final Date modifedOn = new Date();
         entity.setUpdated(modifedOn);
         if (entity.getId() == null) {
+        	LOGGER.info("new user account created: {}", entity);
             entity.setCreated(modifedOn);
             dao.insert(entity);
         } else {
+        	LOGGER.debug("user account updated: {}", entity);
             dao.update(entity);
         }
     }
@@ -44,6 +62,7 @@ public class UserAccountServiceImpl implements IUserAccountService {
 
     @Override
     public void deleteAll() {
+    	LOGGER.info("delete all user accounts");
         dao.deleteAll();
     }
 

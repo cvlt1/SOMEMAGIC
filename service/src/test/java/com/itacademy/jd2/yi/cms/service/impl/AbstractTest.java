@@ -8,10 +8,10 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserStatus;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
-import com.itacademy.jd2.yi.cms.impl.TemplateServiceImpl;
-import com.itacademy.jd2.yi.cms.impl.UserAccountServiceImpl;
+import com.itacademy.jd2.yi.cms.service.ISiteService;
 import com.itacademy.jd2.yi.cms.service.ITemplateService;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
 @SpringJUnitConfig(locations = "classpath:service-context.xml")
@@ -22,7 +22,9 @@ public abstract class AbstractTest {
 	
 	@Autowired
     protected ITemplateService templateService;
-   // protected IEngineService engineService = new EngineServiceImpl();
+	
+	@Autowired
+    protected ISiteService siteService;
 
     private static final Random RANDOM = new Random();
 
@@ -30,7 +32,8 @@ public abstract class AbstractTest {
     public void setUpMethod() {
         // clean DB recursive
         userAccountService.deleteAll();
-        //brandService.deleteAll();
+        templateService.deleteAll();
+        siteService.deleteAll();
 
     }
 
@@ -62,6 +65,14 @@ public abstract class AbstractTest {
         entity.setJspPath("D:\\templates\\" + getRandomPrefix() + ".jsp");
 
         templateService.save(entity);
+        return entity;
+    }
+    
+    protected ISite saveNewSite() {
+        final ISite entity = siteService.createEntity();
+        entity.setSiteName("sitename" + getRandomPrefix());
+        entity.setBasepath("somepath" + getRandomPrefix() + ".com");
+        siteService.save(entity);
         return entity;
     }
 
