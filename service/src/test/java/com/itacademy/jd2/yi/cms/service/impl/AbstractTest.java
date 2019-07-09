@@ -83,13 +83,13 @@ public abstract class AbstractTest {
         return entity;
     }
 
-//    protected ICssItem saveNewCssItem() {
-//        final ICssItem entity = cssItemService.createEntity();
-//        final ISite entity1 = siteService.createEntity();
-//        entity.setContent("contentname" + getRandomPrefix());
-//        cssItemService.save(entity);
-//        return entity;
-//    }
+    protected ICssItem saveNewCssItem() {
+        final ICssItem entity = cssItemService.createEntity();
+        entity.setContent("contentname" + getRandomPrefix());
+       // entity.setId(saveNewSite());
+        cssItemService.save(entity);
+        return entity;
+    }
 
 
 }

@@ -29,6 +29,10 @@ public class CssItem extends BaseEntity implements ICssItem {
 	public String toString() {
 		return "CssItem [content=" + content + ", site=" + site + "]";
 	}
+	@Override
+	public void setId(ISite site) {
+		this.site = site;
+	}
 	
 	
 

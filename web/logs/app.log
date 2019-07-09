@@ -1,0 +1,72 @@
+19:32:26.450 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @655ms
+19:32:26.543 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+19:32:27.098 [main] INFO  /carsdealer - No Spring WebApplicationInitializer types detected on classpath
+19:32:27.195 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@491666ad{/carsdealer,file:/D:/JD02-iyatsevich/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+19:32:27.423 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@2e005c4b{HTTP/1.1}{0.0.0.0:8081}
+19:32:27.423 [main] INFO  org.eclipse.jetty.server.Server - Started @1637ms
+19:35:07.632 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @603ms
+19:35:07.745 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+19:35:08.047 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+19:35:08.130 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@491666ad{/cms,file:/D:/JD02-iyatsevich/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+19:35:08.179 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@2e005c4b{HTTP/1.1}{0.0.0.0:8081}
+19:35:08.179 [main] INFO  org.eclipse.jetty.server.Server - Started @1157ms
+19:44:28.079 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @647ms
+19:44:28.173 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+19:44:28.928 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+19:44:29.016 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@491666ad{/cms,file:/D:/JD02-iyatsevich/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+19:44:29.076 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@2e005c4b{HTTP/1.1}{0.0.0.0:8081}
+19:44:29.077 [main] INFO  org.eclipse.jetty.server.Server - Started @1654ms
+19:47:55.128 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @628ms
+19:47:55.209 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+19:47:55.964 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+19:47:56.035 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@491666ad{/cms,file:/D:/JD02-iyatsevich/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+19:47:56.089 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@2e005c4b{HTTP/1.1}{0.0.0.0:8081}
+19:47:56.089 [main] INFO  org.eclipse.jetty.server.Server - Started @1597ms
+19:49:42.064 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @596ms
+19:49:42.153 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+19:49:42.438 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+19:49:42.502 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@491666ad{/cms,file:/D:/JD02-iyatsevich/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+19:49:42.552 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@2e005c4b{HTTP/1.1}{0.0.0.0:8081}
+19:49:42.552 [main] INFO  org.eclipse.jetty.server.Server - Started @1091ms
+20:27:13.333 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @586ms
+20:27:13.426 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+20:27:13.714 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+20:27:13.784 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@491666ad{/cms,file:/D:/JD02-iyatsevich/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+20:27:13.839 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@2e005c4b{HTTP/1.1}{0.0.0.0:8081}
+20:27:13.841 [main] INFO  org.eclipse.jetty.server.Server - Started @1101ms
+20:27:46.117 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @574ms
+20:27:46.197 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+20:27:46.494 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+20:27:46.563 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@491666ad{/cms,file:/D:/JD02-iyatsevich/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+20:27:46.621 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@2e005c4b{HTTP/1.1}{0.0.0.0:8081}
+20:27:46.621 [main] INFO  org.eclipse.jetty.server.Server - Started @1085ms
+20:28:27.634 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @576ms
+20:28:27.726 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+20:28:28.026 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+20:28:28.097 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@491666ad{/cms,file:/D:/JD02-iyatsevich/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+20:28:28.157 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@2e005c4b{HTTP/1.1}{0.0.0.0:8081}
+20:28:28.158 [main] INFO  org.eclipse.jetty.server.Server - Started @1106ms
+21:11:47.125 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @603ms
+21:11:47.219 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+21:11:47.531 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+21:11:47.611 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@491666ad{/cms,file:/D:/JD02-iyatsevich/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+21:11:47.665 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@2e005c4b{HTTP/1.1}{0.0.0.0:8081}
+21:11:47.665 [main] INFO  org.eclipse.jetty.server.Server - Started @1154ms
+21:13:43.741 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @582ms
+21:13:43.823 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+21:13:44.120 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+21:13:44.187 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@491666ad{/cms,file:/D:/JD02-iyatsevich/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+21:13:44.249 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@3c81281d{HTTP/1.1}{0.0.0.0:8081}
+21:13:44.250 [main] INFO  org.eclipse.jetty.server.Server - Started @1100ms
+21:23:52.164 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @645ms
+21:23:52.247 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+21:23:52.534 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+21:23:52.600 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@491666ad{/cms,file:/D:/JD02-iyatsevich/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+21:23:52.654 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@2e005c4b{HTTP/1.1}{0.0.0.0:8081}
+21:23:52.654 [main] INFO  org.eclipse.jetty.server.Server - Started @1142ms
+21:28:35.973 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @573ms
+21:28:36.062 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+21:28:36.352 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+21:28:36.419 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@491666ad{/cms,file:/D:/JD02-iyatsevich/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+21:28:36.475 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@2e005c4b{HTTP/1.1}{0.0.0.0:8081}
+21:28:36.475 [main] INFO  org.eclipse.jetty.server.Server - Started @1081ms

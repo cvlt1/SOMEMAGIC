@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.itacademy.jd2.yi.cms.dao.api.ICssItemDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ICssItem;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.filter.CssItemFilter;
 import com.itacademy.jd2.yi.cms.jdbc.impl.entity.CssItem;
 import com.itacademy.jd2.yi.cms.jdbc.impl.entity.Site;
@@ -96,7 +97,7 @@ import com.itacademy.jd2.yi.cms.jdbc.impl.util.SQLExecutionException;
 
 	        final Integer siteId = (Integer) resultSet.getObject("site_id");
 	        if (siteId != null) {
-	            final Site site = new Site();
+	            final ISite site = new Site();
 	            site.setId(siteId);
 	            if (columns.contains("site_name")) {
 	                site.setSiteName(resultSet.getString("site_name"));

@@ -6,8 +6,16 @@ public class Site extends BaseEntity implements ISite {
 
 	private String siteName;
 	private String basepath;
+	private Integer siteId;
 	
+	@Override
+	public Integer getSiteId() {
+		return siteId;
+	}
 	
+	public void setSiteId(Integer siteId) {
+		this.siteId = siteId;
+	}
 	@Override
 	public String getSiteName() {
 		return siteName;
