@@ -13,8 +13,12 @@
 		class="com.itacademy.jd2.yi.cms.spring.InnerBean2">
 	</bean>
 
-	<bean id="bean2Name"
+	<bean id="bean3Name"
 		class="com.itacademy.jd2.yi.cms.spring.InnerBean3">
+	</bean>
+
+	<bean id="bean4Name"
+		class="com.itacademy.jd2.yi.cms.spring.InnerBean4">
 	</bean>
 
 	<bean id="mainBean"
@@ -22,6 +26,8 @@
 		<property name="bean1" ref="bean1Name" />
 		<property name="bean2" ref="bean2Name" />
 		<property name="bean3" ref="bean3Name" />
+		<property name="bean4" ref="bean4Name" />
+
 	</bean>
 
 

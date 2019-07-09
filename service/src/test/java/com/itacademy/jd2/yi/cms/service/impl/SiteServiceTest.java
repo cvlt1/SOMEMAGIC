@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.ICssItem;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 
 public class SiteServiceTest extends AbstractTest {

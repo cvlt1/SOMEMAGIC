@@ -1,7 +1,5 @@
 package com.itacademy.jd2.yi.cms.dao.api.entity.table;
 
-import java.util.Date;
-
 public interface ISite extends IBaseEntity {
 
 	String toString();
@@ -14,12 +12,10 @@ public interface ISite extends IBaseEntity {
 
 	String getSiteName();
 	
-	void setUpdated(Date updated);
+	void setId(Integer id);
 
-	Date getUpdated();
+	Integer getId();
 
-	void setCreated(Date created);
-
-	Date getCreated();
+	
 
 }
