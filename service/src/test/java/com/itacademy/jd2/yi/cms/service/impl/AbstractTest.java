@@ -16,7 +16,7 @@ import com.itacademy.jd2.yi.cms.service.ICssItemService;
 import com.itacademy.jd2.yi.cms.service.ISiteService;
 import com.itacademy.jd2.yi.cms.service.ITemplateService;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
-@SpringJUnitConfig(locations = "classpath:service-context.xml")
+@SpringJUnitConfig(locations = "classpath:service-context-test.xml")
 public abstract class AbstractTest {
 	
 	@Autowired
@@ -86,7 +86,7 @@ public abstract class AbstractTest {
     protected ICssItem saveNewCssItem() {
         final ICssItem entity = cssItemService.createEntity();
         entity.setContent("contentname" + getRandomPrefix());
-       // entity.setId(saveNewSite());
+        //entity.setSite.setSiteId(saveNewSite);
         cssItemService.save(entity);
         return entity;
     }

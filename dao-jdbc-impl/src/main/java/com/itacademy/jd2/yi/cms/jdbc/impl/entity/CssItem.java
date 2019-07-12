@@ -33,6 +33,16 @@ public class CssItem extends BaseEntity implements ICssItem {
 	public void setId(ISite site) {
 		this.site = site;
 	}
+	@Override
+	public void setSiteId(Integer siteId) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Integer getSiteId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 

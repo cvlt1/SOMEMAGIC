@@ -13,6 +13,7 @@ public class Site extends BaseEntity implements ISite {
 		return siteId;
 	}
 	
+	@Override
 	public void setSiteId(Integer siteId) {
 		this.siteId = siteId;
 	}

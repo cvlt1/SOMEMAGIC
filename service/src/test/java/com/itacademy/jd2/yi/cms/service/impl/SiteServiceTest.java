@@ -97,8 +97,10 @@ public class SiteServiceTest extends AbstractTest {
     
     @Test
     public void testDeleteAll() {
+    	saveNewCssItem();
         saveNewSite();
         siteService.deleteAll();
+        cssItemService.deleteAll();
         assertEquals(0, siteService.getAll().size());
     }
 }
