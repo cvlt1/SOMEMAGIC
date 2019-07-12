@@ -3,6 +3,8 @@ package com.itacademy.jd2.yi.cms.dao.api.entity.table;
 public interface ISite extends IBaseEntity {
 
 
+
+
 	String toString();
 
 	void setBasepath(String basepath);
@@ -12,12 +14,10 @@ public interface ISite extends IBaseEntity {
 	void setSiteName(String siteName);
 
 	String getSiteName();
-	
-	void setId(Integer id);
+
+	void setSiteId(Integer siteId);
 
 	Integer getSiteId();
-
-	Integer getId();
 
 	
 
