@@ -50,3 +50,105 @@
 06:35:46.777 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@525b461a{/cms,file:/E:/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
 06:35:46.822 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@c260bdc{HTTP/1.1}{0.0.0.0:8081}
 06:35:46.822 [main] INFO  org.eclipse.jetty.server.Server - Started @3201ms
+06:45:32.452 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @742ms
+06:45:32.578 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+06:45:32.876 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+06:45:32.923 [main] INFO  /cms - Initializing Spring root WebApplicationContext
+06:45:32.923 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+06:45:33.016 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Jul 16 06:45:33 MSK 2019]; root of context hierarchy
+06:45:33.079 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [webapp-context.xml]
+06:45:33.173 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [service-context.xml]
+06:45:33.220 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [dao-context.xml]
+06:45:34.082 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1159 ms
+06:45:34.162 [main] INFO  /cms - Initializing Spring FrameworkServlet 'dispatcher'
+06:45:34.162 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization started
+06:45:34.166 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 16 06:45:34 MSK 2019]; parent: Root WebApplicationContext
+06:45:34.167 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+06:45:34.537 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.DefaultController.index()
+06:45:34.538 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.index(javax.servlet.http.HttpServletRequest)
+06:45:34.539 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.index(javax.servlet.http.HttpServletRequest)
+06:45:34.604 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 16 06:45:34 MSK 2019]; parent: Root WebApplicationContext
+06:45:34.647 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 16 06:45:34 MSK 2019]; parent: Root WebApplicationContext
+06:45:34.701 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+06:45:34.719 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+06:45:34.803 [main] INFO  org.apache.tiles.access.TilesAccess - Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+06:45:34.865 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization completed in 703 ms
+06:45:34.865 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@525b461a{/cms,file:/E:/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+06:45:34.912 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@21be90cd{HTTP/1.1}{0.0.0.0:8081}
+06:45:34.912 [main] INFO  org.eclipse.jetty.server.Server - Started @3213ms
+06:46:08.562 [qtp473581465-18] WARN  org.eclipse.jetty.servlet.ServletHandler - 
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is com.itacademy.jd2.yi.cms.jdbc.impl.util.SQLExecutionException: org.postgresql.util.PSQLException: ERROR: missing FROM-clause entry for table "model"
+  Position: 8
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:986) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:870) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:855) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:812) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:587) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:577) [jetty-security-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) [jetty-io-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]
+Caused by: com.itacademy.jd2.yi.cms.jdbc.impl.util.SQLExecutionException: org.postgresql.util.PSQLException: ERROR: missing FROM-clause entry for table "model"
+  Position: 8
+	at com.itacademy.jd2.yi.cms.jdbc.impl.AbstractDaoImpl.executeStatement(AbstractDaoImpl.java:129) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.jdbc.impl.AbstractDaoImpl.executeFindQueryWithCustomSelect(AbstractDaoImpl.java:159) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.jdbc.impl.PageDaoImpl.find(PageDaoImpl.java:241) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.service.impl.PageServiceImpl.find(PageServiceImpl.java:73) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.web.controller.PageController.index(PageController.java:43) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:871) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:777) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	... 22 more
+Caused by: org.postgresql.util.PSQLException: ERROR: missing FROM-clause entry for table "model"
+  Position: 8
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2270) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1998) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:570) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:406) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:286) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at com.itacademy.jd2.yi.cms.jdbc.impl.AbstractDaoImpl$4.doWithStatement(AbstractDaoImpl.java:162) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.jdbc.impl.AbstractDaoImpl$4.doWithStatement(AbstractDaoImpl.java:1) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.jdbc.impl.AbstractDaoImpl.executeStatement(AbstractDaoImpl.java:126) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.jdbc.impl.AbstractDaoImpl.executeFindQueryWithCustomSelect(AbstractDaoImpl.java:159) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.jdbc.impl.PageDaoImpl.find(PageDaoImpl.java:241) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.service.impl.PageServiceImpl.find(PageServiceImpl.java:73) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.web.controller.PageController.index(PageController.java:43) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:871) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:777) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	... 22 more
