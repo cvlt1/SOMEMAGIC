@@ -5,6 +5,7 @@
 			<ul class="left hide-on-med-and-down">
 				<li><a href="${contextPath}/">home</a></li>
 				<li><a href="${pagesTemplate}">Templates</a></li>
+                <li><a href="${pagesPage}">Pages</a></li>
 
 			</ul>
 		</div>

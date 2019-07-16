@@ -15,10 +15,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageFilter;
+import com.itacademy.jd2.yi.cms.dao.api.filter.TemplateFilter;
 import com.itacademy.jd2.yi.cms.service.IPageService;
+import com.itacademy.jd2.yi.cms.service.ITemplateService;
 import com.itacademy.jd2.yi.cms.web.converter.PageToDTOConverter;
+import com.itacademy.jd2.yi.cms.web.converter.TemplateToDTOConverter;
 import com.itacademy.jd2.yi.cms.web.dto.PageDTO;
+import com.itacademy.jd2.yi.cms.web.dto.TemplateDTO;
 
 @Controller
 @RequestMapping(value = "/page")

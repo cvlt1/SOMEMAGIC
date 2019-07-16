@@ -17,6 +17,7 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageFilter;
+import com.itacademy.jd2.yi.cms.dao.api.filter.TemplateFilter;
 import com.itacademy.jd2.yi.cms.jdbc.impl.entity.Page;
 import com.itacademy.jd2.yi.cms.jdbc.impl.entity.Site;
 import com.itacademy.jd2.yi.cms.jdbc.impl.entity.Template;
@@ -225,21 +226,29 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 			throw new SQLExecutionException(e);
 		}
 	}
-    @Override
-    public List<IPage> find(final PageFilter filter) {
-        final StringBuilder sql;
-        if (filter.getFetchPage()) {
-        	// TODO finish this shit
-            sql = new StringBuilder(String.format("select page.*, site.name as site_name from %s", getTableName()));
-        } else {
-            sql = new StringBuilder(String.format("select model.* from %s", getTableName()));
-        }
-        appendJOINs(sql, filter);
-        appendWHEREs(sql, filter);
-        appendSort(filter, sql);
-        appendPaging(filter, sql);
-        return executeFindQueryWithCustomSelect(sql.toString());
-    }
+//    @Override
+//    public List<IPage> find(final PageFilter filter) {
+//        final StringBuilder sql;
+//        if (filter.getFetchPage()) {
+//        	// TODO finish this shit
+//            sql = new StringBuilder(String.format("select page.*, site.name as site_name from %s", getTableName()));
+//        } else {
+//            sql = new StringBuilder(String.format("select page.* from %s", getTableName()));
+//        }
+//        appendJOINs(sql, filter);
+//        appendWHEREs(sql, filter);
+//        appendSort(filter, sql);
+//        appendPaging(filter, sql);
+//        return executeFindQueryWithCustomSelect(sql.toString());
+//    }
+	
+	@Override
+	public List<IPage> find(PageFilter filter) {
+		final StringBuilder sqlTile = new StringBuilder("");
+		appendSort(filter, sqlTile);
+		appendPaging(filter, sqlTile);
+		return executeFindQuery(sqlTile.toString());
+	}
 
     @Override
     public long getCount(final PageFilter filter) {

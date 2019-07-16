@@ -24,6 +24,11 @@
 			value="/WEB-INF/views/template/list.jsp" />
 	</definition>
 
+	<definition name="template.edit" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/template/form.jsp" />
+	</definition>
+
 	<definition name="page.list" extends="DefaultTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/views/page/list.jsp" />
