@@ -15,7 +15,7 @@ public interface ICssItem extends IBaseEntity {
 
 	void setId(ISite saveNewSite);
 	
-	void setSiteId(Integer siteId);
+	void setSiteId(ISite siteId);
 
 	Integer getSiteId();
 

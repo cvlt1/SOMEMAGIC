@@ -83,7 +83,6 @@ public class CssItemServiceTest extends AbstractTest {
 	    @Test
 	    public void testDelete() {
 	        final ICssItem entity = cssItemService.createEntity();
-	        cssItemService.delete(entity.getId());
 	        cssItemService.delete(entity.getSite().getId());
 	        assertNull(cssItemService.get(entity.getId()));
 	}
