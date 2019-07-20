@@ -33,8 +33,8 @@ public interface IPage extends IBaseEntity {
 
 	ISite getSiteId();
 
-	void setParentId(IPage parentId);
+	void setParentId(Integer parentId);
 
-	IPage getParentId();
+	Integer getParentId();
 
 }

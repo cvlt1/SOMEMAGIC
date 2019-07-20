@@ -89,19 +89,19 @@ public abstract class AbstractTest {
         return entity;
     }
 
-    protected ICssItem saveNewCssItem() {
-        final ICssItem entity = cssItemService.createEntity();
-        entity.setContent("content-" + getRandomPrefix());
-        entity.setSiteId(saveNewSite());
-        cssItemService.save(entity);
-        return entity;
-    }
+//    protected ICssItem saveNewCssItem() {
+//        final ICssItem entity = cssItemService.createEntity();
+//        entity.setContent("content-" + getRandomPrefix());
+//        entity.setSiteId(saveNewSite());
+//        cssItemService.save(entity);
+//        return entity;
+//    }
     
     protected IPage saveNewPage() {
         final IPage entity = pageService.createEntity();
         entity.setPath("path" + getRandomPrefix());
         entity.setSiteId(saveNewSite());  
-        entity.setParentId(saveNewPage());
+//        entity.setParentId(entity);
         entity.setTemplateId(saveNewTemplate());
         entity.setStatus(PageStatus.PRODUCTED);
         entity.setCreator(saveNewUserAccount());

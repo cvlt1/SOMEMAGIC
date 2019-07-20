@@ -9,12 +9,14 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 public class Page extends BaseEntity implements IPage {
 	
 	private ISite siteId;
-	private IPage parentId;
+	private Integer parentId;
 	private ITemplate templateId;
 	private String path;
 	private PageStatus status;
 	private IUserAccount creator;
 	private String title;
+	
+	
 	@Override
 	public ISite getSiteId() {
 		return siteId;
@@ -24,12 +26,11 @@ public class Page extends BaseEntity implements IPage {
 		this.siteId = siteId;
 	}
 
-	@Override
-	public IPage getParentId() {
+
+	public Integer getParentId() {
 		return parentId;
 	}
-	@Override
-	public void setParentId(IPage parentId) {
+	public void setParentId(Integer parentId) {
 		this.parentId = parentId;
 	}
 	@Override
@@ -77,6 +78,7 @@ public class Page extends BaseEntity implements IPage {
 		return "Page [siteId=" + siteId + ", parentId=" + parentId + ", templateId=" + templateId + ", path=" + path
 				+ ", status=" + status + ", creator=" + creator + ", title=" + title + "]";
 	}
+
 	
 	
 }

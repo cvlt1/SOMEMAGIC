@@ -45,7 +45,7 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
             c.setAutoCommit(false);
             try {
                 pStmt.setInt(1, entity.getSiteId().getId());
-                pStmt.setObject(2, entity.getParentId());
+                pStmt.setInt(2, entity.getParentId());
                 pStmt.setInt(3, entity.getTemplateId().getId());
                 pStmt.setString(4, entity.getPath());
                 pStmt.setString(5, entity.getStatus().name());
@@ -107,6 +107,7 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
     protected IPage parseRow(final ResultSet resultSet, final Set<String> columns) throws SQLException {
         final IPage entity = createEntity();
         entity.setId((Integer) resultSet.getObject("id"));
+        entity.setParentId((Integer) resultSet.getObject("parent_id"));
         entity.setPath(resultSet.getString("path"));
         entity.setStatus(PageStatus.valueOf(resultSet.getString("status")));
         entity.setTitle(resultSet.getString("title"));
@@ -122,15 +123,15 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
             }
             entity.setSiteId(site);
         }
-        final Integer parentId = (Integer) resultSet.getObject("parent_id");
-        if (parentId != null) {
-            final IPage page = new Page();
-            page.setId(parentId);
-            if (columns.contains("parent_id")) {
-            	page.setId(resultSet.getInt("parent_id"));
-            }
-            entity.setParentId(page);
-        }
+//        final Integer parentId = (Integer) resultSet.getObject("parent_id");
+//        if (parentId != null) {
+//            final IPage page = new Page();
+//            page.setId(parentId);
+//            if (columns.contains("parent_id")) {
+//            	page.setId(resultSet.getInt("parent_id"));
+//            }
+//            entity.setParentId(page);
+//        }
         final Integer templateId = (Integer) resultSet.getObject("template_id");
         if (templateId != null) {
             final ITemplate template = new Template();

@@ -11,13 +11,18 @@ package com.itacademy.jd2.yi.cms.service.impl;
 		
 	    @Test
 	    public void testCreate() {
-	        final IPage entity = saveNewPage();
+	    	final IPage entity = saveNewPage();
 
 	        final IPage entityFromDb = pageService.get(entity.getId());
 
-	        assertNotNull(entityFromDb);
-	        assertEquals(entity.getPath(), entityFromDb.getPath());
-	        assertEquals(entity.getTitle(), entityFromDb.getTitle());
+	        //assertEquals(entity.getPath(), entityFromDb.getPath());
+	        assertEquals(entity.getSiteId().getId(), entityFromDb.getSiteId().getId());
+	        assertEquals(entity.getParentId(), entityFromDb.getParentId());
+	        assertEquals(entity.getTemplateId().getId(), entityFromDb.getTemplateId().getId());
+	        assertEquals(entity.getStatus(), entityFromDb.getStatus());
+	        assertNotNull(entityFromDb.getId());
+	        assertNotNull(entityFromDb.getCreated());
+	        assertNotNull(entityFromDb.getUpdated());
 
 	    }
 		 

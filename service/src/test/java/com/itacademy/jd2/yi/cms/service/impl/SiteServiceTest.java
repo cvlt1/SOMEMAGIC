@@ -97,7 +97,7 @@ public class SiteServiceTest extends AbstractTest {
     
     @Test
     public void testDeleteAll() {
-    	saveNewCssItem();
+    	//saveNewCssItem();
         saveNewSite();
         siteService.deleteAll();
         cssItemService.deleteAll();
