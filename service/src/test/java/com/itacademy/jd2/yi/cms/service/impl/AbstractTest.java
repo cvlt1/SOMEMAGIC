@@ -9,10 +9,12 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.enums.PageStatus;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserStatus;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ICssItem;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.service.ICssItemService;
+import com.itacademy.jd2.yi.cms.service.IPageService;
 //import com.itacademy.jd2.yi.cms.service.ICssItemService;
 import com.itacademy.jd2.yi.cms.service.ISiteService;
 import com.itacademy.jd2.yi.cms.service.ITemplateService;
@@ -31,6 +33,9 @@ public abstract class AbstractTest {
 	
 	@Autowired
 	protected ICssItemService cssItemService;
+	
+	@Autowired
+	protected IPageService pageService;
 	
 //	@Autowired
 //	protected IPageService pageService;
@@ -93,6 +98,20 @@ public abstract class AbstractTest {
         entity.setSiteId(saveNewSite());
         cssItemService.save(entity);
         return entity;
+    }
+    
+    protected IPage saveNewPage() {
+    	final IPage entity = pageService.createEntity();
+    	entity.setSite(saveNewSite());
+    	entity.setParentId(entity.getId());
+    	entity.setTemplate(saveNewTemplate());
+    	entity.setPath("path-" + getRandomPrefix());
+    	entity.setPageStatus(PageStatus.EDITED);
+    	entity.setCreator(saveNewUserAccount());
+    	entity.setPageTitle("title-" + getRandomPrefix());
+    	pageService.save(entity);
+		return entity;
+    	
     }
     
 

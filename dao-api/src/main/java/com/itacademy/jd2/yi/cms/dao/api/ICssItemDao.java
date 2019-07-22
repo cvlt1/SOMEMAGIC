@@ -8,7 +8,7 @@ import com.itacademy.jd2.yi.cms.dao.api.filter.CssItemFilter;
 
 public interface ICssItemDao extends IDao<ICssItem, Integer> {
 
-	//void save(CssItem... entities);
+	//void save(CssItemFilter... entities);
 
     List<ICssItem> find(CssItemFilter filter);
 

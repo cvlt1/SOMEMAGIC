@@ -15,9 +15,6 @@ public interface ISite extends IBaseEntity {
 
 	String getSiteName();
 
-	void setSiteId(Integer siteId);
-
-	Integer getSiteId();
 
 	
 
