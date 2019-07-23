@@ -6,6 +6,7 @@
 				<li><a href="${contextPath}/">home</a></li>
 				<li><a href="${pagesTemplate}">Templates</a></li>
                 <li><a href="${pagesPage}">Pages</a></li>
+                <li><a href="${pagesUseraccount}">UserAccount</a></li>
 
 			</ul>
 		</div>

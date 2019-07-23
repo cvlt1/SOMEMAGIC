@@ -173,3 +173,547 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 	... 16 more
 00:26:10.038 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@4b1d6571{HTTP/1.1}{0.0.0.0:8081}
 00:26:10.038 [main] INFO  org.eclipse.jetty.server.Server - Started @2713ms
+00:47:08.836 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @864ms
+00:47:08.939 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+00:47:09.344 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+00:47:09.366 [main] INFO  /cms - Initializing Spring root WebApplicationContext
+00:47:09.366 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+00:47:09.483 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Jul 23 00:47:09 MSK 2019]; root of context hierarchy
+00:47:09.537 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [webapp-context.xml]
+00:47:09.662 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [service-context.xml]
+00:47:09.694 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [dao-context.xml]
+00:47:10.399 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1033 ms
+00:47:10.487 [main] INFO  /cms - Initializing Spring FrameworkServlet 'dispatcher'
+00:47:10.487 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization started
+00:47:10.491 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 00:47:10 MSK 2019]; parent: Root WebApplicationContext
+00:47:10.492 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+00:47:10.761 [main] WARN  org.springframework.web.context.support.XmlWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'pageController': Unsatisfied dependency expressed through field 'toDtoConverter'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.itacademy.jd2.yi.cms.web.converter.PageToDTOConverter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+00:47:10.762 [main] ERROR org.springframework.web.servlet.DispatcherServlet - Context initialization failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'pageController': Unsatisfied dependency expressed through field 'toDtoConverter'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.itacademy.jd2.yi.cms.web.converter.PageToDTOConverter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:581) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:91) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:367) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1340) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:756) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:676) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:642) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:690) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:558) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:499) [spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:172) [spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.GenericServlet.init(GenericServlet.java:244) [javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:616) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHolder.initialize(ServletHolder.java:396) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:871) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:298) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.webapp.WebAppContext.startWebapp(WebAppContext.java:1349) [jetty-webapp-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1342) [jetty-webapp-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:741) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:505) [jetty-webapp-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:132) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.start(Server.java:387) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:114) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:61) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:354) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at StartJetty.startInstance(StartJetty.java:65) [test-classes/:?]
+	at StartJetty.main(StartJetty.java:35) [test-classes/:?]
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.itacademy.jd2.yi.cms.web.converter.PageToDTOConverter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1501) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1099) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1060) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:578) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	... 36 more
+00:47:10.766 [main] WARN  /cms - unavailable
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'pageController': Unsatisfied dependency expressed through field 'toDtoConverter'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.itacademy.jd2.yi.cms.web.converter.PageToDTOConverter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:581) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:91) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:367) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1340) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:756) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:676) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:642) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:690) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:558) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:499) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:172) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.GenericServlet.init(GenericServlet.java:244) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:616) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHolder.initialize(ServletHolder.java:396) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:871) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:298) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.webapp.WebAppContext.startWebapp(WebAppContext.java:1349) [jetty-webapp-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1342) [jetty-webapp-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:741) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:505) [jetty-webapp-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:132) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.start(Server.java:387) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:114) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:61) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:354) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at StartJetty.startInstance(StartJetty.java:65) [test-classes/:?]
+	at StartJetty.main(StartJetty.java:35) [test-classes/:?]
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.itacademy.jd2.yi.cms.web.converter.PageToDTOConverter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1501) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1099) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1060) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:578) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	... 36 more
+00:47:10.768 [main] WARN  org.eclipse.jetty.webapp.WebAppContext - Failed startup of context o.e.j.w.WebAppContext@6279cee3{/cms,file:/E:/SOMEMAGIC/web/src/main/webapp/,STARTING}{src/main/webapp}
+javax.servlet.ServletException: dispatcher@b7ba1aa7==org.springframework.web.servlet.DispatcherServlet,1,false
+	at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:637) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHolder.initialize(ServletHolder.java:396) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:871) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:298) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.webapp.WebAppContext.startWebapp(WebAppContext.java:1349) ~[jetty-webapp-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1342) ~[jetty-webapp-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:741) ~[jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:505) [jetty-webapp-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:132) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.start(Server.java:387) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:114) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:61) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:354) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at StartJetty.startInstance(StartJetty.java:65) [test-classes/:?]
+	at StartJetty.main(StartJetty.java:35) [test-classes/:?]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'pageController': Unsatisfied dependency expressed through field 'toDtoConverter'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.itacademy.jd2.yi.cms.web.converter.PageToDTOConverter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:581) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:91) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:367) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1340) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:756) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:676) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:642) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:690) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:558) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:499) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:172) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.GenericServlet.init(GenericServlet.java:244) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:616) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	... 16 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.itacademy.jd2.yi.cms.web.converter.PageToDTOConverter' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1501) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1099) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1060) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:578) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:91) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:367) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1340) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:756) ~[spring-beans-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868) ~[spring-context-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.configureAndRefreshWebApplicationContext(FrameworkServlet.java:676) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:642) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.createWebApplicationContext(FrameworkServlet.java:690) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initWebApplicationContext(FrameworkServlet.java:558) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:499) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.HttpServletBean.init(HttpServletBean.java:172) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.GenericServlet.init(GenericServlet.java:244) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:616) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	... 16 more
+00:47:10.811 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@503ecb24{HTTP/1.1}{0.0.0.0:8081}
+00:47:10.811 [main] INFO  org.eclipse.jetty.server.Server - Started @2846ms
+07:26:30.282 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @638ms
+07:26:30.385 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+07:26:30.746 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+07:26:30.770 [main] INFO  /cms - Initializing Spring root WebApplicationContext
+07:26:30.771 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+07:26:30.887 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Jul 23 07:26:30 MSK 2019]; root of context hierarchy
+07:26:30.925 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [webapp-context.xml]
+07:26:31.025 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [service-context.xml]
+07:26:31.059 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [dao-context.xml]
+07:26:31.620 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 849 ms
+07:26:31.707 [main] INFO  /cms - Initializing Spring FrameworkServlet 'dispatcher'
+07:26:31.707 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization started
+07:26:31.711 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 07:26:31 MSK 2019]; parent: Root WebApplicationContext
+07:26:31.712 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+07:26:32.133 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.DefaultController.index()
+07:26:32.138 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+07:26:32.138 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.delete(java.lang.Integer)
+07:26:32.139 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.save(com.itacademy.jd2.yi.cms.web.dto.TemplateDTO,org.springframework.validation.BindingResult)
+07:26:32.139 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.showForm()
+07:26:32.140 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.TemplateDTO> com.itacademy.jd2.yi.cms.web.controller.TemplateController.getCountries(java.lang.Integer)
+07:26:32.140 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.viewDetails(java.lang.Integer)
+07:26:32.141 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.edit(java.lang.Integer)
+07:26:32.144 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+07:26:32.145 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.delete(java.lang.Integer)
+07:26:32.145 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.save(com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO,org.springframework.validation.BindingResult)
+07:26:32.146 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.showForm()
+07:26:32.146 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO> com.itacademy.jd2.yi.cms.web.controller.UserAccountController.getCountries(java.lang.Integer)
+07:26:32.147 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.viewDetails(java.lang.Integer)
+07:26:32.147 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.edit(java.lang.Integer)
+07:26:32.184 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.0.1.Final
+07:26:32.548 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 07:26:31 MSK 2019]; parent: Root WebApplicationContext
+07:26:32.609 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 07:26:31 MSK 2019]; parent: Root WebApplicationContext
+07:26:32.680 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+07:26:32.714 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+07:26:32.814 [main] INFO  org.apache.tiles.access.TilesAccess - Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+07:26:32.884 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization completed in 1176 ms
+07:26:32.885 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@6279cee3{/cms,file:/E:/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+07:26:32.931 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@323e8306{HTTP/1.1}{0.0.0.0:8081}
+07:26:32.931 [main] INFO  org.eclipse.jetty.server.Server - Started @3295ms
+07:27:52.016 [qtp665372494-14] WARN  org.eclipse.jetty.servlet.ServletHandler - 
+javax.servlet.ServletException: Could not resolve view with name 'useraccount.list' in servlet with name 'dispatcher'
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:870) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:855) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:812) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:587) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:577) [jetty-security-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) [jetty-io-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]
+07:29:53.790 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @706ms
+07:29:53.887 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+07:29:54.240 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+07:29:54.261 [main] INFO  /cms - Initializing Spring root WebApplicationContext
+07:29:54.261 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+07:29:54.367 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Jul 23 07:29:54 MSK 2019]; root of context hierarchy
+07:29:54.414 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [webapp-context.xml]
+07:29:54.492 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [service-context.xml]
+07:29:54.523 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [dao-context.xml]
+07:29:55.054 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 792 ms
+07:29:55.140 [main] INFO  /cms - Initializing Spring FrameworkServlet 'dispatcher'
+07:29:55.140 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization started
+07:29:55.144 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 07:29:55 MSK 2019]; parent: Root WebApplicationContext
+07:29:55.145 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+07:29:55.492 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.DefaultController.index()
+07:29:55.497 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+07:29:55.497 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.delete(java.lang.Integer)
+07:29:55.498 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.save(com.itacademy.jd2.yi.cms.web.dto.TemplateDTO,org.springframework.validation.BindingResult)
+07:29:55.499 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.showForm()
+07:29:55.499 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.viewDetails(java.lang.Integer)
+07:29:55.500 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.TemplateDTO> com.itacademy.jd2.yi.cms.web.controller.TemplateController.getCountries(java.lang.Integer)
+07:29:55.500 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.edit(java.lang.Integer)
+07:29:55.504 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+07:29:55.504 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.delete(java.lang.Integer)
+07:29:55.504 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.save(com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO,org.springframework.validation.BindingResult)
+07:29:55.505 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.showForm()
+07:29:55.505 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.viewDetails(java.lang.Integer)
+07:29:55.506 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO> com.itacademy.jd2.yi.cms.web.controller.UserAccountController.getCountries(java.lang.Integer)
+07:29:55.507 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.edit(java.lang.Integer)
+07:29:55.544 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.0.1.Final
+07:29:55.915 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 07:29:55 MSK 2019]; parent: Root WebApplicationContext
+07:29:55.977 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 07:29:55 MSK 2019]; parent: Root WebApplicationContext
+07:29:56.035 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+07:29:56.074 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+07:29:56.167 [main] INFO  org.apache.tiles.access.TilesAccess - Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+07:29:56.227 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization completed in 1087 ms
+07:29:56.228 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@6279cee3{/cms,file:/E:/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+07:29:56.269 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@323e8306{HTTP/1.1}{0.0.0.0:8081}
+07:29:56.269 [main] INFO  org.eclipse.jetty.server.Server - Started @3193ms
+07:30:00.591 [qtp665372494-18] WARN  org.eclipse.jetty.servlet.ServletHandler - 
+javax.servlet.ServletException: Could not resolve view with name 'userAccount.list' in servlet with name 'dispatcher'
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:870) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:855) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:812) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:587) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:577) [jetty-security-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) [jetty-io-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]
+07:30:48.380 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @681ms
+07:30:48.489 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+07:30:48.832 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+07:30:48.855 [main] INFO  /cms - Initializing Spring root WebApplicationContext
+07:30:48.855 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+07:30:48.965 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Jul 23 07:30:48 MSK 2019]; root of context hierarchy
+07:30:49.013 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [webapp-context.xml]
+07:30:49.101 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [service-context.xml]
+07:30:49.128 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [dao-context.xml]
+07:30:49.579 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 723 ms
+07:30:49.665 [main] INFO  /cms - Initializing Spring FrameworkServlet 'dispatcher'
+07:30:49.665 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization started
+07:30:49.669 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 07:30:49 MSK 2019]; parent: Root WebApplicationContext
+07:30:49.669 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+07:30:50.051 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.DefaultController.index()
+07:30:50.055 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+07:30:50.055 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.delete(java.lang.Integer)
+07:30:50.056 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.save(com.itacademy.jd2.yi.cms.web.dto.TemplateDTO,org.springframework.validation.BindingResult)
+07:30:50.056 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.viewDetails(java.lang.Integer)
+07:30:50.056 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.edit(java.lang.Integer)
+07:30:50.057 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.showForm()
+07:30:50.057 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.TemplateDTO> com.itacademy.jd2.yi.cms.web.controller.TemplateController.getCountries(java.lang.Integer)
+07:30:50.060 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+07:30:50.060 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.delete(java.lang.Integer)
+07:30:50.061 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.save(com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO,org.springframework.validation.BindingResult)
+07:30:50.061 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.viewDetails(java.lang.Integer)
+07:30:50.061 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.edit(java.lang.Integer)
+07:30:50.062 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.showForm()
+07:30:50.062 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO> com.itacademy.jd2.yi.cms.web.controller.UserAccountController.getCountries(java.lang.Integer)
+07:30:50.099 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.0.1.Final
+07:30:50.441 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 07:30:49 MSK 2019]; parent: Root WebApplicationContext
+07:30:50.503 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 07:30:49 MSK 2019]; parent: Root WebApplicationContext
+07:30:50.582 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+07:30:50.613 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+07:30:50.707 [main] INFO  org.apache.tiles.access.TilesAccess - Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+07:30:50.790 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization completed in 1124 ms
+07:30:50.790 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@6279cee3{/cms,file:/E:/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+07:30:50.841 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@7561db12{HTTP/1.1}{0.0.0.0:8081}
+07:30:50.841 [main] INFO  org.eclipse.jetty.server.Server - Started @3138ms
+07:30:59.767 [qtp665372494-18] WARN  org.eclipse.jetty.servlet.ServletHandler - 
+javax.servlet.ServletException: Could not resolve view with name 'useraccount.list' in servlet with name 'dispatcher'
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:870) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:855) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:812) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:587) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:577) [jetty-security-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) [jetty-io-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]
+07:34:17.520 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @649ms
+07:34:17.629 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+07:34:17.996 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+07:34:18.018 [main] INFO  /cms - Initializing Spring root WebApplicationContext
+07:34:18.019 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+07:34:18.129 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Jul 23 07:34:18 MSK 2019]; root of context hierarchy
+07:34:18.175 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [webapp-context.xml]
+07:34:18.273 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [service-context.xml]
+07:34:18.298 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [dao-context.xml]
+07:34:18.947 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 928 ms
+07:34:19.039 [main] INFO  /cms - Initializing Spring FrameworkServlet 'dispatcher'
+07:34:19.039 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization started
+07:34:19.044 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 07:34:19 MSK 2019]; parent: Root WebApplicationContext
+07:34:19.044 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+07:34:19.542 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.DefaultController.index()
+07:34:19.546 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+07:34:19.547 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.delete(java.lang.Integer)
+07:34:19.547 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.save(com.itacademy.jd2.yi.cms.web.dto.TemplateDTO,org.springframework.validation.BindingResult)
+07:34:19.548 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.showForm()
+07:34:19.548 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.viewDetails(java.lang.Integer)
+07:34:19.549 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.edit(java.lang.Integer)
+07:34:19.549 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.TemplateDTO> com.itacademy.jd2.yi.cms.web.controller.TemplateController.getCountries(java.lang.Integer)
+07:34:19.552 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+07:34:19.553 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.delete(java.lang.Integer)
+07:34:19.553 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.save(com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO,org.springframework.validation.BindingResult)
+07:34:19.554 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.showForm()
+07:34:19.554 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.viewDetails(java.lang.Integer)
+07:34:19.555 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.edit(java.lang.Integer)
+07:34:19.555 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO> com.itacademy.jd2.yi.cms.web.controller.UserAccountController.getCountries(java.lang.Integer)
+07:34:19.592 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.0.1.Final
+07:34:19.970 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 07:34:19 MSK 2019]; parent: Root WebApplicationContext
+07:34:20.037 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 07:34:19 MSK 2019]; parent: Root WebApplicationContext
+07:34:20.154 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+07:34:20.181 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+07:34:20.332 [main] INFO  org.apache.tiles.access.TilesAccess - Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+07:34:20.421 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization completed in 1382 ms
+07:34:20.421 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@6279cee3{/cms,file:/E:/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+07:34:20.473 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@7561db12{HTTP/1.1}{0.0.0.0:8081}
+07:34:20.473 [main] INFO  org.eclipse.jetty.server.Server - Started @3605ms
+07:34:45.552 [qtp665372494-17] WARN  org.eclipse.jetty.servlet.ServletHandler - 
+javax.servlet.ServletException: Could not resolve view with name 'useraccount.list' in servlet with name 'dispatcher'
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:870) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:855) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:812) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:587) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:577) [jetty-security-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) [jetty-io-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]
+07:37:17.334 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @655ms
+07:37:17.430 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+07:37:17.785 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+07:37:17.807 [main] INFO  /cms - Initializing Spring root WebApplicationContext
+07:37:17.807 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+07:37:17.910 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Jul 23 07:37:17 MSK 2019]; root of context hierarchy
+07:37:17.954 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [webapp-context.xml]
+07:37:18.043 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [service-context.xml]
+07:37:18.071 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [dao-context.xml]
+07:37:18.591 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 784 ms
+07:37:18.677 [main] INFO  /cms - Initializing Spring FrameworkServlet 'dispatcher'
+07:37:18.677 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization started
+07:37:18.681 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 07:37:18 MSK 2019]; parent: Root WebApplicationContext
+07:37:18.682 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+07:37:19.030 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.DefaultController.index()
+07:37:19.034 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+07:37:19.035 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.delete(java.lang.Integer)
+07:37:19.035 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.save(com.itacademy.jd2.yi.cms.web.dto.TemplateDTO,org.springframework.validation.BindingResult)
+07:37:19.036 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.showForm()
+07:37:19.036 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.viewDetails(java.lang.Integer)
+07:37:19.037 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.TemplateDTO> com.itacademy.jd2.yi.cms.web.controller.TemplateController.getCountries(java.lang.Integer)
+07:37:19.037 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.edit(java.lang.Integer)
+07:37:19.040 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+07:37:19.041 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.delete(java.lang.Integer)
+07:37:19.041 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.save(com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO,org.springframework.validation.BindingResult)
+07:37:19.041 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.showForm()
+07:37:19.042 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.viewDetails(java.lang.Integer)
+07:37:19.042 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO> com.itacademy.jd2.yi.cms.web.controller.UserAccountController.getCountries(java.lang.Integer)
+07:37:19.043 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.edit(java.lang.Integer)
+07:37:19.080 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.0.1.Final
+07:37:19.380 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 07:37:18 MSK 2019]; parent: Root WebApplicationContext
+07:37:19.442 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Tue Jul 23 07:37:18 MSK 2019]; parent: Root WebApplicationContext
+07:37:19.505 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+07:37:19.536 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+07:37:19.645 [main] INFO  org.apache.tiles.access.TilesAccess - Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+07:37:19.725 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization completed in 1047 ms
+07:37:19.725 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@6279cee3{/cms,file:/E:/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+07:37:19.778 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@6faa532a{HTTP/1.1}{0.0.0.0:8081}
+07:37:19.784 [main] INFO  org.eclipse.jetty.server.Server - Started @3111ms
+07:37:32.953 [qtp665372494-19] WARN  org.eclipse.jetty.servlet.ServletHandler - 
+javax.servlet.ServletException: Could not resolve view with name 'useraccount.list' in servlet with name 'dispatcher'
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:870) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:855) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:812) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:587) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:577) [jetty-security-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) [jetty-io-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]
+07:39:05.160 [qtp665372494-17] WARN  org.eclipse.jetty.servlet.ServletHandler - 
+javax.servlet.ServletException: Could not resolve view with name 'useraccount.list' in servlet with name 'dispatcher'
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1305) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:870) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:855) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:812) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:587) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:577) [jetty-security-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) [jetty-io-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]

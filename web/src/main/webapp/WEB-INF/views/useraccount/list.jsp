@@ -14,7 +14,7 @@
 			<th><mytaglib:sort-link pageUrl="${pagesUserAccount}" column="updated">updated</mytaglib:sort-link></th>
 			<th></th>
 		</tr>
-		<c:forEach var="template" items="${gridItems}" varStatus="loopCounter">
+		<c:forEach var="useraccount" items="${gridItems}" varStatus="loopCounter">
 			<tr>
 				<td><c:out value="${userAccount.id}" /></td>
 				<td><c:out value="${userAccount.jspPath}" /></td>

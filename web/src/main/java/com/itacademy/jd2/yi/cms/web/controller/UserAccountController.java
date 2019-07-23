@@ -21,7 +21,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
-import com.itacademy.jd2.yi.cms.jdbc.impl.entity.UserAccount;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
 import com.itacademy.jd2.yi.cms.web.converter.UserAccountFromDTOConverter;
 import com.itacademy.jd2.yi.cms.web.converter.UserAccountToDTOConverter;
@@ -32,11 +31,11 @@ import com.itacademy.jd2.yi.cms.web.dto.grid.GridStateDTO;
 @Controller
 @RequestMapping(value = "/useraccount")
 public class UserAccountController extends AbstractController {
-
+	@Autowired
     private IUserAccountService userAccountService;
-
+	@Autowired
     private UserAccountToDTOConverter toDtoConverter;
-
+	@Autowired
     private UserAccountFromDTOConverter fromDtoConverter;
 
     @Autowired
@@ -83,7 +82,7 @@ public class UserAccountController extends AbstractController {
     public String save(@Valid @ModelAttribute("formModel") final UserAccountDTO formModel,
             final BindingResult result) {
         if (result.hasErrors()) {
-            return "userAccount.edit";
+            return "useraccount.edit";
         } else {
             final IUserAccount entity = fromDtoConverter.apply(formModel);
             userAccountService.save(entity);

@@ -6,7 +6,7 @@
 	scope="request" />
 	<c:set var="pagesPage" value="${contextPath}/page"
 	scope="request" />
-	<c:set var="pagesUserAccount" value="${contextPath}/useraccount"
+	<c:set var="pagesUseraccount" value="${contextPath}/useraccount"
 	scope="request" />
 
 
