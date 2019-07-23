@@ -18,6 +18,8 @@ import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
 import com.itacademy.jd2.yi.cms.jdbc.impl.entity.UserAccount;
 import com.itacademy.jd2.yi.cms.jdbc.impl.util.PreparedStatementAction;
 import com.itacademy.jd2.yi.cms.jdbc.impl.util.SQLExecutionException;
+import com.itacademy.jd2.yi.cms.jdbc.impl.util.StatementAction;
+
 @Repository
 public class UserAccountDaoImpl extends AbstractDaoImpl<IUserAccount, Integer> implements IUserAccountDao {
 
@@ -147,6 +149,27 @@ public class UserAccountDaoImpl extends AbstractDaoImpl<IUserAccount, Integer> i
 	@Override
 	public long getCount(UserAccountFilter filter) {
 		return executeCountQuery("");
+	}
+
+	@Override
+	public IUserAccount findByNickname(String name) {
+		StatementAction<IUserAccount> action = (statement) -> {
+			statement.executeQuery(String.format("select * from user_account where name ='%s'", name));
+
+			final ResultSet resultSet = statement.getResultSet();
+
+			final boolean hasNext = resultSet.next();
+			IUserAccount result = null;
+			if (hasNext) {
+				result = parseRow(resultSet);
+			}
+
+			resultSet.close();
+			return result;
+		};
+		IUserAccount entityById = executeStatement(action);
+		return entityById;
+
 	}
 
 }

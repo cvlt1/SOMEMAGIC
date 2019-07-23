@@ -39,16 +39,20 @@
 			value="/WEB-INF/views/page/form.jsp" />
 	</definition>
 
-	<definition name="page.list" extends="DefaultTemplate">
+	<definition name="uAcc.list" extends="DefaultTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/views/useraccount/list.jsp" />
 	</definition>
 
-	<definition name="page.edit" extends="DefaultTemplate">
+	<definition name="uAcc.edit" extends="DefaultTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/views/useraccount/form.jsp" />
 	</definition>
-
+	
+	<definition name="login" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/login.jsp" />
+	</definition>
 
 
 

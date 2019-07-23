@@ -66,7 +66,7 @@ public class UserAccountController extends AbstractController {
 
         final Map<String, Object> models = new HashMap<>();
         models.put("gridItems", dtos);
-        return new ModelAndView("useraccount.list", models);
+        return new ModelAndView("uAcc.list", models);
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
@@ -75,14 +75,16 @@ public class UserAccountController extends AbstractController {
         final IUserAccount newEntity = userAccountService.createEntity();
         hashMap.put("formModel", toDtoConverter.apply(newEntity));
 
-        return new ModelAndView("useraccount.edit", hashMap);
+        return new ModelAndView("uAcc.edit", hashMap);
     }
+    
+    
 
     @RequestMapping(method = RequestMethod.POST)
     public String save(@Valid @ModelAttribute("formModel") final UserAccountDTO formModel,
             final BindingResult result) {
         if (result.hasErrors()) {
-            return "useraccount.edit";
+            return "uAcc.edit";
         } else {
             final IUserAccount entity = fromDtoConverter.apply(formModel);
             userAccountService.save(entity);
@@ -105,7 +107,7 @@ public class UserAccountController extends AbstractController {
         hashMap.put("formModel", dto);
         hashMap.put("readonly", true);
 
-        return new ModelAndView("useraccount.edit", hashMap);
+        return new ModelAndView("uAcc.edit", hashMap);
     }
 
     @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
@@ -116,7 +118,7 @@ public class UserAccountController extends AbstractController {
         final Map<String, Object> hashMap = new HashMap<>();
         hashMap.put("formModel", dto);
 
-        return new ModelAndView("useraccount.edit", hashMap);
+        return new ModelAndView("uAcc.edit", hashMap);
     }
 
     @RequestMapping(value = "/json", method = RequestMethod.GET)

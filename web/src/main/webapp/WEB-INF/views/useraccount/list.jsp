@@ -3,33 +3,35 @@
 <%@ taglib prefix="jspFragments" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="mytaglib" uri="my-custom-tags-uri"%>
 
-<h4 class="header">Templates</h4>
+<h4 class="header">Accs</h4>
 <table class="bordered highlight">
 	<tbody>
 		<tr>
-			<th><mytaglib:sort-link pageUrl="${pagesUserAccount}" column="id">id</mytaglib:sort-link></th>
-			<th><mytaglib:sort-link pageUrl="${pagesUserAccount}" column="name">name</mytaglib:sort-link></th>
-			<th><mytaglib:sort-link pageUrl="${pagesUserAccount}" column="email">email</mytaglib:sort-link></th>
-			<th><mytaglib:sort-link pageUrl="${pagesUserAccount}" column="created">created</mytaglib:sort-link></th>
-			<th><mytaglib:sort-link pageUrl="${pagesUserAccount}" column="updated">updated</mytaglib:sort-link></th>
+			<th><mytaglib:sort-link pageUrl="${pagesUacc}" column="id">id</mytaglib:sort-link></th>
+			<th><mytaglib:sort-link pageUrl="${pagesUacc}" column="name">name</mytaglib:sort-link></th>
+			<th><mytaglib:sort-link pageUrl="${pagesUacc}" column="email">email</mytaglib:sort-link></th>
+			<th><mytaglib:sort-link pageUrl="${pagesUacc}" column="email">password</mytaglib:sort-link></th>
+			<th><mytaglib:sort-link pageUrl="${pagesUacc}" column="role">role</mytaglib:sort-link></th>
+			<th><mytaglib:sort-link pageUrl="${pagesUacc}" column="status">status</mytaglib:sort-link></th>
+			
 			<th></th>
 		</tr>
-		<c:forEach var="useraccount" items="${gridItems}" varStatus="loopCounter">
+		<c:forEach var="uAcc" items="${gridItems}" varStatus="loopCounter">
 			<tr>
-				<td><c:out value="${userAccount.id}" /></td>
-				<td><c:out value="${userAccount.jspPath}" /></td>
-				<td><fmt:formatDate pattern="yyyy-MM-dd"
-						value="${userAccount.created}" /></td>
-				<td><fmt:formatDate pattern="yyyy-MM-dd"
-						value="${userAccount.updated}" /></td>
+				<td><c:out value="${uAcc.id}" /></td>
+				<td><c:out value="${uAcc.name}" /></td>
+				<td><c:out value="${uAcc.email}" /></td>
+				<td><c:out value="${uAcc.password}" /></td>
+				<td><c:out value="${uAcc.role}" /></td>
+				<td><c:out value="${uAcc.status}" /></td>
 				<td class="right"><a class="btn-floating"
-					href="${pagesUserAccount}/${userAccount.id}"><i
+					href="${pagesUacc}/${uAcc.id}"><i
 						class="material-icons">info</i></a> <a class="btn-floating green"
-					href="${pagesUserAccount}/${userAccount.id}/add"><i
+					href="${pagesUacc}/${uAcc.id}/add"><i
 						class="material-icons">add</i></a> <a class="btn-floating"
-					href="${pagesUserAccount}/${userAccount.id}/edit"><i
+					href="${pagesUacc}/${uAcc.id}/edit"><i
 						class="material-icons">edit</i></a> <a class="btn-floating red"
-					href="${pagesUserAccount}/${userAccount.id}/delete"><i
+					href="${pagesUacc}/${uAcc.id}/delete"><i
 						class="material-icons">delete</i></a></td>
 
 			</tr>
@@ -38,4 +40,4 @@
 </table>
 <jspFragments:paging />
 <a class="waves-effect waves-light btn right"
-	href="${pagesUserAccount}/add"><i class="material-icons">add</i></a>
+	href="${pagesUacc}/add"><i class="material-icons">add</i></a>
