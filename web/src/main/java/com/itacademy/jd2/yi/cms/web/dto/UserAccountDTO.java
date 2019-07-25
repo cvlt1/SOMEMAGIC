@@ -14,6 +14,7 @@ public class UserAccountDTO {
 	private UserStatus status;
 	private Date created;
 	private Date updated;
+	
 	public Integer getId() {
 		return id;
 	}

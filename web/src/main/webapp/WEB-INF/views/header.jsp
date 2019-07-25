@@ -10,6 +10,11 @@ Login name: <sec:authentication property="principal" />
 Logged user is anonymous
 </sec:authorize>
 <header>
+
+
+
+
+
 	<nav>
 		<div class="nav-wrapper container">
 			<ul class="left hide-on-med-and-down">
@@ -17,6 +22,7 @@ Logged user is anonymous
 				<li><a href="${pagesTemplate}">Templates</a></li>
                 <li><a href="${pagesPage}">Pages</a></li>
                 <li><a href="${pagesUacc}">User Account</a></li>
+                <li><a href="${pagesSite}">Site</a></li>
                 <a class="right" href="${contextPath}/execute_logout" title="logout"><i
 class="material-icons">arrow_forward</i></a>
 

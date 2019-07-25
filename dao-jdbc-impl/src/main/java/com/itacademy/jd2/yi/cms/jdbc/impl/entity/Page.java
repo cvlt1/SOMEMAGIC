@@ -10,7 +10,6 @@ public class Page extends BaseEntity implements IPage {
 	
 	private ISite site;
 	private ITemplate template;
-	private Integer parentId;
 	private String path;
 	private PageStatus pageStatus;
 	private IUserAccount creator;
@@ -21,12 +20,7 @@ public class Page extends BaseEntity implements IPage {
 	
 	
 	
-	public Integer getParentId() {
-		return parentId;
-	}
-	public void setParentId(Integer parentId) {
-		this.parentId = parentId;
-	}
+
 	@Override
 	public ISite getSite() {
 		return site;

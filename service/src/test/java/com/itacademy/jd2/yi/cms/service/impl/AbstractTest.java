@@ -103,7 +103,6 @@ public abstract class AbstractTest {
     protected IPage saveNewPage() {
     	final IPage entity = pageService.createEntity();
     	entity.setSite(saveNewSite());
-    	entity.setParentId(entity.getId());
     	entity.setTemplate(saveNewTemplate());
     	entity.setPath("path-" + getRandomPrefix());
     	entity.setPageStatus(PageStatus.EDITED);

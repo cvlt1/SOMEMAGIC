@@ -10,9 +10,12 @@ $(document).ready(function() {
 		closeOnSelect : false,
 		format : 'yyyy-mm-dd'
 	// Close upon selecting a date,
+			
 	});
 	
 	
 	 $('.timepicker').timepicker();
+	 
+	 $(".dropdown-trigger").dropdown();
 
 });

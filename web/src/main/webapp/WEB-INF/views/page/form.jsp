@@ -8,20 +8,36 @@
 		<form:input path="id" type="hidden" />
 		<div class="row">
 			<div class="input-field col s12">
+				<form:input path="siteId" type="text" disabled="${readonly}" />
+				<form:errors path="siteId" cssClass="red-text" />
+				<label for="path">siteId</label>
+			</div>
+			<div class="input-field col s12">
+				<form:input path="templateId" type="text" disabled="${readonly}" />
+				<form:errors path="templateId" cssClass="red-text" />
+				<label for="path">templateId</label>
+			</div>
+			<div class="input-field col s12">
 				<form:input path="path" type="text" disabled="${readonly}" />
 				<form:errors path="path" cssClass="red-text" />
-				<label for="jspPath">path</label>
+				<label for="path">path</label>
+			</div>
+			<div class="input-field col s12">
+				<form:input path="pageStatus" type="text" disabled="${readonly}" />
+				<form:errors path="pageStatus" cssClass="red-text" />
+				<label for="pageStatus">status</label>
+			</div>
+			<div class="input-field col s12">
+				<form:input path="creatorName" type="text" disabled="${readonly}" />
+				<form:errors path="creatorName" cssClass="red-text" />
+				<label for="pageName">creator</label>
 			</div>
 			<div class="input-field col s12">
 				<form:input path="pageTitle" type="text" disabled="${readonly}" />
 				<form:errors path="pageTitle" cssClass="red-text" />
-				<label for="jspPath">title</label>
+				<label for="pageTitle">title</label>
 			</div>
-			<div class="input-field col s12">
-				<form:input path="jspStatus" type="text" disabled="${readonly}" />
-				<form:errors path="jspStatus" cssClass="red-text" />
-				<label for="jspPath">status</label>
-			</div>
+
 		</div>
 		<div class="row">
 			<div class="col s6"></div>
@@ -31,8 +47,8 @@
 				</c:if>
 			</div>
 			<div class="col s3">
-				<a class="btn waves-effect waves-light right"
-					href="${pagesPage}">to list<i class="material-icons right"></i>
+				<a class="btn waves-effect waves-light right" href="${pagesPage}">to
+					list<i class="material-icons right"></i>
 				</a>
 			</div>
 		</div>

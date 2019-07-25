@@ -34,20 +34,19 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 	    @Override
 		public void insert(final IPage entity) {
 			executeStatement(new PreparedStatementAction<IPage>(
-					String.format("insert into %s (site_id, parent_id, temlate_id, path, status, creator,"
-							+ " title, created, updated) values(?,?,?,?,?,?,?,?,?)", getTableName()),
+					String.format("insert into %s (site_id, template_id, path, status, creator,"
+							+ " title, created, updated) values(?,?,?,?,?,?,?,?)", getTableName()),
 					true) {
 				@Override
 				public IPage doWithPreparedStatement(final PreparedStatement pStmt) throws SQLException {
-					pStmt.setInt(1, entity.getSite().getId());
-					pStmt.setObject(2, entity.getParentId());
-					pStmt.setInt(3, entity.getTemplate().getId());
-					pStmt.setString(4, entity.getPath());
-					pStmt.setString(5, entity.getPageStatus().name());
-					pStmt.setInt(6, entity.getCreator().getId());
-					pStmt.setString(7, entity.getPageTitle());
-					pStmt.setObject(8, entity.getCreated(), Types.TIMESTAMP);
-					pStmt.setObject(9, entity.getUpdated(), Types.TIMESTAMP);
+					pStmt.setObject(1, entity.getSite().getId());
+					pStmt.setObject(2, entity.getTemplate().getId());
+					pStmt.setString(3, entity.getPath());
+					pStmt.setString(4, entity.getPageStatus().name());
+					pStmt.setObject(5, entity.getCreator().getId());
+					pStmt.setString(6, entity.getPageTitle());
+					pStmt.setObject(7, entity.getCreated(), Types.TIMESTAMP);
+					pStmt.setObject(8, entity.getUpdated(), Types.TIMESTAMP);
 
 					pStmt.executeUpdate();
 
@@ -66,18 +65,17 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 	    @Override
 		public void update(final IPage entity) {
 			executeStatement(new PreparedStatementAction<IPage>(
-					String.format("update %s set site_id=?, parent_id=?, temlate_id=?, path=?, status=?, creator=?, title=?, updated=? where id=?", getTableName())) {
+					String.format("update %s set site_id=?, template_id=?, path=?, status=?, creator=?, title=?, updated=? where id=?", getTableName())) {
 				@Override
 				public IPage doWithPreparedStatement(final PreparedStatement pStmt) throws SQLException {
 					pStmt.setInt(1, entity.getSite().getId());
-					pStmt.setObject(2, entity.getParentId());
-					pStmt.setInt(3, entity.getTemplate().getId());
-					pStmt.setString(4, entity.getPath());
-					pStmt.setString(5, entity.getPageStatus().name());
-					pStmt.setInt(6, entity.getCreator().getId());
-					pStmt.setString(7, entity.getPageTitle());
-					pStmt.setObject(8, entity.getUpdated(), Types.TIMESTAMP);
-					pStmt.setInt(9, entity.getId());
+					pStmt.setInt(2, entity.getTemplate().getId());
+					pStmt.setString(3, entity.getPath());
+					pStmt.setString(4, entity.getPageStatus().name());
+					pStmt.setInt(5, entity.getCreator().getId());
+					pStmt.setString(6, entity.getPageTitle());
+					pStmt.setObject(7, entity.getUpdated(), Types.TIMESTAMP);
+					pStmt.setInt(8, entity.getId());
 
 					pStmt.executeUpdate();
 					return entity;
@@ -99,7 +97,6 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 			entity.setPageTitle(resultSet.getString("title"));
 			entity.setCreated(resultSet.getTimestamp("created"));
 			entity.setUpdated(resultSet.getTimestamp("updated"));
-			entity.setParentId(resultSet.getInt("id"));
 			
 //			final IPage page = new Page();
 //			page.setId((Integer) resultSet.getObject("id"));
@@ -115,12 +112,12 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 				}
 				entity.setSite(site);
 			}
-			Integer templateId = (Integer) resultSet.getObject("temlate_id");
+			Integer templateId = (Integer) resultSet.getObject("template_id");
 			if (templateId != null) {
 				final Template template = new Template();
 				template.setId(templateId);
 				if (columns.contains("temlate_id")) {
-					template.setJspPath(resultSet.getString("temlate_id"));
+					template.setJspPath(resultSet.getString("template_id"));
 
 				}
 				entity.setTemplate(template);
@@ -149,18 +146,17 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 
 					for (IPage entity : entities) {
 						PreparedStatement pStmt = c.prepareStatement(String.format(
-								"insert into %s (site_id, parent_id, temlate_id, path, status, creator,"
-										+ " title, created, updated) values(?,?,?,?,?,?,?,?,?)", getTableName()), Statement.RETURN_GENERATED_KEYS);
+								"insert into %s (site_id, temlate_id, path, status, creator,"
+										+ " title, created, updated) values(?,?,?,?,?,?,?,?)", getTableName()), Statement.RETURN_GENERATED_KEYS);
 
 						pStmt.setInt(1, entity.getSite().getId());
-						pStmt.setObject(2, entity.getParentId());
-						pStmt.setInt(3, entity.getTemplate().getId());
-						pStmt.setString(4, entity.getPath());
-						pStmt.setString(5, entity.getPageStatus().name());
-						pStmt.setInt(6, entity.getCreator().getId());
-						pStmt.setString(7, entity.getPageTitle());
-						pStmt.setObject(8, entity.getCreated(), Types.TIMESTAMP);
-						pStmt.setObject(9, entity.getUpdated(), Types.TIMESTAMP);
+						pStmt.setInt(2, entity.getTemplate().getId());
+						pStmt.setString(3, entity.getPath());
+						pStmt.setString(4, entity.getPageStatus().name());
+						pStmt.setInt(5, entity.getCreator().getId());
+						pStmt.setString(6, entity.getPageTitle());
+						pStmt.setObject(7, entity.getCreated(), Types.TIMESTAMP);
+						pStmt.setObject(8, entity.getUpdated(), Types.TIMESTAMP);
 
 						pStmt.executeUpdate();
 

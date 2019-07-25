@@ -12,12 +12,8 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 public class PageDTO {
 	
 	private Integer id;
-	private ISite site;
-	private ITemplate template;
-	private Integer parentId;
 	private String path;
 	private PageStatus pageStatus;
-	private IUserAccount creator;
 	private String pageTitle;
 	private Date created;
 	private Date updated;
@@ -121,24 +117,6 @@ public class PageDTO {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public ISite getSite() {
-		return site;
-	}
-	public void setSite(ISite site) {
-		this.site = site;
-	}
-	public ITemplate getTemplate() {
-		return template;
-	}
-	public void setTemplate(ITemplate template) {
-		this.template = template;
-	}
-	public Integer getParentId() {
-		return parentId;
-	}
-	public void setParentId(Integer parentId) {
-		this.parentId = parentId;
-	}
 	public String getPath() {
 		return path;
 	}
@@ -151,12 +129,6 @@ public class PageDTO {
 	public void setPageStatus(PageStatus pageStatus) {
 		this.pageStatus = pageStatus;
 	}
-	public IUserAccount getCreator() {
-		return creator;
-	}
-	public void setCreator(IUserAccount creator) {
-		this.creator = creator;
-	}
 	public String getPageTitle() {
 		return pageTitle;
 	}
@@ -165,8 +137,12 @@ public class PageDTO {
 	}
 	@Override
 	public String toString() {
-		return "PageDTO [site=" + site + ", template=" + template + ", parentId=" + parentId + ", path=" + path
-				+ ", pageStatus=" + pageStatus + ", creator=" + creator + ", pageTitle=" + pageTitle + "]";
+		return "PageDTO [id=" + id + ", path=" + path + ", pageStatus=" + pageStatus + ", pageTitle=" + pageTitle
+				+ ", created=" + created + ", updated=" + updated + ", siteId=" + siteId + ", siteName=" + siteName
+				+ ", siteBasepath=" + siteBasepath + ", creatorId=" + creatorId + ", creatorName=" + creatorName
+				+ ", creatorPassword=" + creatorPassword + ", creatorEmail=" + creatorEmail + ", creatorRole="
+				+ creatorRole + ", creatorStatus=" + creatorStatus + ", templateId=" + templateId + ", jspPath="
+				+ jspPath + "]";
 	}
 	
 	

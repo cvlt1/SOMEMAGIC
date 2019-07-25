@@ -22,7 +22,6 @@ public class PageServiceTest extends AbstractTest {
 
 		assertNotNull(entityFromDb);
 		assertEquals(entity.getSite().getId(), entityFromDb.getSite().getId());
-		assertEquals(entity.getParentId(), entityFromDb.getParentId());
 		assertEquals(entity.getTemplate().getId(), entityFromDb.getTemplate().getId());
 		assertEquals(entity.getPath(), entityFromDb.getPath());
 		assertEquals(entity.getPageStatus(), entityFromDb.getPageStatus());
