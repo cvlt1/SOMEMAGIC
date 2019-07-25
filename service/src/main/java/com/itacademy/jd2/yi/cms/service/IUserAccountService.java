@@ -1,5 +1,6 @@
 package com.itacademy.jd2.yi.cms.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
@@ -24,6 +25,8 @@ public interface IUserAccountService {
 	List<IUserAccount> find(UserAccountFilter filter);
 
 	void save(IUserAccount entity);
+	
+	IUserAccount findNickname(String name);
 
     //List<IBrand> find(BrandFilter filter);
 

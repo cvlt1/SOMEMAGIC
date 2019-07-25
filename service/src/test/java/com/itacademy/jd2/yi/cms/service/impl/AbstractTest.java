@@ -38,6 +38,9 @@ public abstract class AbstractTest {
 	protected IPageService pageService;
 	
 //	@Autowired
+//	protected IPageService pageService;
+	
+//	@Autowired
 //	protected ICssItemService cssItemService;
 	
     private static final Random RANDOM = new Random();
@@ -98,6 +101,7 @@ public abstract class AbstractTest {
 //    }
     
     protected IPage saveNewPage() {
+<<<<<<< HEAD
         final IPage entity = pageService.createEntity();
         entity.setPath("path" + getRandomPrefix());
         entity.setSiteId(saveNewSite());  
@@ -108,7 +112,21 @@ public abstract class AbstractTest {
         entity.setTitle("title" + getRandomPrefix());
         pageService.save(entity);
         return entity;
+=======
+    	final IPage entity = pageService.createEntity();
+    	entity.setSite(saveNewSite());
+    	entity.setTemplate(saveNewTemplate());
+    	entity.setPath("path-" + getRandomPrefix());
+    	entity.setPageStatus(PageStatus.EDITED);
+    	entity.setCreator(saveNewUserAccount());
+    	entity.setPageTitle("title-" + getRandomPrefix());
+    	pageService.save(entity);
+		return entity;
+    	
+>>>>>>> deletedPage
     }
+    
+
 
 
 }

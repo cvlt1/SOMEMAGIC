@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -33,11 +35,12 @@ public class TemplateController extends AbstractController {
 	private ITemplateService templateService;
 
 	private TemplateToDTOConverter toDtoConverter;
-	
+
 	private TemplateFromDTOConverter fromDtoConverter;
 
 	@Autowired
-	private TemplateController(ITemplateService templateService, TemplateToDTOConverter toDtoConverter, TemplateFromDTOConverter fromDtoConverter) {
+	private TemplateController(ITemplateService templateService, TemplateToDTOConverter toDtoConverter,
+			TemplateFromDTOConverter fromDtoConverter) {
 		super();
 		this.templateService = templateService;
 		this.toDtoConverter = toDtoConverter;
@@ -45,10 +48,10 @@ public class TemplateController extends AbstractController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView index(final HttpServletRequest req, 
+	public ModelAndView index(final HttpServletRequest req,
 			@RequestParam(name = "page", required = false) final Integer pageNumber,
-			@RequestParam(name = "sort", required = false) final String sortColumn)  {
-		
+			@RequestParam(name = "sort", required = false) final String sortColumn) {
+
 		final GridStateDTO gridState = getListDTO(req);
 		gridState.setPage(pageNumber);
 		gridState.setSort(sortColumn, "id");
@@ -64,55 +67,59 @@ public class TemplateController extends AbstractController {
 		models.put("gridItems", dtos);
 		return new ModelAndView("template.list", models);
 	}
-	
+
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-    public ModelAndView showForm() {
-        final Map<String, Object> hashMap = new HashMap<>();
-        final ITemplate newEntity = templateService.createEntity();
-        hashMap.put("formModel", toDtoConverter.apply(newEntity));
+	public ModelAndView showForm() {
+		final Map<String, Object> hashMap = new HashMap<>();
+		final ITemplate newEntity = templateService.createEntity();
+		hashMap.put("formModel", toDtoConverter.apply(newEntity));
 
-        return new ModelAndView("template.edit", hashMap);
-    }
+		return new ModelAndView("template.edit", hashMap);
+	}
 
-    @RequestMapping(method = RequestMethod.POST)
-    public String save(@Valid @ModelAttribute("formModel") final TemplateDTO formModel,
-            final BindingResult result) {
-        if (result.hasErrors()) {
-            return "template.edit";
-        } else {
-            final ITemplate entity = fromDtoConverter.apply(formModel);
-            templateService.save(entity);
-            return "redirect:/template";
-        }
-    }
+	@RequestMapping(method = RequestMethod.POST)
+	public String save(@Valid @ModelAttribute("formModel") final TemplateDTO formModel, final BindingResult result) {
+		if (result.hasErrors()) {
+			return "template.edit";
+		} else {
+			final ITemplate entity = fromDtoConverter.apply(formModel);
+			templateService.save(entity);
+			return "redirect:/template";
+		}
+	}
 
-    @RequestMapping(value = "/{id}/delete", method = RequestMethod.GET)
-    public String delete(@PathVariable(name = "id", required = true) final Integer id) {
-        templateService.delete(id);
-        return "redirect:/template";
-    }
+	@RequestMapping(value = "/{id}/delete", method = RequestMethod.GET)
+	public String delete(@PathVariable(name = "id", required = true) final Integer id) {
+		templateService.delete(id);
+		return "redirect:/template";
+	}
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ModelAndView viewDetails(
-            @PathVariable(name = "id", required = true) final Integer id) {
-        final ITemplate dbModel = templateService.get(id);
-        final TemplateDTO dto = toDtoConverter.apply(dbModel);
-        final Map<String, Object> hashMap = new HashMap<>();
-        hashMap.put("formModel", dto);
-        hashMap.put("readonly", true);
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ModelAndView viewDetails(@PathVariable(name = "id", required = true) final Integer id) {
+		final ITemplate dbModel = templateService.get(id);
+		final TemplateDTO dto = toDtoConverter.apply(dbModel);
+		final Map<String, Object> hashMap = new HashMap<>();
+		hashMap.put("formModel", dto);
+		hashMap.put("readonly", true);
 
-        return new ModelAndView("template.edit", hashMap);
-    }
+		return new ModelAndView("template.edit", hashMap);
+	}
 
-    @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
-    public ModelAndView edit(
-            @PathVariable(name = "id", required = true) final Integer id) {
-        final TemplateDTO dto = toDtoConverter.apply(templateService.get(id));
+	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
+	public ModelAndView edit(@PathVariable(name = "id", required = true) final Integer id) {
+		final TemplateDTO dto = toDtoConverter.apply(templateService.get(id));
 
-        final Map<String, Object> hashMap = new HashMap<>();
-        hashMap.put("formModel", dto);
+		final Map<String, Object> hashMap = new HashMap<>();
+		hashMap.put("formModel", dto);
 
-        return new ModelAndView("template.edit", hashMap);
-    }
+		return new ModelAndView("template.edit", hashMap);
+	}
+
+	@RequestMapping(value = "/json", method = RequestMethod.GET)
+	public ResponseEntity<TemplateDTO> getCountries(@RequestParam(name = "id", required = true) final Integer id) {
+		final TemplateDTO dto = toDtoConverter.apply(templateService.get(id));
+
+		return new ResponseEntity<TemplateDTO>(dto, HttpStatus.OK);
+	}
 
 }

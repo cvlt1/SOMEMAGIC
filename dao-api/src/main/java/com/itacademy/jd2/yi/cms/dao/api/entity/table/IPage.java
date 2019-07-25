@@ -4,37 +4,40 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.enums.PageStatus;
 
 public interface IPage extends IBaseEntity {
 
-	
 	String toString();
 
-	void setTitle(String title);
+	void setPageTitle(String pageTitle);
 
-	String getTitle();
+	String getPageTitle();
 
 	void setCreator(IUserAccount creator);
 
 	IUserAccount getCreator();
 
-	void setStatus(PageStatus status);
+	void setPageStatus(PageStatus pageStatus);
 
-	PageStatus getStatus();
+	PageStatus getPageStatus();
 
 	void setPath(String path);
 
 	String getPath();
 
-	void setTemplateId(ITemplate templateId);
-
-	ITemplate getTemplateId();
 
 
+	void setTemplate(ITemplate template);
 
-	void setSiteId(ISite siteId);
+	ITemplate getTemplate();
 
-	ISite getSiteId();
+	void setSite(ISite site);
 
+	ISite getSite();
+
+<<<<<<< HEAD
 	void setParentId(Integer parentId);
 
 	Integer getParentId();
+=======
+
+>>>>>>> deletedPage
 
 }

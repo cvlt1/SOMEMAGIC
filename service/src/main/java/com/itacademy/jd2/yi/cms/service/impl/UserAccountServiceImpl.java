@@ -1,6 +1,8 @@
 package com.itacademy.jd2.yi.cms.service.impl;
 
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 import com.itacademy.jd2.yi.cms.dao.api.IUserAccountDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
+import com.itacademy.jd2.yi.cms.jdbc.impl.util.StatementAction;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
 
 
@@ -29,6 +32,8 @@ public class UserAccountServiceImpl implements IUserAccountService {
         super();
         this.dao = dao;
     }
+    
+
 
     @Override
     public IUserAccount createEntity() {
@@ -93,7 +98,22 @@ public class UserAccountServiceImpl implements IUserAccountService {
         }
 
         dao.save(entities);
-}	
+}
+
+
+
+	@Override
+	public IUserAccount findNickname(String name) {
+		return dao.findByNickname(name);
+	}
+
+
+
+
+
+
+
+    
 	
 
    

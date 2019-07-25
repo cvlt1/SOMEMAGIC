@@ -18,6 +18,7 @@ import javax.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Value;
 
 import com.itacademy.jd2.yi.cms.dao.api.IDao;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.AbstractFilter;
 import com.itacademy.jd2.yi.cms.jdbc.impl.util.PreparedStatementAction;
 import com.itacademy.jd2.yi.cms.jdbc.impl.util.SQLExecutionException;
@@ -251,4 +252,5 @@ public abstract class AbstractDaoImpl<ENTITY, ID> implements IDao<ENTITY, ID> {
 	}
 
 	protected abstract String getTableName();
+
 }

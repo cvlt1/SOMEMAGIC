@@ -2,14 +2,18 @@ package com.itacademy.jd2.yi.cms.dao.api.filter;
 
 public class PageFilter extends AbstractFilter {
 	
-    private boolean fetchPage;
+	private boolean FetchSite;
+	
 
-    public boolean getFetchPage() {
-        return fetchPage;
-    }
 
-    public void setFetchPage(final boolean fetchPage) {
-        this.fetchPage = fetchPage;
-}
+	
+
+	public boolean getFetchSite() {
+		return FetchSite;
+	}
+
+	public void setFetchSite(boolean fetchSite) {
+		FetchSite = fetchSite;
+	}
 
 }

@@ -34,5 +34,38 @@
 			value="/WEB-INF/views/page/list.jsp" />
 	</definition>
 
+	<definition name="page.edit" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/page/form.jsp" />
+	</definition>
+
+	<definition name="uAcc.list" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/useraccount/list.jsp" />
+	</definition>
+
+	<definition name="uAcc.edit" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/useraccount/form.jsp" />
+	</definition>
+
+	<definition name="site.list" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/site/list.jsp" />
+	</definition>
+
+	<definition name="site.edit" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/site/form.jsp" />
+	</definition>
+
+
+
+	<definition name="login" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/login.jsp" />
+	</definition>
+
+
 
 </tiles-definitions>

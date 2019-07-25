@@ -3,11 +3,11 @@ package com.itacademy.jd2.yi.cms.dao.api;
 import java.util.List;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageFilter;
-import com.itacademy.jd2.yi.cms.dao.api.filter.SiteFilter;
+import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
 
-public interface IPageDao extends IDao<IPage, Integer> {
+public interface IPageDao extends IDao<IPage, Integer>{
 	
 	void save(IPage... entities);
 	
