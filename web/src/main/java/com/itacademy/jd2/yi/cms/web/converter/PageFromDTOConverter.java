@@ -44,7 +44,7 @@ public class PageFromDTOConverter implements Function<PageDTO, IPage> {
         entity.setTemplate(template);
         
         final IUserAccount userAccount = userAccountService.createEntity();
-        userAccount.setId(dto.getId());
+        userAccount.setId(dto.getCreatorId());
         entity.setCreator(userAccount);
         
         return entity;

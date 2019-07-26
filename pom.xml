@@ -257,7 +257,7 @@
 	</dependencyManagement>
 
 	<build>
-		<finalName>ROOT</finalName>
+		<finalName>CMS</finalName>
 		<pluginManagement>
 			<plugins>
 				<plugin>

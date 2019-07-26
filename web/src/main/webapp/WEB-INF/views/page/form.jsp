@@ -28,8 +28,8 @@
 				<label for="pageStatus">status</label>
 			</div>
 			<div class="input-field col s12">
-				<form:input path="creatorName" type="text" disabled="${readonly}" />
-				<form:errors path="creatorName" cssClass="red-text" />
+				<form:input path="creatorId" type="text" disabled="${readonly}" />
+				<form:errors path="creatorId" cssClass="red-text" />
 				<label for="pageName">creator</label>
 			</div>
 			<div class="input-field col s12">

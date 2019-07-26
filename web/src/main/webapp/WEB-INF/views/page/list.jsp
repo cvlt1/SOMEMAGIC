@@ -32,13 +32,13 @@
 				<td><fmt:formatDate pattern="yyyy-MM-dd"
 						value="${page.updated}" /></td>
 				<td class="right"><a class="btn-floating"
-					href="${pagesTemplate}/${page.id}"><i
+					href="${pagesPage}/${page.id}"><i
 						class="material-icons">info</i></a> <a class="btn-floating green"
-					href="${pagesTemplate}/${page.id}/add"><i
+					href="${pagesPage}/${page.id}/add"><i
 						class="material-icons">add</i></a> <a class="btn-floating"
-					href="${pagesTemplate}/${page.id}/edit"><i
+					href="${pagesPage}/${page.id}/edit"><i
 						class="material-icons">edit</i></a> <a class="btn-floating red"
-					href="${pagesTemplate}/${page.id}/delete"><i
+					href="${pagesPage}/${page.id}/delete"><i
 						class="material-icons">delete</i></a></td>
 
 			</tr>

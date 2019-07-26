@@ -178,3 +178,7 @@
 20:20:39.844 [main] INFO  org.springframework.context.support.GenericApplicationContext - Refreshing org.springframework.context.support.GenericApplicationContext@6302bbb1: startup date [Thu Jul 25 20:20:39 MSK 2019]; root of context hierarchy
 20:20:40.744 [Thread-1] INFO  org.springframework.context.support.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@6302bbb1: startup date [Thu Jul 25 20:20:39 MSK 2019]; root of context hierarchy
 >>>>>>> deletedPage
+20:53:38.169 [main] INFO  com.itacademy.jd2.yi.cms.logger.LoggerTest - info message2
+20:53:38.190 [main] WARN  com.itacademy.jd2.yi.cms.logger.LoggerTest - warn message2
+20:53:38.191 [main] INFO  mylogger - info message1
+20:53:38.191 [main] WARN  mylogger - warn message1
