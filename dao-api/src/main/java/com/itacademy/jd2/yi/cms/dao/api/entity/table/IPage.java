@@ -32,12 +32,6 @@ public interface IPage extends IBaseEntity {
 
 	ISite getSite();
 
-<<<<<<< HEAD
-	void setParentId(Integer parentId);
 
-	Integer getParentId();
-=======
-
->>>>>>> deletedPage
 
 }

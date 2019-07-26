@@ -6,7 +6,7 @@
 <h4 class="header">Pages</h4>
 <table class="bordered highlight">
 	<tbody>
-		<tr>
+		<tr class="highlight">
 			<th><mytaglib:sort-link pageUrl="${pagesPage}" column="id">id</mytaglib:sort-link></th>
 			<th><mytaglib:sort-link pageUrl="${pagesPage}" column="siteId">site</mytaglib:sort-link></th>
 			<th><mytaglib:sort-link pageUrl="${pagesPage}" column="templateId">template</mytaglib:sort-link></th>

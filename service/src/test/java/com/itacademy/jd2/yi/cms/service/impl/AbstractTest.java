@@ -92,27 +92,15 @@ public abstract class AbstractTest {
         return entity;
     }
 
-//    protected ICssItem saveNewCssItem() {
-//        final ICssItem entity = cssItemService.createEntity();
-//        entity.setContent("content-" + getRandomPrefix());
-//        entity.setSiteId(saveNewSite());
-//        cssItemService.save(entity);
-//        return entity;
-//    }
+    protected ICssItem saveNewCssItem() {
+        final ICssItem entity = cssItemService.createEntity();
+        entity.setContent("content-" + getRandomPrefix());
+        entity.setSiteId(saveNewSite());
+        cssItemService.save(entity);
+        return entity;
+    }
     
     protected IPage saveNewPage() {
-<<<<<<< HEAD
-        final IPage entity = pageService.createEntity();
-        entity.setPath("path" + getRandomPrefix());
-        entity.setSiteId(saveNewSite());  
-//        entity.setParentId(entity);
-        entity.setTemplateId(saveNewTemplate());
-        entity.setStatus(PageStatus.PRODUCTED);
-        entity.setCreator(saveNewUserAccount());
-        entity.setTitle("title" + getRandomPrefix());
-        pageService.save(entity);
-        return entity;
-=======
     	final IPage entity = pageService.createEntity();
     	entity.setSite(saveNewSite());
     	entity.setTemplate(saveNewTemplate());
@@ -123,7 +111,6 @@ public abstract class AbstractTest {
     	pageService.save(entity);
 		return entity;
     	
->>>>>>> deletedPage
     }
     
 

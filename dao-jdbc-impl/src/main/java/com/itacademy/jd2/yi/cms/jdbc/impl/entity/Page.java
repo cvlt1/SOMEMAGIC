@@ -8,37 +8,11 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 
 public class Page extends BaseEntity implements IPage {
 	
-<<<<<<< HEAD
-	private ISite siteId;
-	private Integer parentId;
-	private ITemplate templateId;
-=======
 	private ISite site;
 	private ITemplate template;
->>>>>>> deletedPage
 	private String path;
 	private PageStatus pageStatus;
 	private IUserAccount creator;
-<<<<<<< HEAD
-	private String title;
-	
-	
-	@Override
-	public ISite getSiteId() {
-		return siteId;
-	}
-	@Override
-	public void setSiteId(ISite siteId) {
-		this.siteId = siteId;
-	}
-
-
-	public Integer getParentId() {
-		return parentId;
-	}
-	public void setParentId(Integer parentId) {
-		this.parentId = parentId;
-=======
 	private String pageTitle;
 	
 	
@@ -54,7 +28,6 @@ public class Page extends BaseEntity implements IPage {
 	@Override
 	public void setSite(ISite site) {
 		this.site = site;
->>>>>>> deletedPage
 	}
 	@Override
 	public ITemplate getTemplate() {
@@ -104,7 +77,6 @@ public class Page extends BaseEntity implements IPage {
 		return "Page [site=" + site + ", template=" + template + ", path=" + path + ", pageStatus=" + pageStatus
 				+ ", creator=" + creator + ", pageTitle=" + pageTitle + "]";
 	}
-
 	
 	
 	
