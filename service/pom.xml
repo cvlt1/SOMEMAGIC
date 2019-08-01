@@ -16,7 +16,7 @@
 
 		<dependency>
 			<groupId>com.itacademy.jd2.yi.cms</groupId>
-			<artifactId>dao-jdbc-impl</artifactId>
+			<artifactId>dao-orm-impl</artifactId>
 		</dependency>
 
 

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -24,13 +25,39 @@
 
 	<modules>
 		<module>dao-api</module>
-		<module>dao-jdbc-impl</module>
+		<module>dao-orm-impl</module>
 		<module>service</module>
 		<module>web</module>
+		
 	</modules>
 
 	<dependencyManagement>
 		<dependencies>
+
+			<!-- Hibernate -->
+			<dependency>
+				<groupId>org.hibernate.javax.persistence</groupId>
+				<artifactId>hibernate-jpa-2.1-api</artifactId>
+				<version>1.0.0.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>4.3.8.Final</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-jpamodelgen</artifactId>
+				<version>4.3.4.Final</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-dbcp</groupId>
+				<artifactId>commons-dbcp</artifactId>
+				<version>1.4</version>
+			</dependency>
 
 			<dependency>
 				<groupId>org.codehaus.jackson</groupId>
@@ -104,7 +131,7 @@
 
 			<dependency>
 				<groupId>com.itacademy.jd2.yi.cms</groupId>
-				<artifactId>dao-jdbc-impl</artifactId>
+				<artifactId>dao-orm-impl</artifactId>
 				<version>1.0.0</version>
 			</dependency>
 
