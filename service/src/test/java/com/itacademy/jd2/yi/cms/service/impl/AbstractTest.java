@@ -1,5 +1,8 @@
 package com.itacademy.jd2.yi.cms.service.impl;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,7 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.PageStatus;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserStatus;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IBaseEntity;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ICssItem;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
@@ -86,7 +90,7 @@ public abstract class AbstractTest {
     
     protected ISite saveNewSite() {
         final ISite entity = siteService.createEntity();
-        entity.setSiteName("sitename" + getRandomPrefix());
+        entity.setName("sitename" + getRandomPrefix());
         entity.setBasepath("somepath" + getRandomPrefix() + ".com");
         siteService.save(entity);
         return entity;
@@ -112,6 +116,23 @@ public abstract class AbstractTest {
 		return entity;
     	
     }
+    
+    protected IBaseEntity verifyOrderById(List<? extends IBaseEntity> ascBrands, boolean ascending) {
+    	IBaseEntity previousEntity = null;
+    	for (IBaseEntity entity : ascBrands) {
+    	if (previousEntity == null) {
+    		previousEntity = entity;
+    	continue;
+    	}
+    	if (ascending) {
+    	assertTrue(previousEntity.getId().intValue() < entity.getId().intValue());
+    	} else {
+    	assertTrue(previousEntity.getId().intValue() > entity.getId().intValue());
+    	}
+    	previousEntity = entity;
+    	}
+    	return previousEntity;
+    	}
     
 
 

@@ -1,4 +1,4 @@
-package com.itacademy.jd2.yi.cms.dao.orm.entity;
+package com.itacademy.jd2.yi.cms.dao.orm.impl.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,17 +7,17 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 @Entity
 public class Site extends BaseEntity implements ISite{
 	@Column
-	private String siteName;
+	private String name;
 	@Column
 	private String basepath;
 	
-	@Override
-	public String getSiteName() {
-		return siteName;
+	
+	
+	public String getName() {
+		return name;
 	}
-	@Override
-	public void setSiteName(String siteName) {
-		this.siteName = siteName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	@Override
 	public String getBasepath() {
@@ -31,7 +31,7 @@ public class Site extends BaseEntity implements ISite{
 	
 	@Override
 	public String toString() {
-		return "Site [siteName=" + siteName + ", basepath=" + basepath + "]";
+		return "Site [siteName=" + name + ", basepath=" + basepath + "]";
 	}
 
 }

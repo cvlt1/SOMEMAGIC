@@ -105,6 +105,8 @@ public class UserAccountServiceImpl implements IUserAccountService {
 	public IUserAccount findNickname(String name) {
 		return dao.findByNickname(name);
 	}
+	
+	
 
 
 

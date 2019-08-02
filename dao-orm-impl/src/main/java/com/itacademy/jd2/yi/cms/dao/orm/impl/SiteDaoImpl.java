@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.itacademy.jd2.yi.cms.dao.api.ISiteDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.filter.SiteFilter;
-import com.itacademy.jd2.yi.cms.dao.orm.entity.Site;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site;
 
 
 @Repository

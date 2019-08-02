@@ -1,8 +1,9 @@
-package com.itacademy.jd2.yi.cms.dao.orm.entity;
+package com.itacademy.jd2.yi.cms.dao.orm.impl.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Transient;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ICssItem;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
@@ -11,7 +12,7 @@ public class CssItem extends BaseEntity implements ICssItem {
 	@Column
 	private String content;
 	
-	@Transient
+	@ManyToOne (fetch = FetchType.LAZY, targetEntity = Site.class)
 	private ISite site;
 	
 	

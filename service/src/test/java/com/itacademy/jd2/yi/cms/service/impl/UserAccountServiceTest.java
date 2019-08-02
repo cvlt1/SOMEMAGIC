@@ -3,6 +3,8 @@ package com.itacademy.jd2.yi.cms.service.impl;
 import org.junit.jupiter.api.Test;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
+import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -115,4 +117,36 @@ public class UserAccountServiceTest extends AbstractTest {
         userAccountService.deleteAll();
         assertEquals(0, userAccountService.getAll().size());
     }
+    
+    @Test
+    public void testFind() {
+        for (int i = 0; i < 6; i++) {
+        	saveNewUserAccount();
+		}
+        
+        UserAccountFilter filter = new UserAccountFilter();
+        
+        assertEquals(6, userAccountService.getCount(filter));
+        assertEquals(6, userAccountService.find(filter).size());
+        
+        
+        filter.setLimit(5);
+        assertEquals(5, userAccountService.find(filter).size());
+        
+        filter.setOffset(5);
+        assertEquals(1, userAccountService.find(filter).size());
+        
+        filter = new UserAccountFilter();
+        filter.setSortColumn("id");
+        filter.setSortOrder(true);
+        List<IUserAccount> ascUacc = userAccountService.find(filter);
+        verifyOrderById(ascUacc, true);
+
+        filter.setSortOrder(false);
+        List<IUserAccount> descUacc = userAccountService.find(filter);
+        verifyOrderById(descUacc, false);
+        
+    }
+    
+
 }

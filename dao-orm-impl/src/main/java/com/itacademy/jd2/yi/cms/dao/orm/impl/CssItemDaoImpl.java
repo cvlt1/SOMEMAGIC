@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.itacademy.jd2.yi.cms.dao.api.ICssItemDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ICssItem;
 import com.itacademy.jd2.yi.cms.dao.api.filter.CssItemFilter;
-import com.itacademy.jd2.yi.cms.dao.orm.entity.CssItem;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.CssItem;
 @Repository
 public class CssItemDaoImpl extends AbstractDaoImpl<ICssItem, Integer> implements ICssItemDao {
 

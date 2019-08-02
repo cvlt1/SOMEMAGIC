@@ -1,8 +1,9 @@
-package com.itacademy.jd2.yi.cms.dao.orm.entity;
+package com.itacademy.jd2.yi.cms.dao.orm.impl.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Transient;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageHistory;
@@ -10,10 +11,10 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 @Entity
 public class PageHistory extends BaseEntity implements IPageHistory {
 	
-	@Transient
+	@ManyToOne (fetch = FetchType.LAZY, targetEntity = UserAccount.class)
 	private IUserAccount changedBy;
 	
-	@Transient
+	@ManyToOne (fetch = FetchType.LAZY, targetEntity = Page.class)
 	private IPage page;
 	
 	@Column

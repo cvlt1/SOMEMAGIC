@@ -26,7 +26,7 @@ public class PageToDTOConverter implements Function<IPage, PageDTO> {
 	        final ISite site = entity.getSite();
 	        if (site != null) {
 	            pageDto.setSiteId(site.getId());
-	            pageDto.setSiteName(site.getSiteName());
+	            pageDto.setSiteName(site.getName());
 	            pageDto.setSiteBasepath(site.getBasepath());
 	        }
 	        

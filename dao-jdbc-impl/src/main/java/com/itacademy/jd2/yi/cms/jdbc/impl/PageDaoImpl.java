@@ -108,7 +108,7 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 				final Site site = new Site();
 				site.setId(siteId);
 				if (columns.contains("site_id")) {
-					site.setSiteName(resultSet.getString("site_id")); // TODO sdadasd
+					site.setName(resultSet.getString("site_id")); // TODO sdadasd
 				}
 				entity.setSite(site);
 			}

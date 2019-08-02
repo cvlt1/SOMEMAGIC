@@ -22,8 +22,6 @@ public interface IPage extends IBaseEntity {
 
 	String getPath();
 
-
-
 	void setTemplate(ITemplate template);
 
 	ITemplate getTemplate();

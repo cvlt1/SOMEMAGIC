@@ -1,4 +1,4 @@
-package com.itacademy.jd2.yi.cms.dao.orm.entity;
+package com.itacademy.jd2.yi.cms.dao.orm.impl.entity;
 
 import java.util.Date;
 

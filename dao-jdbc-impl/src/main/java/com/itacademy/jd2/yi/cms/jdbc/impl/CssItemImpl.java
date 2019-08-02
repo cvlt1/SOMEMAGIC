@@ -100,7 +100,7 @@ import com.itacademy.jd2.yi.cms.jdbc.impl.util.SQLExecutionException;
 	            final ISite site = new Site();
 	            site.setId(siteId);
 	            if (columns.contains("site_name")) {
-	                site.setSiteName(resultSet.getString("site_name"));
+	                site.setName(resultSet.getString("site_name"));
 	            }
 	            entity.setSite(site);
 	        }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.itacademy.jd2.yi.cms.dao.api.IPageDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageFilter;
-import com.itacademy.jd2.yi.cms.dao.orm.entity.Page;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page;
 @Repository
 public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPageDao {
 

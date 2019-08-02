@@ -17,7 +17,7 @@ public class SiteToDTOConverter implements Function<ISite, SiteDTO> {
     public SiteDTO apply(final ISite entity) {
         final SiteDTO dto = new SiteDTO();
         dto.setId(entity.getId());
-        dto.setSiteName(entity.getSiteName());
+        dto.setSiteName(entity.getName());
         dto.setBasepath(entity.getBasepath());
         dto.setCreated(entity.getCreated());
         dto.setUpdated(entity.getUpdated());

@@ -31,7 +31,7 @@ public class SiteDaoImpl extends AbstractDaoImpl<ISite, Integer> implements ISit
 				"update %s set name=?, basepath=?, updated=? where id=?", getTableName())) {
 			@Override
 			public ISite doWithPreparedStatement(final PreparedStatement pStmt) throws SQLException {
-				pStmt.setString(1, entity.getSiteName());
+				pStmt.setString(1, entity.getName());
 				pStmt.setString(2, entity.getBasepath());
 				pStmt.setObject(3, entity.getUpdated(), Types.TIMESTAMP);
 				pStmt.setInt(4, entity.getId());
@@ -49,7 +49,7 @@ public class SiteDaoImpl extends AbstractDaoImpl<ISite, Integer> implements ISit
 				getTableName()), true) {
 			@Override
 			public ISite doWithPreparedStatement(final PreparedStatement pStmt) throws SQLException {
-				pStmt.setString(1, entity.getSiteName());
+				pStmt.setString(1, entity.getName());
 				pStmt.setString(2, entity.getBasepath());
 				pStmt.setObject(3, entity.getCreated(), Types.TIMESTAMP);
 				pStmt.setObject(4, entity.getUpdated(), Types.TIMESTAMP);
@@ -72,7 +72,7 @@ public class SiteDaoImpl extends AbstractDaoImpl<ISite, Integer> implements ISit
 	protected ISite parseRow(final ResultSet resultSet) throws SQLException {
 		final ISite entity = createEntity();
 		entity.setId((Integer) resultSet.getObject("id"));
-		entity.setSiteName(resultSet.getString("name"));
+		entity.setName(resultSet.getString("name"));
 		entity.setBasepath(resultSet.getString("basepath"));
 		entity.setCreated(resultSet.getTimestamp("created"));
 		entity.setUpdated(resultSet.getTimestamp("updated"));
@@ -90,7 +90,7 @@ public class SiteDaoImpl extends AbstractDaoImpl<ISite, Integer> implements ISit
 							"insert into %s (name, basepath, created, updated) values(?,?,?,?)",
 							getTableName()), Statement.RETURN_GENERATED_KEYS);
 
-					pStmt.setString(1, entity.getSiteName());
+					pStmt.setString(1, entity.getName());
 					pStmt.setString(2, entity.getBasepath());
 					pStmt.setObject(6, entity.getCreated(), Types.TIMESTAMP);
 					pStmt.setObject(7, entity.getUpdated(), Types.TIMESTAMP);

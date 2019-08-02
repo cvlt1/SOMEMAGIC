@@ -35,7 +35,7 @@ public class SiteServiceTest extends AbstractTest {
         int initialSize = siteService.getAll().size();
 
         final ISite entity1 = siteService.createEntity();
-        entity1.setSiteName("sitename" + getRandomPrefix() + "asd");
+        entity1.setName("sitename" + getRandomPrefix() + "asd");
 
         try {
             final ISite entity2 = siteService.createEntity();
@@ -51,15 +51,15 @@ public class SiteServiceTest extends AbstractTest {
     public void testUpdate() throws InterruptedException {
         final ISite entity = saveNewSite();
 
-        String newSiteName = entity.getSiteName() + "_updated";
-        entity.setSiteName(newSiteName);
+        String newSiteName = entity.getName() + "_updated";
+        entity.setName(newSiteName);
         Thread.sleep(2000);
         siteService.save(entity);
 
         final ISite entityFromDb = siteService.get(entity.getId());
 
         assertNotNull(entityFromDb);
-        assertEquals(entity.getSiteName(), entityFromDb.getSiteName());
+        assertEquals(entity.getName(), entityFromDb.getName());
         assertEquals(entity.getBasepath(), entityFromDb.getBasepath());
         assertNotNull(entityFromDb.getCreated());
         assertNotNull(entityFromDb.getUpdated());
@@ -79,7 +79,7 @@ public class SiteServiceTest extends AbstractTest {
 
         for (final ISite entityFromDb : allEntities) {
         	assertNotNull(entityFromDb.getId());
-            assertNotNull(entityFromDb.getSiteName());
+            assertNotNull(entityFromDb.getName());
             assertNotNull(entityFromDb.getBasepath());
             assertNotNull(entityFromDb.getCreated());
             assertNotNull(entityFromDb.getUpdated());

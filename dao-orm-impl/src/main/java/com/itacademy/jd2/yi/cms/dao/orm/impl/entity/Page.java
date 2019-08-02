@@ -1,10 +1,11 @@
-package com.itacademy.jd2.yi.cms.dao.orm.entity;
+package com.itacademy.jd2.yi.cms.dao.orm.impl.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Transient;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.PageStatus;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
@@ -15,13 +16,13 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 public class Page extends BaseEntity implements IPage {
 	
 	
-	@Transient
-	private ISite site;
+	@ManyToOne (fetch = FetchType.LAZY, targetEntity = Site.class)
+	private ISite site; // many to one
 	
-	@Transient
+	@ManyToOne (fetch = FetchType.LAZY, targetEntity = Template.class)
 	private ITemplate template;
 	
-	@Transient
+	@ManyToOne  (fetch = FetchType.LAZY, targetEntity = UserAccount.class)
 	private IUserAccount creator;
 	
 	@Column

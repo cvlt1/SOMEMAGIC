@@ -110,7 +110,7 @@ public class PageHistoryDaoImpl extends AbstractDaoImpl<IPage, Integer> implemen
 				final Site site = new Site();
 				site.setId(siteId);
 				if (columns.contains("site_id")) {
-					site.setSiteName(resultSet.getString("site_id")); // TODO sdadasd
+					site.setName(resultSet.getString("site_id")); // TODO sdadasd
 				}
 				entity.setSite(site);
 			}
