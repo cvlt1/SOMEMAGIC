@@ -20,23 +20,23 @@ public class TemplateDaoImpl extends AbstractDaoImpl<ITemplate, Integer> impleme
 
     @Override
     public ITemplate createEntity() {
-        final Template brand = new Template();
-        return brand;
+        final Template template = new Template();
+        return template;
     }
 
 	@Override
 	public void save(ITemplate... entities) {
-		throw new RuntimeException();
+		throw new RuntimeException ("not implemented");
 	}
 
 	@Override
 	public List<ITemplate> find(TemplateFilter filter) {
-		throw new RuntimeException();
+		throw new RuntimeException ("not implemented");
 	}
 
 	@Override
 	public long getCount(TemplateFilter filter) {
-		throw new RuntimeException();
+		throw new RuntimeException ("not implemented");
 	}
 
 }

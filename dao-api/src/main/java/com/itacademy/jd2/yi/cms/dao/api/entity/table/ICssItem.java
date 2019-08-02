@@ -13,11 +13,7 @@ public interface ICssItem extends IBaseEntity {
 
 	String getContent();
 
-	void setId(ISite saveNewSite);
 	
-	void setSiteId(ISite siteId);
-
-	Integer getSiteId();
 
 
 }

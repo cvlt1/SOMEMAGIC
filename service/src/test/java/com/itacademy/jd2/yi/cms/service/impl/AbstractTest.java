@@ -95,7 +95,7 @@ public abstract class AbstractTest {
     protected ICssItem saveNewCssItem() {
         final ICssItem entity = cssItemService.createEntity();
         entity.setContent("content-" + getRandomPrefix());
-        entity.setSiteId(saveNewSite());
+        entity.setSite(saveNewSite());
         cssItemService.save(entity);
         return entity;
     }
