@@ -869,3 +869,7 @@
 21:19:08.384 [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
 21:19:08.510 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
 21:19:08.993 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'my-unit'
+11:34:54.009 [main] INFO  mylogger - info message1
+11:34:54.011 [main] WARN  mylogger - warn message1
+11:34:54.011 [main] INFO  com.itacademy.jd2.yi.cms.logger.LoggerTest - info message2
+11:34:54.012 [main] WARN  com.itacademy.jd2.yi.cms.logger.LoggerTest - warn message2
