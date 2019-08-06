@@ -41,6 +41,30 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 	public void save(IPage... entities) {
 		throw new RuntimeException ("not implemented");		
 	}
+	
+    @Override
+    public IPage getFullInfo(final Integer id) {
+        final EntityManager em = getEntityManager();
+        final CriteriaBuilder cb = em.getCriteriaBuilder();
+
+        final CriteriaQuery<IPage> cq = cb.createQuery(IPage.class); // define returning result
+        final Root<Page> from = cq.from(Page.class); // define table for select
+
+        cq.select(from); // define what need to be selected
+
+        from.fetch(Page_.template, JoinType.LEFT);
+        from.fetch(Page_.site, JoinType.LEFT);
+
+        from.fetch(Page_.creator, JoinType.LEFT);
+        cq.distinct(true); // to avoid duplicate rows in result
+
+        // .. where id=...
+        cq.where(cb.equal(from.get(Page_.id), id)); // where id=?
+
+        final TypedQuery<IPage> q = em.createQuery(cq);
+
+        return getSingleResult(q);
+    }
 
 	@Override
 	public List<IPage> find(PageFilter filter) {
@@ -123,5 +147,7 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
             throw new UnsupportedOperationException("sorting is not supported by column:" + sortColumn);
         }
     }
+    
+    
 
 }

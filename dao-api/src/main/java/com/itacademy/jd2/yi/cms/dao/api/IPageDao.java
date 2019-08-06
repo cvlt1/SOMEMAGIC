@@ -15,4 +15,8 @@ public interface IPageDao extends IDao<IPage, Integer>{
 	
 	long getCount (PageFilter filter);
 
+
+	IPage getFullInfo(Integer id);
+
+
 }

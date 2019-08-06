@@ -22,7 +22,7 @@ public class Page extends BaseEntity implements IPage {
 	@ManyToOne (fetch = FetchType.LAZY, targetEntity = Template.class)
 	private ITemplate template;
 	
-	@ManyToOne  (fetch = FetchType.LAZY, targetEntity = UserAccount.class)
+	@ManyToOne  (fetch = FetchType.LAZY, targetEntity = UserAccount.class) //DO NOT USE EAGER
 	private IUserAccount creator;
 	
 	@Column

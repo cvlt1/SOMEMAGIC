@@ -93,4 +93,9 @@ public class PageServiceImpl implements IPageService {
 	        dao.save(entities);
 	    }
 
+	@Override
+	public IPage getFullInfo(Integer id) {
+		return dao.getFullInfo(id);
+	}
+
 }

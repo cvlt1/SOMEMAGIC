@@ -18,14 +18,14 @@ public class PageServiceTest extends AbstractTest {
 	public void testCreate() {
 		IPage entity = saveNewPage();
 
-		final IPage entityFromDb = pageService.get(entity.getId());
+		final IPage entityFromDb = pageService.getFullInfo(entity.getId());
 
 		assertNotNull(entityFromDb);
-	//	assertEquals(entity.getSite().getId(), entityFromDb.getSite().getId());
-	//	assertEquals(entity.getTemplate().getId(), entityFromDb.getTemplate().getId());
+		assertEquals(entity.getSite().getId(), entityFromDb.getSite().getId());
+		assertEquals(entity.getTemplate().getId(), entityFromDb.getTemplate().getId());
 		assertEquals(entity.getPath(), entityFromDb.getPath());
 		assertEquals(entity.getPageStatus(), entityFromDb.getPageStatus());
-	//	assertEquals(entity.getCreator().getId(), entityFromDb.getCreator().getId());
+		assertEquals(entity.getCreator().getId(), entityFromDb.getCreator().getId());
 		assertEquals(entity.getPageTitle(), entityFromDb.getPageTitle());
 		assertNotNull(entityFromDb.getId());
 		assertNotNull(entityFromDb.getCreated());

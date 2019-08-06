@@ -26,4 +26,7 @@ public interface IPageService {
 	List<IPage> find(PageFilter filter);
 	@Transactional
 	void save(IPage entity);
+
+
+	IPage getFullInfo(Integer id);
 }
