@@ -1,13 +1,29 @@
 package com.itacademy.jd2.yi.cms.dao.orm.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.JoinType;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+
+import org.hibernate.jpa.criteria.OrderImpl;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import com.itacademy.jd2.yi.cms.dao.api.IPageDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageFilter;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page_;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site_;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Template_;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.UserAccount_;
 @Repository
 public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPageDao {
 
@@ -28,12 +44,84 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 
 	@Override
 	public List<IPage> find(PageFilter filter) {
-		throw new RuntimeException ("not implemented");
-		}
+		 final EntityManager em = getEntityManager();
+	        final CriteriaBuilder cb = em.getCriteriaBuilder();
+	        final CriteriaQuery<IPage> cq = cb.createQuery(IPage.class);
+	        final Root<Page> from = cq.from(Page.class);
+	        cq.select(from);
+
+	        from.fetch(Page_.creator, JoinType.LEFT);
+	        from.fetch(Page_.site, JoinType.LEFT);
+	        from.fetch(Page_.template, JoinType.LEFT);
+
+	        applyFilter(filter, cb, cq, from);
+
+	        // set sort params
+	        if (filter.getSortColumn() != null) {
+	            final Path<?> expression = getSortPath(from, filter.getSortColumn());
+	            cq.orderBy(new OrderImpl(expression, filter.getSortOrder()));
+	        }
+
+	        final TypedQuery<IPage> q = em.createQuery(cq);
+	        setPaging(filter, q);
+	        return q.getResultList();
+	    }
+		
 
 	@Override
 	public long getCount(PageFilter filter) {
-		throw new RuntimeException ("not implemented");
+		final EntityManager em = getEntityManager();
+        final CriteriaBuilder cb = em.getCriteriaBuilder();
+        final CriteriaQuery<Long> cq = cb.createQuery(Long.class);
+        final Root<Page> from = cq.from(Page.class);
+        cq.select(cb.count(from));
+        applyFilter(filter, cb, cq, from);
+        final TypedQuery<Long> q = em.createQuery(cq);
+        return q.getSingleResult();
 	}
+	
+	private void applyFilter(final PageFilter filter, final CriteriaBuilder cb, final CriteriaQuery<?> cq,
+            final Root<Page> from) {
+        final List<Predicate> ands = new ArrayList<>();
+
+        final String path = filter.getPath();
+        if (!StringUtils.isEmpty(path)) {
+            ands.add(cb.equal(from.get(Page_.path), path));
+        }
+        final String pageTitle = filter.getPageTitle();
+        if (!StringUtils.isEmpty(pageTitle)) {
+            ands.add(cb.equal(from.get(Page_.pageTitle), pageTitle));
+        }
+
+        if (!ands.isEmpty()) {
+            cq.where(cb.and(ands.toArray(new Predicate[0])));
+        }
+    }
+	
+	
+    private Path<?> getSortPath(final Root<Page> from, final String sortColumn) {
+        switch (sortColumn) {
+        case "created":
+            return from.get(Page_.created);
+        case "updated":
+            return from.get(Page_.updated);
+        case "id":
+            return from.get(Page_.id);
+        case "path":
+            return from.get(Page_.path);
+        case "page_title":
+            return from.get(Page_.pageTitle);
+        case "page_status":
+            return from.get(Page_.pageStatus);
+        case "template":
+            return from.get(Page_.template).get(Template_.jspPath);
+        case "creator":
+            return from.get(Page_.creator).get(UserAccount_.name);
+        case "site":
+            return from.get(Page_.site).get(Site_.name);
+        default:
+            throw new UnsupportedOperationException("sorting is not supported by column:" + sortColumn);
+        }
+    }
 
 }

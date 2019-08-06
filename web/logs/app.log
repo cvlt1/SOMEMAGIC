@@ -1,71 +1,833 @@
-10:53:31.831 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @944ms
-10:53:31.948 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
-10:53:32.612 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
-10:53:32.744 [main] INFO  /cms - Initializing Spring root WebApplicationContext
-10:53:32.744 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
-10:53:32.847 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Sun Aug 04 10:53:32 MSK 2019]; root of context hierarchy
-10:53:32.910 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [webapp-context.xml]
-10:53:33.120 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [service-context.xml]
-10:53:33.149 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [dao-context.xml]
-10:53:33.300 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [security-context.xml]
-10:53:33.370 [main] INFO  org.springframework.security.config.SecurityNamespaceHandler - Spring Security 'config' module version is 5.0.0.RELEASE
-10:53:33.414 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute '!isAnonymous()' for /car**
-10:53:33.445 [main] INFO  org.springframework.security.config.http.HttpSecurityBeanDefinitionParser - Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, Root bean: class [org.springframework.security.web.header.HeaderWriterFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 500, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 800, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.security.config.http.HttpConfigurationBuilder$SecurityContextHolderAwareRequestFilterBeanFactory#0; factoryMethodName=getBean; initMethodName=null; destroyMethodName=null, order = 1800, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2100, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2200, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2300, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2400]
-10:53:33.943 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'my-unit'
-10:53:33.997 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+19:57:50.464 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @2505ms
+19:57:50.662 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+19:57:51.802 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+19:57:52.009 [main] INFO  /cms - Initializing Spring root WebApplicationContext
+19:57:52.009 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+19:57:52.127 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Aug 05 19:57:52 MSK 2019]; root of context hierarchy
+19:57:52.183 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [webapp-context.xml]
+19:57:52.666 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [service-context.xml]
+19:57:52.701 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [dao-context.xml]
+19:57:52.892 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [security-context.xml]
+19:57:52.964 [main] INFO  org.springframework.security.config.SecurityNamespaceHandler - Spring Security 'config' module version is 5.0.0.RELEASE
+19:57:53.013 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute '!isAnonymous()' for /car**
+19:57:53.040 [main] INFO  org.springframework.security.config.http.HttpSecurityBeanDefinitionParser - Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, Root bean: class [org.springframework.security.web.header.HeaderWriterFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 500, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 800, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.security.config.http.HttpConfigurationBuilder$SecurityContextHolderAwareRequestFilterBeanFactory#0; factoryMethodName=getBean; initMethodName=null; destroyMethodName=null, order = 1800, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2100, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2200, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2300, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2400]
+19:57:53.757 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'my-unit'
+19:57:53.861 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
 	name: my-unit
 	...]
-10:53:34.091 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.8.Final}
-10:53:34.093 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
-10:53:34.099 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
-10:53:34.300 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-10:53:34.876 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
-10:53:34.889 [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
-10:53:35.042 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
-10:53:35.120 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.0.1.Final
-10:53:35.571 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'my-unit'
-10:53:36.113 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@4cb40e3b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7efe7b87, org.springframework.security.web.header.HeaderWriterFilter@5c8e67b9, org.springframework.security.web.authentication.logout.LogoutFilter@3f685162, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2016f509, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10fda3d0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@496a31da, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10afe71a, org.springframework.security.web.session.SessionManagementFilter@17690e14, org.springframework.security.web.access.ExceptionTranslationFilter@476ee5b3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6944e53e]
-10:53:36.138 [main] INFO  org.springframework.security.config.http.DefaultFilterChainValidator - Checking whether login URL '/login' is accessible with your configuration
-10:53:36.208 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3464 ms
-10:53:36.325 [main] INFO  /cms - Initializing Spring FrameworkServlet 'dispatcher'
-10:53:36.326 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization started
-10:53:36.329 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Aug 04 10:53:36 MSK 2019]; parent: Root WebApplicationContext
-10:53:36.331 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
-10:53:36.853 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.DefaultController.index()
-10:53:36.855 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.LoginController.login(java.lang.String,java.lang.String)
-10:53:36.858 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
-10:53:36.858 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.PageController.delete(java.lang.Integer)
-10:53:36.858 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page],methods=[POST]}" onto public java.lang.Object com.itacademy.jd2.yi.cms.web.controller.PageController.save(com.itacademy.jd2.yi.cms.web.dto.PageDTO,org.springframework.validation.BindingResult)
-10:53:36.859 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.viewDetails(java.lang.Integer)
-10:53:36.859 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.edit(java.lang.Integer)
-10:53:36.860 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.showForm()
-10:53:36.863 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
-10:53:36.863 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.SiteController.delete(java.lang.Integer)
-10:53:36.864 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.SiteController.save(com.itacademy.jd2.yi.cms.web.dto.SiteDTO,org.springframework.validation.BindingResult)
-10:53:36.864 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.viewDetails(java.lang.Integer)
-10:53:36.865 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.edit(java.lang.Integer)
-10:53:36.865 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.showForm()
-10:53:36.865 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.SiteDTO> com.itacademy.jd2.yi.cms.web.controller.SiteController.getCountries(java.lang.Integer)
-10:53:36.871 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
-10:53:36.871 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.delete(java.lang.Integer)
-10:53:36.872 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.save(com.itacademy.jd2.yi.cms.web.dto.TemplateDTO,org.springframework.validation.BindingResult)
-10:53:36.872 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.viewDetails(java.lang.Integer)
-10:53:36.872 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.edit(java.lang.Integer)
-10:53:36.873 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.showForm()
-10:53:36.873 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.TemplateDTO> com.itacademy.jd2.yi.cms.web.controller.TemplateController.getCountries(java.lang.Integer)
-10:53:36.875 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
-10:53:36.876 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.delete(java.lang.Integer)
-10:53:36.876 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.save(com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO,org.springframework.validation.BindingResult)
-10:53:36.876 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.viewDetails(java.lang.Integer)
-10:53:36.876 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.edit(java.lang.Integer)
-10:53:36.877 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.showForm()
-10:53:36.877 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO> com.itacademy.jd2.yi.cms.web.controller.UserAccountController.getCountries(java.lang.Integer)
-10:53:37.253 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Aug 04 10:53:36 MSK 2019]; parent: Root WebApplicationContext
-10:53:37.312 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Sun Aug 04 10:53:36 MSK 2019]; parent: Root WebApplicationContext
-10:53:37.367 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
-10:53:37.407 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
-10:53:37.544 [main] INFO  org.apache.tiles.access.TilesAccess - Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
-10:53:37.600 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization completed in 1274 ms
-10:53:37.601 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@35083305{/cms,file:/E:/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
-10:53:37.681 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@50ab56e2{HTTP/1.1}{0.0.0.0:8081}
-10:53:37.681 [main] INFO  org.eclipse.jetty.server.Server - Started @6803ms
+19:57:54.159 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.8.Final}
+19:57:54.171 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+19:57:54.173 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+19:57:54.579 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+19:57:55.482 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+19:57:55.523 [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+19:57:55.831 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+19:57:56.034 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.0.1.Final
+19:57:57.098 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'my-unit'
+19:57:57.768 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@5c448433, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26221bad, org.springframework.security.web.header.HeaderWriterFilter@d0865a3, org.springframework.security.web.authentication.logout.LogoutFilter@5ba26eb0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4af70944, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@9b21bd3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@26844abb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@67c5ac52, org.springframework.security.web.session.SessionManagementFilter@14982a82, org.springframework.security.web.access.ExceptionTranslationFilter@de8039f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5bc28f40]
+19:57:57.791 [main] INFO  org.springframework.security.config.http.DefaultFilterChainValidator - Checking whether login URL '/login' is accessible with your configuration
+19:57:57.852 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 5843 ms
+19:57:58.024 [main] INFO  /cms - Initializing Spring FrameworkServlet 'dispatcher'
+19:57:58.026 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization started
+19:57:58.031 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Mon Aug 05 19:57:58 MSK 2019]; parent: Root WebApplicationContext
+19:57:58.033 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+19:57:58.735 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.DefaultController.index()
+19:57:58.737 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.LoginController.login(java.lang.String,java.lang.String)
+19:57:58.739 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+19:57:58.740 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.PageController.delete(java.lang.Integer)
+19:57:58.740 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page],methods=[POST]}" onto public java.lang.Object com.itacademy.jd2.yi.cms.web.controller.PageController.save(com.itacademy.jd2.yi.cms.web.dto.PageDTO,org.springframework.validation.BindingResult)
+19:57:58.741 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.showForm()
+19:57:58.741 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.edit(java.lang.Integer)
+19:57:58.742 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.viewDetails(java.lang.Integer)
+19:57:58.745 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+19:57:58.745 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.SiteController.delete(java.lang.Integer)
+19:57:58.746 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.SiteController.save(com.itacademy.jd2.yi.cms.web.dto.SiteDTO,org.springframework.validation.BindingResult)
+19:57:58.746 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.showForm()
+19:57:58.747 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.edit(java.lang.Integer)
+19:57:58.747 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.SiteDTO> com.itacademy.jd2.yi.cms.web.controller.SiteController.getCountries(java.lang.Integer)
+19:57:58.748 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.viewDetails(java.lang.Integer)
+19:57:58.754 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+19:57:58.755 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.delete(java.lang.Integer)
+19:57:58.755 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.save(com.itacademy.jd2.yi.cms.web.dto.TemplateDTO,org.springframework.validation.BindingResult)
+19:57:58.756 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.showForm()
+19:57:58.756 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.edit(java.lang.Integer)
+19:57:58.756 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.TemplateDTO> com.itacademy.jd2.yi.cms.web.controller.TemplateController.getCountries(java.lang.Integer)
+19:57:58.757 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.viewDetails(java.lang.Integer)
+19:57:58.759 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+19:57:58.759 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.delete(java.lang.Integer)
+19:57:58.760 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.save(com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO,org.springframework.validation.BindingResult)
+19:57:58.760 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.showForm()
+19:57:58.760 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.edit(java.lang.Integer)
+19:57:58.761 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO> com.itacademy.jd2.yi.cms.web.controller.UserAccountController.getCountries(java.lang.Integer)
+19:57:58.761 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.viewDetails(java.lang.Integer)
+19:57:59.147 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Mon Aug 05 19:57:58 MSK 2019]; parent: Root WebApplicationContext
+19:57:59.212 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Mon Aug 05 19:57:58 MSK 2019]; parent: Root WebApplicationContext
+19:57:59.282 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+19:57:59.301 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+19:57:59.544 [main] INFO  org.apache.tiles.access.TilesAccess - Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+19:57:59.613 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization completed in 1587 ms
+19:57:59.614 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@35083305{/cms,file:/E:/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+19:57:59.867 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@34208baa{HTTP/1.1}{0.0.0.0:8081}
+19:57:59.867 [main] INFO  org.eclipse.jetty.server.Server - Started @11917ms
+19:58:57.901 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @793ms
+19:58:58.009 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+19:58:58.373 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+19:58:58.394 [main] INFO  /cms - Initializing Spring root WebApplicationContext
+19:58:58.395 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+19:58:58.501 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Aug 05 19:58:58 MSK 2019]; root of context hierarchy
+19:58:58.550 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [webapp-context.xml]
+19:58:58.673 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [service-context.xml]
+19:58:58.704 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [dao-context.xml]
+19:58:58.853 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [security-context.xml]
+19:58:58.917 [main] INFO  org.springframework.security.config.SecurityNamespaceHandler - Spring Security 'config' module version is 5.0.0.RELEASE
+19:58:58.957 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute '!isAnonymous()' for /car**
+19:58:58.991 [main] INFO  org.springframework.security.config.http.HttpSecurityBeanDefinitionParser - Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, Root bean: class [org.springframework.security.web.header.HeaderWriterFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 500, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 800, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.security.config.http.HttpConfigurationBuilder$SecurityContextHolderAwareRequestFilterBeanFactory#0; factoryMethodName=getBean; initMethodName=null; destroyMethodName=null, order = 1800, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2100, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2200, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2300, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2400]
+19:58:59.425 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'my-unit'
+19:58:59.456 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: my-unit
+	...]
+19:58:59.524 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.8.Final}
+19:58:59.525 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+19:58:59.527 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+19:58:59.695 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+19:59:00.066 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+19:59:00.077 [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+19:59:00.219 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+19:59:00.265 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.0.1.Final
+19:59:00.659 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'my-unit'
+19:59:01.210 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@1bc776b7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@181e72d3, org.springframework.security.web.header.HeaderWriterFilter@38aafb53, org.springframework.security.web.authentication.logout.LogoutFilter@3f725306, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7b6e5c12, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@188cbcde, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1f11f64e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@312b34e3, org.springframework.security.web.session.SessionManagementFilter@2b8bb184, org.springframework.security.web.access.ExceptionTranslationFilter@2436ea2f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3e33d73e]
+19:59:01.231 [main] INFO  org.springframework.security.config.http.DefaultFilterChainValidator - Checking whether login URL '/login' is accessible with your configuration
+19:59:01.282 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2887 ms
+19:59:01.393 [main] INFO  /cms - Initializing Spring FrameworkServlet 'dispatcher'
+19:59:01.394 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization started
+19:59:01.398 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Mon Aug 05 19:59:01 MSK 2019]; parent: Root WebApplicationContext
+19:59:01.399 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+19:59:01.835 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.DefaultController.index()
+19:59:01.837 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.LoginController.login(java.lang.String,java.lang.String)
+19:59:01.840 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+19:59:01.840 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.PageController.delete(java.lang.Integer)
+19:59:01.841 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page],methods=[POST]}" onto public java.lang.Object com.itacademy.jd2.yi.cms.web.controller.PageController.save(com.itacademy.jd2.yi.cms.web.dto.PageDTO,org.springframework.validation.BindingResult)
+19:59:01.841 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.viewDetails(java.lang.Integer)
+19:59:01.841 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.showForm()
+19:59:01.842 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.edit(java.lang.Integer)
+19:59:01.845 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+19:59:01.846 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.SiteController.delete(java.lang.Integer)
+19:59:01.846 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.SiteController.save(com.itacademy.jd2.yi.cms.web.dto.SiteDTO,org.springframework.validation.BindingResult)
+19:59:01.847 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.viewDetails(java.lang.Integer)
+19:59:01.847 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.SiteDTO> com.itacademy.jd2.yi.cms.web.controller.SiteController.getCountries(java.lang.Integer)
+19:59:01.848 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.showForm()
+19:59:01.848 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.edit(java.lang.Integer)
+19:59:01.854 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+19:59:01.854 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.delete(java.lang.Integer)
+19:59:01.855 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.save(com.itacademy.jd2.yi.cms.web.dto.TemplateDTO,org.springframework.validation.BindingResult)
+19:59:01.855 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.viewDetails(java.lang.Integer)
+19:59:01.856 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.TemplateDTO> com.itacademy.jd2.yi.cms.web.controller.TemplateController.getCountries(java.lang.Integer)
+19:59:01.856 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.showForm()
+19:59:01.856 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.edit(java.lang.Integer)
+19:59:01.859 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+19:59:01.859 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.delete(java.lang.Integer)
+19:59:01.859 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.save(com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO,org.springframework.validation.BindingResult)
+19:59:01.859 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.viewDetails(java.lang.Integer)
+19:59:01.860 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO> com.itacademy.jd2.yi.cms.web.controller.UserAccountController.getCountries(java.lang.Integer)
+19:59:01.860 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.showForm()
+19:59:01.861 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.edit(java.lang.Integer)
+19:59:02.145 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Mon Aug 05 19:59:01 MSK 2019]; parent: Root WebApplicationContext
+19:59:02.201 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Mon Aug 05 19:59:01 MSK 2019]; parent: Root WebApplicationContext
+19:59:02.256 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+19:59:02.273 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+19:59:02.386 [main] INFO  org.apache.tiles.access.TilesAccess - Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+19:59:02.446 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization completed in 1052 ms
+19:59:02.447 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@3bbc39f8{/cms,file:/E:/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+19:59:02.463 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@34be065a{HTTP/1.1}{0.0.0.0:8081}
+19:59:02.464 [main] INFO  org.eclipse.jetty.server.Server - Started @5363ms
+19:59:21.736 [qtp710239027-17] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 42703
+19:59:21.737 [qtp710239027-17] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ERROR: column page0_.creator_id does not exist
+  Hint: Perhaps you meant to reference the column "page0_.creator".
+  Position: 945
+19:59:21.741 [qtp710239027-17] WARN  org.eclipse.jetty.servlet.ServletHandler - 
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:986) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:870) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:855) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:812) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1669) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:64) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1652) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:585) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:577) [jetty-security-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) [jetty-io-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1763) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1677) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:458) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.criteria.compile.CriteriaQueryTypeQueryAdapter.getResultList(CriteriaQueryTypeQueryAdapter.java:67) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$DeferredQueryInvocationHandler.invoke(SharedEntityManagerCreator.java:379) ~[spring-orm-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy59.getResultList(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.dao.orm.impl.PageDaoImpl.find(PageDaoImpl.java:67) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.service.impl.PageServiceImpl.find(PageServiceImpl.java:80) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:338) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:206) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy43.find(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.web.controller.PageController.index(PageController.java:65) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:871) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:777) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	... 54 more
+Caused by: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:123) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:49) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:126) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:112) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.extract(ResultSetReturnImpl.java:91) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getResultSet(Loader.java:2066) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1863) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1839) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:910) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.criteria.compile.CriteriaQueryTypeQueryAdapter.getResultList(CriteriaQueryTypeQueryAdapter.java:67) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$DeferredQueryInvocationHandler.invoke(SharedEntityManagerCreator.java:379) ~[spring-orm-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy59.getResultList(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.dao.orm.impl.PageDaoImpl.find(PageDaoImpl.java:67) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.service.impl.PageServiceImpl.find(PageServiceImpl.java:80) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:338) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:206) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy43.find(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.web.controller.PageController.index(PageController.java:65) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:871) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:777) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	... 54 more
+Caused by: org.postgresql.util.PSQLException: ERROR: column page0_.creator_id does not exist
+  Hint: Perhaps you meant to reference the column "page0_.creator".
+  Position: 945
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2270) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1998) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:570) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:420) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:305) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:96) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:96) ~[commons-dbcp-1.4.jar:1.4]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.extract(ResultSetReturnImpl.java:82) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getResultSet(Loader.java:2066) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1863) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1839) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:910) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.criteria.compile.CriteriaQueryTypeQueryAdapter.getResultList(CriteriaQueryTypeQueryAdapter.java:67) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$DeferredQueryInvocationHandler.invoke(SharedEntityManagerCreator.java:379) ~[spring-orm-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy59.getResultList(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.dao.orm.impl.PageDaoImpl.find(PageDaoImpl.java:67) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.service.impl.PageServiceImpl.find(PageServiceImpl.java:80) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:338) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:206) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy43.find(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.web.controller.PageController.index(PageController.java:65) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:871) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:777) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	... 54 more
+20:00:56.584 [qtp710239027-17] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 42703
+20:00:56.584 [qtp710239027-17] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ERROR: column page0_.page_status does not exist
+  Position: 213
+20:00:56.584 [qtp710239027-17] WARN  org.eclipse.jetty.servlet.ServletHandler - 
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:986) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:870) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:855) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:812) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1669) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:64) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1652) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:585) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:577) [jetty-security-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) [jetty-io-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1763) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1677) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:458) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.criteria.compile.CriteriaQueryTypeQueryAdapter.getResultList(CriteriaQueryTypeQueryAdapter.java:67) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$DeferredQueryInvocationHandler.invoke(SharedEntityManagerCreator.java:379) ~[spring-orm-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy59.getResultList(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.dao.orm.impl.PageDaoImpl.find(PageDaoImpl.java:67) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.service.impl.PageServiceImpl.find(PageServiceImpl.java:80) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:338) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:206) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy43.find(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.web.controller.PageController.index(PageController.java:65) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:871) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:777) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	... 54 more
+Caused by: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:123) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:49) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:126) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:112) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.extract(ResultSetReturnImpl.java:91) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getResultSet(Loader.java:2066) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1863) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1839) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:910) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.criteria.compile.CriteriaQueryTypeQueryAdapter.getResultList(CriteriaQueryTypeQueryAdapter.java:67) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$DeferredQueryInvocationHandler.invoke(SharedEntityManagerCreator.java:379) ~[spring-orm-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy59.getResultList(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.dao.orm.impl.PageDaoImpl.find(PageDaoImpl.java:67) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.service.impl.PageServiceImpl.find(PageServiceImpl.java:80) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:338) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:206) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy43.find(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.web.controller.PageController.index(PageController.java:65) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:871) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:777) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	... 54 more
+Caused by: org.postgresql.util.PSQLException: ERROR: column page0_.page_status does not exist
+  Position: 213
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2270) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1998) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:570) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:420) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:305) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:96) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:96) ~[commons-dbcp-1.4.jar:1.4]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.extract(ResultSetReturnImpl.java:82) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getResultSet(Loader.java:2066) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1863) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1839) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:910) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.criteria.compile.CriteriaQueryTypeQueryAdapter.getResultList(CriteriaQueryTypeQueryAdapter.java:67) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$DeferredQueryInvocationHandler.invoke(SharedEntityManagerCreator.java:379) ~[spring-orm-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy59.getResultList(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.dao.orm.impl.PageDaoImpl.find(PageDaoImpl.java:67) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.service.impl.PageServiceImpl.find(PageServiceImpl.java:80) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:338) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:206) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy43.find(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.web.controller.PageController.index(PageController.java:65) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:871) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:777) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	... 54 more
+20:03:10.003 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @798ms
+20:03:10.112 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+20:03:10.472 [main] INFO  /cms - No Spring WebApplicationInitializer types detected on classpath
+20:03:10.501 [main] INFO  /cms - Initializing Spring root WebApplicationContext
+20:03:10.501 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+20:03:10.610 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Aug 05 20:03:10 MSK 2019]; root of context hierarchy
+20:03:10.657 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [webapp-context.xml]
+20:03:10.782 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [service-context.xml]
+20:03:10.829 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [dao-context.xml]
+20:03:11.005 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [security-context.xml]
+20:03:11.065 [main] INFO  org.springframework.security.config.SecurityNamespaceHandler - Spring Security 'config' module version is 5.0.0.RELEASE
+20:03:11.108 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute '!isAnonymous()' for /car**
+20:03:11.136 [main] INFO  org.springframework.security.config.http.HttpSecurityBeanDefinitionParser - Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, Root bean: class [org.springframework.security.web.header.HeaderWriterFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 500, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 800, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.security.config.http.HttpConfigurationBuilder$SecurityContextHolderAwareRequestFilterBeanFactory#0; factoryMethodName=getBean; initMethodName=null; destroyMethodName=null, order = 1800, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2100, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2200, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2300, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2400]
+20:03:11.592 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'my-unit'
+20:03:11.624 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: my-unit
+	...]
+20:03:11.697 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.8.Final}
+20:03:11.699 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+20:03:11.701 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+20:03:11.882 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+20:03:12.250 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+20:03:12.261 [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+20:03:12.406 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+20:03:12.461 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.0.1.Final
+20:03:12.930 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'my-unit'
+20:03:13.677 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@1bc776b7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@181e72d3, org.springframework.security.web.header.HeaderWriterFilter@38aafb53, org.springframework.security.web.authentication.logout.LogoutFilter@3f725306, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7b6e5c12, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@188cbcde, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1f11f64e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@312b34e3, org.springframework.security.web.session.SessionManagementFilter@2b8bb184, org.springframework.security.web.access.ExceptionTranslationFilter@2436ea2f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3e33d73e]
+20:03:13.700 [main] INFO  org.springframework.security.config.http.DefaultFilterChainValidator - Checking whether login URL '/login' is accessible with your configuration
+20:03:13.774 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3273 ms
+20:03:13.913 [main] INFO  /cms - Initializing Spring FrameworkServlet 'dispatcher'
+20:03:13.914 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization started
+20:03:13.921 [main] INFO  org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Mon Aug 05 20:03:13 MSK 2019]; parent: Root WebApplicationContext
+20:03:13.922 [main] INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+20:03:14.434 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.DefaultController.index()
+20:03:14.437 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.LoginController.login(java.lang.String,java.lang.String)
+20:03:14.440 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+20:03:14.441 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.PageController.delete(java.lang.Integer)
+20:03:14.441 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page],methods=[POST]}" onto public java.lang.Object com.itacademy.jd2.yi.cms.web.controller.PageController.save(com.itacademy.jd2.yi.cms.web.dto.PageDTO,org.springframework.validation.BindingResult)
+20:03:14.442 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.showForm()
+20:03:14.442 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.viewDetails(java.lang.Integer)
+20:03:14.442 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/page/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.PageController.edit(java.lang.Integer)
+20:03:14.447 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+20:03:14.448 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.SiteController.delete(java.lang.Integer)
+20:03:14.448 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.SiteController.save(com.itacademy.jd2.yi.cms.web.dto.SiteDTO,org.springframework.validation.BindingResult)
+20:03:14.448 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.showForm()
+20:03:14.449 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.SiteDTO> com.itacademy.jd2.yi.cms.web.controller.SiteController.getCountries(java.lang.Integer)
+20:03:14.449 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.viewDetails(java.lang.Integer)
+20:03:14.449 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/site/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.SiteController.edit(java.lang.Integer)
+20:03:14.457 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+20:03:14.458 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.delete(java.lang.Integer)
+20:03:14.458 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.TemplateController.save(com.itacademy.jd2.yi.cms.web.dto.TemplateDTO,org.springframework.validation.BindingResult)
+20:03:14.458 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.showForm()
+20:03:14.459 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.TemplateDTO> com.itacademy.jd2.yi.cms.web.controller.TemplateController.getCountries(java.lang.Integer)
+20:03:14.459 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.viewDetails(java.lang.Integer)
+20:03:14.459 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/template/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.TemplateController.edit(java.lang.Integer)
+20:03:14.463 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.index(javax.servlet.http.HttpServletRequest,java.lang.Integer,java.lang.String)
+20:03:14.464 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/delete],methods=[GET]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.delete(java.lang.Integer)
+20:03:14.464 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount],methods=[POST]}" onto public java.lang.String com.itacademy.jd2.yi.cms.web.controller.UserAccountController.save(com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO,org.springframework.validation.BindingResult)
+20:03:14.464 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.showForm()
+20:03:14.465 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/json],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.itacademy.jd2.yi.cms.web.dto.UserAccountDTO> com.itacademy.jd2.yi.cms.web.controller.UserAccountController.getCountries(java.lang.Integer)
+20:03:14.465 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.viewDetails(java.lang.Integer)
+20:03:14.466 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/useraccount/{id}/edit],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.itacademy.jd2.yi.cms.web.controller.UserAccountController.edit(java.lang.Integer)
+20:03:14.764 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Mon Aug 05 20:03:13 MSK 2019]; parent: Root WebApplicationContext
+20:03:14.822 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'dispatcher-servlet': startup date [Mon Aug 05 20:03:13 MSK 2019]; parent: Root WebApplicationContext
+20:03:14.884 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler 'org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler#0'
+20:03:14.898 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+20:03:14.999 [main] INFO  org.apache.tiles.access.TilesAccess - Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+20:03:15.056 [main] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcher': initialization completed in 1142 ms
+20:03:15.057 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@3bbc39f8{/cms,file:/E:/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+20:03:15.073 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@34be065a{HTTP/1.1}{0.0.0.0:8081}
+20:03:15.073 [main] INFO  org.eclipse.jetty.server.Server - Started @5863ms
+20:03:26.289 [qtp710239027-18] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 42703
+20:03:26.289 [qtp710239027-18] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ERROR: column page0_.page_title does not exist
+  Position: 251
+20:03:26.292 [qtp710239027-18] WARN  org.eclipse.jetty.servlet.ServletHandler - 
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:986) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:870) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:855) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790) ~[javax.servlet-api-3.1.0.jar:3.1.0]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:812) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1669) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:64) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1652) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:585) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:577) [jetty-security-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) [jetty-io-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_201]
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1763) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1677) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:458) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.criteria.compile.CriteriaQueryTypeQueryAdapter.getResultList(CriteriaQueryTypeQueryAdapter.java:67) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$DeferredQueryInvocationHandler.invoke(SharedEntityManagerCreator.java:379) ~[spring-orm-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy59.getResultList(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.dao.orm.impl.PageDaoImpl.find(PageDaoImpl.java:67) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.service.impl.PageServiceImpl.find(PageServiceImpl.java:80) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:338) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:206) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy43.find(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.web.controller.PageController.index(PageController.java:65) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:871) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:777) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	... 54 more
+Caused by: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:123) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:49) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:126) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:112) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.extract(ResultSetReturnImpl.java:91) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getResultSet(Loader.java:2066) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1863) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1839) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:910) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.criteria.compile.CriteriaQueryTypeQueryAdapter.getResultList(CriteriaQueryTypeQueryAdapter.java:67) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$DeferredQueryInvocationHandler.invoke(SharedEntityManagerCreator.java:379) ~[spring-orm-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy59.getResultList(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.dao.orm.impl.PageDaoImpl.find(PageDaoImpl.java:67) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.service.impl.PageServiceImpl.find(PageServiceImpl.java:80) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:338) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:206) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy43.find(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.web.controller.PageController.index(PageController.java:65) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:871) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:777) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	... 54 more
+Caused by: org.postgresql.util.PSQLException: ERROR: column page0_.page_title does not exist
+  Position: 251
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2270) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1998) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:255) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.execute(AbstractJdbc2Statement.java:570) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeWithFlags(AbstractJdbc2Statement.java:420) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:305) ~[postgresql-9.4-1200-jdbc41.jar:9.4]
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:96) ~[commons-dbcp-1.4.jar:1.4]
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:96) ~[commons-dbcp-1.4.jar:1.4]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.extract(ResultSetReturnImpl.java:82) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.getResultSet(Loader.java:2066) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1863) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:1839) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:910) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:355) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2554) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.doList(Loader.java:2540) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2370) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.Loader.list(Loader.java:2365) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:497) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:387) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.performList(HQLQueryPlan.java:236) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1264) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.internal.QueryImpl.list(QueryImpl.java:103) ~[hibernate-core-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.list(QueryImpl.java:573) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.internal.QueryImpl.getResultList(QueryImpl.java:449) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at org.hibernate.jpa.criteria.compile.CriteriaQueryTypeQueryAdapter.getResultList(CriteriaQueryTypeQueryAdapter.java:67) ~[hibernate-entitymanager-4.3.8.Final.jar:4.3.8.Final]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$DeferredQueryInvocationHandler.invoke(SharedEntityManagerCreator.java:379) ~[spring-orm-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy59.getResultList(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.dao.orm.impl.PageDaoImpl.find(PageDaoImpl.java:67) ~[classes/:?]
+	at com.itacademy.jd2.yi.cms.service.impl.PageServiceImpl.find(PageServiceImpl.java:80) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:338) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:206) ~[spring-aop-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at com.sun.proxy.$Proxy43.find(Unknown Source) ~[?:?]
+	at com.itacademy.jd2.yi.cms.web.controller.PageController.index(PageController.java:65) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_201]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:871) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:777) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:978) ~[spring-webmvc-5.0.0.RELEASE.jar:5.0.0.RELEASE]
+	... 54 more

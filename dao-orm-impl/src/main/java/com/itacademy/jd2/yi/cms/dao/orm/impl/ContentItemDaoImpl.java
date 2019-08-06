@@ -21,6 +21,7 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.ContentItemFilter;
 import com.itacademy.jd2.yi.cms.dao.api.filter.SiteFilter;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.ContentItem;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.ContentItem_;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.UserAccount;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.UserAccount_;
