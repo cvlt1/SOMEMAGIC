@@ -2,8 +2,10 @@ package com.itacademy.jd2.yi.cms.web.dto;
 
 import java.util.Date;
 
-public class TemplateDTO {
+import javax.validation.constraints.Size;
 
+public class TemplateDTO {
+	 @Size(min = 3, max = 50)
 	private String jspPath;
 	private Date created;
 	private Date updated;
@@ -29,7 +31,7 @@ public class TemplateDTO {
 	public void setUpdated(Date updated) {
 		this.updated = updated;
 	}
-
+	
 	public String getJspPath() {
 		return jspPath;
 	}
