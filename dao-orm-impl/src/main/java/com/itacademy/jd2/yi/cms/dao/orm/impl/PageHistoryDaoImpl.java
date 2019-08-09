@@ -17,8 +17,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import com.itacademy.jd2.yi.cms.dao.api.IPageHistoryDao;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageHistory;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageHistoryFilter;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.PageHistory;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.PageHistory_;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page_;
@@ -64,6 +66,29 @@ public class PageHistoryDaoImpl extends AbstractDaoImpl<IPageHistory, Integer> i
 	        setPaging(filter, q);
 	        return q.getResultList();
 	}
+	
+    @Override
+    public IPageHistory getFullInfo(final Integer id) {
+        final EntityManager em = getEntityManager();
+        final CriteriaBuilder cb = em.getCriteriaBuilder();
+
+        final CriteriaQuery<IPageHistory> cq = cb.createQuery(IPageHistory.class); // define returning result
+        final Root<PageHistory> from = cq.from(PageHistory.class); // define table for select
+
+        cq.select(from); // define what need to be selected
+
+        from.fetch(PageHistory_.page, JoinType.LEFT);
+        from.fetch(PageHistory_.changedBy, JoinType.LEFT);
+
+        cq.distinct(true); // to avoid duplicate rows in result
+
+        // .. where id=...
+        cq.where(cb.equal(from.get(PageHistory_.id), id)); // where id=?
+
+        final TypedQuery<IPageHistory> q = em.createQuery(cq);
+
+        return getSingleResult(q);
+    }
 
 	@Override
 	public long getCount(PageHistoryFilter filter) {

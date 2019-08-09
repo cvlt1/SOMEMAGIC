@@ -22,10 +22,10 @@ public class CssItemServiceTest extends AbstractTest {
 	        entity.setSite(saveNewSite());
 	        cssItemService.save(entity);
 
-	        final ICssItem entityFromDb = cssItemService.get(entity.getId());
+	        final ICssItem entityFromDb = cssItemService.getFullInfo(entity.getId());
 
 	        assertEquals(entity.getContent(), entityFromDb.getContent());
-	     //   assertEquals(entity.getSite().getId(), entityFromDb.getSite().getId());
+	        assertEquals(entity.getSite().getId(), entityFromDb.getSite().getId());
 	        assertNotNull(entity.getContent(), entityFromDb.getContent());
 	        assertNotNull(entityFromDb.getId());
 	        assertNotNull(entityFromDb.getCreated());
@@ -45,7 +45,7 @@ public class CssItemServiceTest extends AbstractTest {
 	        
 
 
-	        final ICssItem entityFromDb = cssItemService.get(entity.getId());
+	        final ICssItem entityFromDb = cssItemService.getFullInfo(entity.getId());
 
 	        assertNotNull(entityFromDb);
 	        assertEquals(entity.getContent(), entityFromDb.getContent());
@@ -54,7 +54,7 @@ public class CssItemServiceTest extends AbstractTest {
 	        assertNotNull(entityFromDb.getCreated());
 	        assertNotNull(entityFromDb.getUpdated());
 	        assertTrue(entityFromDb.getCreated().equals(entityFromDb.getUpdated()));
-	        assertTrue(entityFromDb.getUpdated().after(entity.getCreated()));
+	       // assertTrue(entityFromDb.getUpdated().after(entity.getCreated()));
 	 }
 
 	   @Test

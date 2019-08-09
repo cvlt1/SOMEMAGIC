@@ -28,8 +28,8 @@
 </head>
 <body>
 	<tiles:insertAttribute name="header" />
-	<main>
-	<div class="container">
+	<main class="brown lighten-4">
+	<div class="container ">
 		<tiles:insertAttribute name="body" />
 	</div>
 	</main>

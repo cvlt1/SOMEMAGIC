@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Root;
 import javax.persistence.metamodel.SingularAttribute;
@@ -16,12 +17,15 @@ import org.springframework.stereotype.Repository;
 import com.itacademy.jd2.yi.cms.dao.api.IContentItemDao;
 import com.itacademy.jd2.yi.cms.dao.api.ISiteDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IContentItem;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.ContentItemFilter;
 import com.itacademy.jd2.yi.cms.dao.api.filter.SiteFilter;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.ContentItem;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.ContentItem_;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page_;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.UserAccount;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.UserAccount_;
@@ -69,6 +73,28 @@ public class ContentItemDaoImpl  extends AbstractDaoImpl<IContentItem, Integer> 
 
 		return q.getResultList();
 	}
+	
+    @Override
+    public IContentItem getFullInfo(final Integer id) {
+        final EntityManager em = getEntityManager();
+        final CriteriaBuilder cb = em.getCriteriaBuilder();
+
+        final CriteriaQuery<IContentItem> cq = cb.createQuery(IContentItem.class); // define returning result
+        final Root<ContentItem> from = cq.from(ContentItem.class); // define table for select
+
+        cq.select(from); // define what need to be selected
+
+        from.fetch(ContentItem_.site, JoinType.LEFT);
+
+        cq.distinct(true); // to avoid duplicate rows in result
+
+        // .. where id=...
+        cq.where(cb.equal(from.get(ContentItem_.id), id)); // where id=?
+
+        final TypedQuery<IContentItem> q = em.createQuery(cq);
+
+        return getSingleResult(q);
+    }
 	
 	private SingularAttribute<? super ContentItem, ?> toMetamodelFormat(final String sortColumn) {
 		switch (sortColumn) {

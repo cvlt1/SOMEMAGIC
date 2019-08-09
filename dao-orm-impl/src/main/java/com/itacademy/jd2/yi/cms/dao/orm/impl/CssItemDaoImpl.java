@@ -18,9 +18,12 @@ import org.springframework.util.StringUtils;
 
 import com.itacademy.jd2.yi.cms.dao.api.ICssItemDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ICssItem;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.filter.CssItemFilter;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.CssItem;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.CssItem_;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page_;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site_;
 @Repository
 public class CssItemDaoImpl extends AbstractDaoImpl<ICssItem, Integer> implements ICssItemDao {
@@ -57,6 +60,28 @@ public class CssItemDaoImpl extends AbstractDaoImpl<ICssItem, Integer> implement
         setPaging(filter, q);
         return q.getResultList();
 	}
+	
+	 @Override
+	    public ICssItem getFullInfo(final Integer id) {
+	        final EntityManager em = getEntityManager();
+	        final CriteriaBuilder cb = em.getCriteriaBuilder();
+
+	        final CriteriaQuery<ICssItem> cq = cb.createQuery(ICssItem.class); // define returning result
+	        final Root<CssItem> from = cq.from(CssItem.class); // define table for select
+
+	        cq.select(from); // define what need to be selected
+
+	        from.fetch(CssItem_.site, JoinType.LEFT);
+
+	        cq.distinct(true); // to avoid duplicate rows in result
+
+	        // .. where id=...
+	        cq.where(cb.equal(from.get(CssItem_.id), id)); // where id=?
+
+	        final TypedQuery<ICssItem> q = em.createQuery(cq);
+
+	        return getSingleResult(q);
+	    }
 
 	@Override
 	public long getCount(CssItemFilter filter) {

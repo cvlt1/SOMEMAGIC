@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IContentItem;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageItem;
@@ -14,6 +17,8 @@ public class PageItem extends BaseEntity implements IPageItem {
 	@ManyToOne (fetch = FetchType.LAZY, targetEntity = Page.class)
 	private IPage page; // many to one
 	
+	
+	@OnDelete( action = OnDeleteAction.CASCADE)
 	@ManyToOne (fetch = FetchType.LAZY, targetEntity = ContentItem.class)
 	private IContentItem contentItem; // many to one
 	

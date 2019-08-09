@@ -29,4 +29,6 @@ public interface ICssItemService {
 	long getCount(CssItemFilter filter);
 
 	List<ICssItem> find(CssItemFilter filter);
+
+	ICssItem getFullInfo(Integer id);
 }

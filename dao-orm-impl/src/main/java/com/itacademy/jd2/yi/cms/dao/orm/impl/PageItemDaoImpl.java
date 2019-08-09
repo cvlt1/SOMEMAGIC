@@ -17,9 +17,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import com.itacademy.jd2.yi.cms.dao.api.IPageItemDao;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageItem;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageItemFilter;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.ContentItem_;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.PageItem;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.PageItem_;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page_;
@@ -60,6 +62,29 @@ public class PageItemDaoImpl extends AbstractDaoImpl<IPageItem, Integer> impleme
 		        setPaging(filter, q);
 		        return q.getResultList();
 	}
+	
+    @Override
+    public IPageItem getFullInfo(final Integer id) {
+        final EntityManager em = getEntityManager();
+        final CriteriaBuilder cb = em.getCriteriaBuilder();
+
+        final CriteriaQuery<IPageItem> cq = cb.createQuery(IPageItem.class); // define returning result
+        final Root<PageItem> from = cq.from(PageItem.class); // define table for select
+
+        cq.select(from); // define what need to be selected
+
+        from.fetch(PageItem_.page, JoinType.LEFT);
+        from.fetch(PageItem_.contentItem, JoinType.LEFT);
+
+        cq.distinct(true); // to avoid duplicate rows in result
+
+        // .. where id=...
+        cq.where(cb.equal(from.get(PageItem_.id), id)); // where id=?
+
+        final TypedQuery<IPageItem> q = em.createQuery(cq);
+
+        return getSingleResult(q);
+    }
 
 	@Override
 	public long getCount(PageItemFilter filter) {

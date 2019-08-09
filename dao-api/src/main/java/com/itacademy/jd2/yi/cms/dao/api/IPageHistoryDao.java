@@ -15,4 +15,6 @@ public interface IPageHistoryDao extends IDao<IPageHistory, Integer>{
 	
 	long getCount (PageHistoryFilter filter);
 
+	IPageHistory getFullInfo(Integer id);
+
 }

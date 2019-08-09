@@ -73,26 +73,13 @@ public class CssItemServiceImpl implements ICssItemService {
 		return all;
 	}
 
-//	@Override
-//	public ICssItem getFullInfo(final Integer id) {
-//		final ICssItem entity = dao.getFullInfo(id);
-//		return entity;
-//	}
+	@Override
+	public ICssItem getFullInfo(final Integer id) {
+		final ICssItem entity = dao.getFullInfo(id);
+		return entity;
+	}
 
-//	@Override
-//	public void save(final ICssItem entity) {
-//		final Date modifiedDate = new Date();
-//		entity.setUpdated(modifiedDate);
-//
-//		if (entity.getId() == null) {
-//			entity.setCreated(modifiedDate);
-//			dao.insert(entity);
-//
-//
-//		} else {
-//			dao.update(entity);
-//		}
-//	}
+
 
 	@Override
 	public long getCount(CssItemFilter filter) {

@@ -27,18 +27,18 @@ Logged user is anonymous
 
 
 
-	<nav>
+	<nav class="brown lighten-4">
 		<div class="nav-wrapper container">
 			<ul class="left hide-on-med-and-down">
-				<li><a href="${contextPath}/">home</a></li>
-				<li><a href="${pagesTemplate}">Templates</a></li>
-				<li><a href="${pagesPage}">Pages</a></li>
-				<li><a href="${pagesUacc}">User Account</a></li>
-				<li><a href="${pagesSite}">Site</a></li>
-				<a class="right" href="${contextPath}/execute_logout" title="logout"><i
-					class="material-icons">arrow_forward</i></a>
-				<li><a class="highlighted-menu-ru" href="?lang=ru">RU</a></li>
-				<li><a class="highlighted-menu-en" href="?lang=en">EN</a></li>
+				<li><a class="grey-text text-darken-3" href="${contextPath}/">home</a></li>
+				<li><a class="grey-text text-darken-3" href="${pagesTemplate}">Templates</a></li>
+				<li><a class="grey-text text-darken-3" href="${pagesPage}">Pages</a></li>
+				<li><a class="grey-text text-darken-3" href="${pagesUacc}">User Account</a></li>
+				<li><a class="grey-text text-darken-3" href="${pagesSite}">Site</a></li>
+				<a class="right" class="grey-text text-darken-3" href="${contextPath}/execute_logout" title="logout"><i
+					class="material-icons" class="grey-text text-darken-3">arrow_forward</i></a>
+				<li><a class="highlighted-menu-ru" class="grey-text text-darken-3" href="?lang=ru">RU</a></li>
+				<li><a class="highlighted-menu-en" class="grey-text text-darken-3" href="?lang=en">EN</a></li>
 
 			</ul>
 		</div>

@@ -16,6 +16,7 @@ public interface IUserAccountDao extends IDao<IUserAccount, Integer> {
 	long getCount (UserAccountFilter filter);
 
 	IUserAccount findByNickname(String name);
+
 				
 
 }

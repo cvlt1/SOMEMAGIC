@@ -7,18 +7,25 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.PageStatus;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 @Entity
+@OnDelete( action = OnDeleteAction.CASCADE)
+
 public class Page extends BaseEntity implements IPage {
 	
 	
 	@ManyToOne (fetch = FetchType.LAZY, targetEntity = Site.class)
 	private ISite site; // many to one
 	
+	
+
 	@ManyToOne (fetch = FetchType.LAZY, targetEntity = Template.class)
 	private ITemplate template;
 	

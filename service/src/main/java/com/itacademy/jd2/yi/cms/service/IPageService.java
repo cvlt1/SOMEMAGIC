@@ -24,6 +24,7 @@ public interface IPageService {
 	long getCount(PageFilter filter);
 
 	List<IPage> find(PageFilter filter);
+	
 	@Transactional
 	void save(IPage entity);
 

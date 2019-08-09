@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itacademy.jd2.yi.cms.dao.api.IUserAccountDao;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
@@ -105,6 +106,14 @@ public class UserAccountServiceImpl implements IUserAccountService {
 	public IUserAccount findNickname(String name) {
 		return dao.findByNickname(name);
 	}
+
+
+
+
+
+
+
+
 	
 	
 

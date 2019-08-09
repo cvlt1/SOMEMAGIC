@@ -13,4 +13,6 @@ public interface ICssItemDao extends IDao<ICssItem, Integer> {
     List<ICssItem> find(CssItemFilter filter);
 
     long getCount(CssItemFilter filter);
+
+	ICssItem getFullInfo(Integer id);
 }
