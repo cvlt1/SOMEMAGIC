@@ -9,12 +9,18 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.PageStatus;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
+@Indexed
 @Entity
 @OnDelete( action = OnDeleteAction.CASCADE)
 
@@ -36,6 +42,7 @@ public class Page extends BaseEntity implements IPage {
 	private String path;
 	
 	@Column
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String pageTitle;
 	
 	@Column

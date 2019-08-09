@@ -3,6 +3,8 @@ package com.itacademy.jd2.yi.cms.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,6 +98,12 @@ public class PageServiceImpl implements IPageService {
 	@Override
 	public IPage getFullInfo(Integer id) {
 		return dao.getFullInfo(id);
+	}
+
+	@Override
+	@Transactional
+	public List<IPage> search(String text) {
+		return dao.search(text);
 	}
 
 }

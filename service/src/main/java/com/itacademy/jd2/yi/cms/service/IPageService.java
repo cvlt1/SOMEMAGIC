@@ -30,4 +30,8 @@ public interface IPageService {
 
 
 	IPage getFullInfo(Integer id);
+	
+	
+	@Transactional
+	List<IPage> search(String text);
 }

@@ -18,5 +18,7 @@ public interface IPageDao extends IDao<IPage, Integer>{
 
 	IPage getFullInfo(Integer id);
 
+	List<IPage> search(String text);
+
 
 }
