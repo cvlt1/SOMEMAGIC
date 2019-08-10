@@ -18,17 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageHistory;
-import com.itacademy.jd2.yi.cms.dao.api.filter.PageFilter;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageHistoryFilter;
-import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.PageHistory;
 import com.itacademy.jd2.yi.cms.service.IPageHistoryService;
-import com.itacademy.jd2.yi.cms.service.IPageService;
-import com.itacademy.jd2.yi.cms.web.converter.PageFromDTOConverter;
 import com.itacademy.jd2.yi.cms.web.converter.PageHistoryFromDTOConverter;
 import com.itacademy.jd2.yi.cms.web.converter.PageHistoryToDTOConverter;
-import com.itacademy.jd2.yi.cms.web.converter.PageToDTOConverter;
 import com.itacademy.jd2.yi.cms.web.dto.PageDTO;
 import com.itacademy.jd2.yi.cms.web.dto.PageHistoryDTO;
 import com.itacademy.jd2.yi.cms.web.dto.grid.GridStateDTO;
@@ -101,7 +95,7 @@ public class PageHistoryController extends AbstractController {
 		hashMap.put("formModel", dto);
 		hashMap.put("readonly", true);
 
-		return new ModelAndView("page.edit", hashMap);
+		return new ModelAndView("pageHistory.edit", hashMap);
 	}
 
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
