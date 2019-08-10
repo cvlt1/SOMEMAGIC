@@ -8,14 +8,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.itacademy.jd2.yi.cms.dao.api.IPageDao;
 import com.itacademy.jd2.yi.cms.dao.api.IPageHistoryDao;
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageHistory;
-import com.itacademy.jd2.yi.cms.dao.api.filter.PageFilter;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageHistoryFilter;
 import com.itacademy.jd2.yi.cms.service.IPageHistoryService;
-import com.itacademy.jd2.yi.cms.service.IPageService;
 
 @Service
 public class PageHistoryServiceImpl implements IPageHistoryService {
