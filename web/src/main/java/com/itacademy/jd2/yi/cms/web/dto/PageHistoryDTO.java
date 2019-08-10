@@ -5,8 +5,6 @@ import java.util.Date;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.PageStatus;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserStatus;
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 
 public class PageHistoryDTO {
 

@@ -17,6 +17,7 @@ public class PageDTO {
 	private String pageTitle;
 	private Date created;
 	private Date updated;
+	
 	private Integer siteId;
 	private String siteName;
 	private String siteBasepath;
