@@ -12,6 +12,8 @@ import javax.persistence.criteria.Root;
 import javax.persistence.metamodel.SingularAttribute;
 
 import org.hibernate.jpa.criteria.OrderImpl;
+import org.hibernate.search.jpa.FullTextEntityManager;
+import org.hibernate.search.query.dsl.QueryBuilder;
 import org.springframework.stereotype.Repository;
 
 import com.itacademy.jd2.yi.cms.dao.api.IContentItemDao;
@@ -107,7 +109,7 @@ public class ContentItemDaoImpl  extends AbstractDaoImpl<IContentItem, Integer> 
 		case "html":
 			return ContentItem_.html;
 		case "title":
-			return ContentItem_.html;
+			return ContentItem_.title;
 		case "site":
 			return ContentItem_.site;
 		default:
@@ -126,5 +128,27 @@ public class ContentItemDaoImpl  extends AbstractDaoImpl<IContentItem, Integer> 
 		final TypedQuery<Long> q = em.createQuery(cq);
 		return q.getSingleResult(); // execute query
 	}
+	
+	@Override
+
+ 	public List<IContentItem> search(String text) {
+
+ 		EntityManager em = getEntityManager();
+		FullTextEntityManager fullTextEntityManager = org.hibernate.search.jpa.Search.getFullTextEntityManager(em);
+
+ 		// create native Lucene query unsing the query DSL
+		// alternatively you can write the Lucene query using the Lucene query
+		// parser
+		// or the Lucene programmatic API. The Hibernate Search DSL is
+		// recommended though
+		QueryBuilder qb = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(Page.class).get();
+		org.apache.lucene.search.Query luceneQuery = qb.keyword().onFields("title").matching(text).createQuery();
+
+ 		// wrap Lucene query in a javax.persistence.Query
+		javax.persistence.Query jpaQuery = fullTextEntityManager.createFullTextQuery(luceneQuery, Page.class);
+
+ 		return jpaQuery.getResultList();
+
+ 	}
 
 }

@@ -1,5 +1,6 @@
 package com.itacademy.jd2.yi.cms.web.controller;
 
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,30 +19,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageHistory;
-import com.itacademy.jd2.yi.cms.dao.api.filter.PageHistoryFilter;
-import com.itacademy.jd2.yi.cms.service.IPageHistoryService;
-import com.itacademy.jd2.yi.cms.web.converter.PageHistoryFromDTOConverter;
-import com.itacademy.jd2.yi.cms.web.converter.PageHistoryToDTOConverter;
-import com.itacademy.jd2.yi.cms.web.dto.PageDTO;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageItem;
+import com.itacademy.jd2.yi.cms.dao.api.filter.PageItemFilter;
+import com.itacademy.jd2.yi.cms.service.IPageItemService;
+import com.itacademy.jd2.yi.cms.web.converter.PageItemFromDTOConverter;
+import com.itacademy.jd2.yi.cms.web.converter.PageItemToDTOConverter;
 import com.itacademy.jd2.yi.cms.web.dto.PageHistoryDTO;
+import com.itacademy.jd2.yi.cms.web.dto.PageItemDTO;
 import com.itacademy.jd2.yi.cms.web.dto.grid.GridStateDTO;
 
 @Controller
-@RequestMapping(value = "/pagehistory")
-public class PageHistoryController extends AbstractController {
+@RequestMapping(value = "/pageitem")
+public class PageItemController extends AbstractController {
 
 	@Autowired
-	private IPageHistoryService pageHistoryService;
+	private IPageItemService pageItemService;
 
 //	@Autowired
 //	private ISiteService siteService;
 
 	@Autowired
-	private PageHistoryFromDTOConverter fromDtoConverter;
+	private PageItemFromDTOConverter fromDtoConverter;
 
 	@Autowired
-	private PageHistoryToDTOConverter toDtoConverter;
+	private PageItemToDTOConverter toDtoConverter;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView index(final HttpServletRequest req,
@@ -52,17 +53,17 @@ public class PageHistoryController extends AbstractController {
 		gridState.setPage(pageNumber);
 		gridState.setSort(sortColumn, "id");
 
-		final PageHistoryFilter filter = new PageHistoryFilter();
+		final PageItemFilter filter = new PageItemFilter();
 		prepareFilter(gridState, filter);
-		gridState.setTotalCount(pageHistoryService.getCount(filter));
+		gridState.setTotalCount(pageItemService.getCount(filter));
 
 		//filter.setFetchSite(true);
-		final List<IPageHistory> entities = pageHistoryService.find(filter);
-		List<PageHistoryDTO> dtos = entities.stream().map(toDtoConverter).collect(Collectors.toList());
+		final List<IPageItem> entities = pageItemService.find(filter);
+		List<PageItemDTO> dtos = entities.stream().map(toDtoConverter).collect(Collectors.toList());
 
 		final Map<String, Object> models = new HashMap<>();
 		models.put("gridItems", dtos);
-		return new ModelAndView("pageHistory.list", models);
+		return new ModelAndView("pageItem.list", models);
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
@@ -70,47 +71,47 @@ public class PageHistoryController extends AbstractController {
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", new PageHistoryDTO());
 		// loadCommonFormModels(hashMap);
-		return new ModelAndView("pageHistory.edit", hashMap);
+		return new ModelAndView("pageItem.edit", hashMap);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Object save(@Valid @ModelAttribute("formModel") final PageHistoryDTO formModel, final BindingResult result) {
+	public Object save(@Valid @ModelAttribute("formModel") final PageItemDTO formModel, final BindingResult result) {
 		if (result.hasErrors()) {
 			final Map<String, Object> hashMap = new HashMap<>();
 			hashMap.put("formModel", formModel);
 			// loadCommonFormModels(hashMap);
-			return new ModelAndView("pageHistory.edit", hashMap);
+			return new ModelAndView("pageItem.edit", hashMap);
 		} else {
-			final IPageHistory entity = fromDtoConverter.apply(formModel);
-			pageHistoryService.save(entity);
-			return "redirect:/pagehistory";
+			final IPageItem entity = fromDtoConverter.apply(formModel);
+			pageItemService.save(entity);
+			return "redirect:/pageitem";
 		}
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ModelAndView viewDetails(@PathVariable(name = "id", required = true) final Integer id) {
-		final IPageHistory dbModel = pageHistoryService.get(id);
-		final PageHistoryDTO dto = toDtoConverter.apply(dbModel);
+		final IPageItem dbModel = pageItemService.get(id);
+		final PageItemDTO dto = toDtoConverter.apply(dbModel);
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);
 		hashMap.put("readonly", true);
 
-		return new ModelAndView("pageHistory.edit", hashMap);
+		return new ModelAndView("pageItem.edit", hashMap);
 	}
 
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
 	public ModelAndView edit(@PathVariable(name = "id", required = true) final Integer id) {
-		final PageHistoryDTO dto = toDtoConverter.apply(pageHistoryService.get(id));
+		final PageItemDTO dto = toDtoConverter.apply(pageItemService.get(id));
 
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);
 		// loadCommonFormModels(hashMap);
-		return new ModelAndView("pageHistory.edit", hashMap);
+		return new ModelAndView("pageItem.edit", hashMap);
 	}
 
 	@RequestMapping(value = "/{id}/delete", method = RequestMethod.GET)
 	public String delete(@PathVariable(name = "id", required = true) final Integer id) {
-		pageHistoryService.delete(id);
+		pageItemService.delete(id);
 		return "redirect:/pagehistory";
 	}
 
@@ -131,3 +132,4 @@ public class PageHistoryController extends AbstractController {
 //	}
 
 }
+

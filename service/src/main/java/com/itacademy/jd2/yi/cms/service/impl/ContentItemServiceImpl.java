@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.itacademy.jd2.yi.cms.dao.api.IContentItemDao;
 import com.itacademy.jd2.yi.cms.dao.api.IPageHistoryDao;
@@ -100,6 +101,12 @@ public class ContentItemServiceImpl implements IContentItemService {
 	@Override
 	public IContentItem getFullInfo(Integer id) {
 		return dao.getFullInfo(id);
+	}
+	
+	@Override
+	@Transactional
+	public List<IContentItem> search(String text) {
+		return dao.search(text);
 	}
 
 }

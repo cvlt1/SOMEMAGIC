@@ -16,5 +16,7 @@ public interface IContentItemDao extends IDao<IContentItem, Integer> {
 	long getCount (ContentItemFilter filter);
 
 	IContentItem getFullInfo(Integer id);
+	
+	List<IContentItem> search(String text);
 
 }

@@ -58,6 +58,16 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/site/form.jsp" />
 	</definition>
+	
+	<definition name="contentItem.list" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/contentitem/list.jsp" />
+	</definition>
+
+	<definition name="contentItem.edit" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/contentitem/form.jsp" />
+	</definition>
 
 
 

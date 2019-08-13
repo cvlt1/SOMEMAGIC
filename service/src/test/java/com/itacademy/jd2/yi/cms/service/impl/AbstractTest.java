@@ -12,11 +12,13 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.enums.PageStatus;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserStatus;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IBaseEntity;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IContentItem;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ICssItem;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
+import com.itacademy.jd2.yi.cms.service.IContentItemService;
 import com.itacademy.jd2.yi.cms.service.ICssItemService;
 import com.itacademy.jd2.yi.cms.service.IPageService;
 //import com.itacademy.jd2.yi.cms.service.ICssItemService;
@@ -41,6 +43,8 @@ public abstract class AbstractTest {
 	@Autowired
 	protected IPageService pageService;
 	
+	@Autowired
+	protected IContentItemService contentItemService;
 //	@Autowired
 //	protected IPageService pageService;
 	
@@ -116,6 +120,7 @@ public abstract class AbstractTest {
 		return entity;
     	
     }
+    
     
     protected IBaseEntity verifyOrderById(List<? extends IBaseEntity> ascBrands, boolean ascending) {
     	IBaseEntity previousEntity = null;

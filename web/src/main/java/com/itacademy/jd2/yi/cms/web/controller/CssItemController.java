@@ -1,5 +1,6 @@
 package com.itacademy.jd2.yi.cms.web.controller;
 
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,30 +19,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageHistory;
-import com.itacademy.jd2.yi.cms.dao.api.filter.PageHistoryFilter;
-import com.itacademy.jd2.yi.cms.service.IPageHistoryService;
-import com.itacademy.jd2.yi.cms.web.converter.PageHistoryFromDTOConverter;
-import com.itacademy.jd2.yi.cms.web.converter.PageHistoryToDTOConverter;
-import com.itacademy.jd2.yi.cms.web.dto.PageDTO;
-import com.itacademy.jd2.yi.cms.web.dto.PageHistoryDTO;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.ICssItem;
+import com.itacademy.jd2.yi.cms.dao.api.filter.CssItemFilter;
+import com.itacademy.jd2.yi.cms.service.ICssItemService;
+import com.itacademy.jd2.yi.cms.web.converter.CssItemFromDTOConverter;
+import com.itacademy.jd2.yi.cms.web.converter.CssItemToDTOConverter;
+import com.itacademy.jd2.yi.cms.web.dto.CssItemDTO;
 import com.itacademy.jd2.yi.cms.web.dto.grid.GridStateDTO;
 
 @Controller
-@RequestMapping(value = "/pagehistory")
-public class PageHistoryController extends AbstractController {
+@RequestMapping(value = "/cssitem")
+public class CssItemController extends AbstractController {
 
 	@Autowired
-	private IPageHistoryService pageHistoryService;
+	private ICssItemService cssItemService;
 
 //	@Autowired
 //	private ISiteService siteService;
 
 	@Autowired
-	private PageHistoryFromDTOConverter fromDtoConverter;
+	private CssItemFromDTOConverter fromDtoConverter;
 
 	@Autowired
-	private PageHistoryToDTOConverter toDtoConverter;
+	private CssItemToDTOConverter toDtoConverter;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView index(final HttpServletRequest req,
@@ -52,66 +52,66 @@ public class PageHistoryController extends AbstractController {
 		gridState.setPage(pageNumber);
 		gridState.setSort(sortColumn, "id");
 
-		final PageHistoryFilter filter = new PageHistoryFilter();
+		final CssItemFilter filter = new CssItemFilter();
 		prepareFilter(gridState, filter);
-		gridState.setTotalCount(pageHistoryService.getCount(filter));
+		gridState.setTotalCount(cssItemService.getCount(filter));
 
 		//filter.setFetchSite(true);
-		final List<IPageHistory> entities = pageHistoryService.find(filter);
-		List<PageHistoryDTO> dtos = entities.stream().map(toDtoConverter).collect(Collectors.toList());
+		final List<ICssItem> entities = cssItemService.find(filter);
+		List<CssItemDTO> dtos = entities.stream().map(toDtoConverter).collect(Collectors.toList());
 
 		final Map<String, Object> models = new HashMap<>();
 		models.put("gridItems", dtos);
-		return new ModelAndView("pageHistory.list", models);
+		return new ModelAndView("cssItem.list", models);
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView showForm() {
 		final Map<String, Object> hashMap = new HashMap<>();
-		hashMap.put("formModel", new PageHistoryDTO());
+		hashMap.put("formModel", new CssItemDTO());
 		// loadCommonFormModels(hashMap);
-		return new ModelAndView("pageHistory.edit", hashMap);
+		return new ModelAndView("cssItem.edit", hashMap);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Object save(@Valid @ModelAttribute("formModel") final PageHistoryDTO formModel, final BindingResult result) {
+	public Object save(@Valid @ModelAttribute("formModel") final CssItemDTO formModel, final BindingResult result) {
 		if (result.hasErrors()) {
 			final Map<String, Object> hashMap = new HashMap<>();
 			hashMap.put("formModel", formModel);
 			// loadCommonFormModels(hashMap);
-			return new ModelAndView("pageHistory.edit", hashMap);
+			return new ModelAndView("cssItem.edit", hashMap);
 		} else {
-			final IPageHistory entity = fromDtoConverter.apply(formModel);
-			pageHistoryService.save(entity);
-			return "redirect:/pagehistory";
+			final ICssItem entity = fromDtoConverter.apply(formModel);
+			cssItemService.save(entity);
+			return "redirect:/cssitem";
 		}
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ModelAndView viewDetails(@PathVariable(name = "id", required = true) final Integer id) {
-		final IPageHistory dbModel = pageHistoryService.get(id);
-		final PageHistoryDTO dto = toDtoConverter.apply(dbModel);
+		final ICssItem dbModel = cssItemService.get(id);
+		final CssItemDTO dto = toDtoConverter.apply(dbModel);
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);
 		hashMap.put("readonly", true);
 
-		return new ModelAndView("pageHistory.edit", hashMap);
+		return new ModelAndView("cssItem.edit", hashMap);
 	}
 
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
 	public ModelAndView edit(@PathVariable(name = "id", required = true) final Integer id) {
-		final PageHistoryDTO dto = toDtoConverter.apply(pageHistoryService.get(id));
+		final CssItemDTO dto = toDtoConverter.apply(cssItemService.get(id));
 
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);
 		// loadCommonFormModels(hashMap);
-		return new ModelAndView("pageHistory.edit", hashMap);
+		return new ModelAndView("cssItem.edit", hashMap);
 	}
 
 	@RequestMapping(value = "/{id}/delete", method = RequestMethod.GET)
 	public String delete(@PathVariable(name = "id", required = true) final Integer id) {
-		pageHistoryService.delete(id);
-		return "redirect:/pagehistory";
+		cssItemService.delete(id);
+		return "redirect:/cssitem";
 	}
 
 //	private void loadCommonFormModels(final Map<String, Object> hashMap) {
@@ -131,3 +131,4 @@ public class PageHistoryController extends AbstractController {
 //	}
 
 }
+

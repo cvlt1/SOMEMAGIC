@@ -5,6 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Store;
+
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IContentItem;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 @Entity
@@ -13,6 +18,7 @@ public class ContentItem extends BaseEntity implements IContentItem {
 	@Column
 	private String html;
 	@Column
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String title;
 	@ManyToOne (fetch = FetchType.LAZY, targetEntity = Site.class)
 	private ISite site; // many to one

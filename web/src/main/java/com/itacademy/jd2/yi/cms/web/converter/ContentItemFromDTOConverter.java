@@ -3,13 +3,14 @@ package com.itacademy.jd2.yi.cms.web.converter;
 import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IContentItem;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.service.IContentItemService;
 import com.itacademy.jd2.yi.cms.service.ISiteService;
 import com.itacademy.jd2.yi.cms.web.dto.ContentItemDTO;
-
+@Component
 public class ContentItemFromDTOConverter implements Function<ContentItemDTO, IContentItem> {
 	
     @Autowired
