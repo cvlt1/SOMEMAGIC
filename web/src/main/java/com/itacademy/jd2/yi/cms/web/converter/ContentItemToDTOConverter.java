@@ -14,7 +14,7 @@ public class ContentItemToDTOConverter implements Function<IContentItem, Content
 	 @Override
 	    public ContentItemDTO apply(final IContentItem entity) {
 	        final ContentItemDTO contentItemDto = new ContentItemDTO();
-	        contentItemDto.setContentItemId(entity.getId());
+	        contentItemDto.setId(entity.getId());
 	        contentItemDto.setHtml(entity.getHtml());
 	        contentItemDto.setContentItemTitle(entity.getTitle());
 	        contentItemDto.setCreated(entity.getCreated());

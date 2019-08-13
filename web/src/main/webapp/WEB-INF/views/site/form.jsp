@@ -1,9 +1,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<h4 class="header">Edit template</h4>
+<h4 class="header">Edit site</h4>
 <div class="row">
 
-	<form:form class="col s12" method="POST" action="${pagesTemplate}"
+	<form:form class="col s12" method="POST" action="${pagesSite}"
 		modelAttribute="formModel">
 		<form:input path="id" type="hidden" />
 		<div class="row">

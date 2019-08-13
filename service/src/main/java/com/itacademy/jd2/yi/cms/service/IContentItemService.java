@@ -30,7 +30,7 @@ public interface IContentItemService {
 
 
 	IContentItem getFullInfo(Integer id);
-	
-	@Transactional
-	List<IContentItem> search(String text);
+//	
+//	@Transactional
+//	List<IContentItem> search(String text);
 }

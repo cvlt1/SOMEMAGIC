@@ -23,9 +23,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageFilter;
 import com.itacademy.jd2.yi.cms.service.IPageService;
 import com.itacademy.jd2.yi.cms.service.ISiteService;
+import com.itacademy.jd2.yi.cms.service.ITemplateService;
+import com.itacademy.jd2.yi.cms.service.IUserAccountService;
 import com.itacademy.jd2.yi.cms.web.converter.PageFromDTOConverter;
 import com.itacademy.jd2.yi.cms.web.converter.PageToDTOConverter;
 import com.itacademy.jd2.yi.cms.web.dto.PageDTO;
@@ -39,8 +42,14 @@ public class PageController extends AbstractController {
 	@Autowired
 	private IPageService pageService;
 
-//	@Autowired
-//	private ISiteService siteService;
+	@Autowired
+	private ISiteService siteService;
+	
+	@Autowired
+	private ITemplateService templateService;
+	
+	@Autowired
+	private IUserAccountService userAccountService;
 
 	@Autowired
 	private PageFromDTOConverter fromDtoConverter;
@@ -74,7 +83,7 @@ public class PageController extends AbstractController {
 	public ModelAndView showForm() {
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", new PageDTO());
-		// loadCommonFormModels(hashMap);
+		loadCommonFormModels(hashMap);
 		return new ModelAndView("page.edit", hashMap);
 	}
 
@@ -83,7 +92,7 @@ public class PageController extends AbstractController {
 		if (result.hasErrors()) {
 			final Map<String, Object> hashMap = new HashMap<>();
 			hashMap.put("formModel", formModel);
-			// loadCommonFormModels(hashMap);
+			loadCommonFormModels(hashMap);
 			return new ModelAndView("page.edit", hashMap);
 		} else {
 			final IPage entity = fromDtoConverter.apply(formModel);
@@ -105,11 +114,11 @@ public class PageController extends AbstractController {
 
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
 	public ModelAndView edit(@PathVariable(name = "id", required = true) final Integer id) {
-		final PageDTO dto = toDtoConverter.apply(pageService.get(id));
+		final PageDTO dto = toDtoConverter.apply(pageService.getFullInfo(id));
 
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);
-		// loadCommonFormModels(hashMap);
+		 loadCommonFormModels(hashMap);
 		return new ModelAndView("page.edit", hashMap);
 	}
 
@@ -119,20 +128,23 @@ public class PageController extends AbstractController {
 		return "redirect:/page";
 	}
 
-//	private void loadCommonFormModels(final Map<String, Object> hashMap) {
-//		final List<ISite> sites = siteService.getAll();
-//
-//		final Map<Integer, String> sitesMap = new HashMap<>();
-//		for (final ISite iSite : sites) {
-//			sitesMap.put(iSite.getId(), iSite.getSiteName());
-//		}
-//
-//		final Map<Integer, String> sitesMap = sites.stream().collect(Collectors.toMap(ISite::getId, ISite::getName));
-//		hashMap.put("siteChoices", sitesMap);
-//
-////        final Map<Integer, String> enginesMap = engineService.getAll().stream()
-////                .collect(Collectors.toMap(IEngine::getId, IEngine::getTitle));
-////        hashMap.put("engineChoices", enginesMap);
-//	}
+	private void loadCommonFormModels(final Map<String, Object> hashMap) {
+        final List<ISite> sites = siteService.getAll();
+        final List<ITemplate> templates = templateService.getAll();
+        final List<IUserAccount> userAccounts = userAccountService.getAll();
+
+        final Map<Integer, String> sitesMap = sites.stream()
+                .collect(Collectors.toMap(ISite::getId, ISite::getName));
+        hashMap.put("sitesChoices", sitesMap);
+
+        final Map<Integer, String> templatesMap = templates.stream()
+                .collect(Collectors.toMap(ITemplate::getId, ITemplate::getJspPath));
+        hashMap.put("templatesChoices", templatesMap);
+        
+        final Map<Integer, String> userAccountMap = userAccounts.stream()
+                .collect(Collectors.toMap(IUserAccount::getId, IUserAccount::getName));
+        hashMap.put("uAccChoices", userAccountMap);
+    }
+
 
 }

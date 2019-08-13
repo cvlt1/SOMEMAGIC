@@ -9,6 +9,7 @@
 <c:set var="pagesSite" value="${contextPath}/site" scope="request" />
 <c:set var="pagesPage" value="${contextPath}/page" scope="request" />
 <c:set var="pagesContentItem" value="${contextPath}/contentitem" scope="request" />
+<c:set var="pagesPageHistory" value="${contextPath}/pagehistory" scope="request" />
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

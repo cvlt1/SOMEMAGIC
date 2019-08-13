@@ -8,30 +8,41 @@
 		<form:input path="id" type="hidden" />
 		<div class="row">
 			<div class="input-field col s12">
-				<form:input path="siteId" type="text" disabled="${readonly}" />
+				<form:select path="siteId" disabled="${readonly}">
+					<form:options items="${sitesChoices}" />
+				</form:select>
 				<form:errors path="siteId" cssClass="red-text" />
-				<label for="path">siteId</label>
+				<label for="siteId">site</label>
 			</div>
+			
 			<div class="input-field col s12">
-				<form:input path="templateId" type="text" disabled="${readonly}" />
+				<form:select path="templateId" disabled="${readonly}">
+					<form:options items="${templatesChoices}" />
+				</form:select>
 				<form:errors path="templateId" cssClass="red-text" />
-				<label for="path">templateId</label>
+				<label for="templateId">template</label>
 			</div>
+			
+			<div class="input-field col s12">
+				<form:select path="templateId" disabled="${readonly}">
+					<form:options items="${uAccChoices}" />
+				</form:select>
+				<form:errors path="creatorId" cssClass="red-text" />
+				<label for="creatorId">creator</label>
+			</div>
+			
 			<div class="input-field col s12">
 				<form:input path="path" type="text" disabled="${readonly}" />
 				<form:errors path="path" cssClass="red-text" />
 				<label for="path">path</label>
 			</div>
+			
 			<div class="input-field col s12">
 				<form:input path="pageStatus" type="text" disabled="${readonly}" />
 				<form:errors path="pageStatus" cssClass="red-text" />
 				<label for="pageStatus">status</label>
 			</div>
-			<div class="input-field col s12">
-				<form:input path="creatorId" type="text" disabled="${readonly}" />
-				<form:errors path="creatorId" cssClass="red-text" />
-				<label for="pageName">creator</label>
-			</div>
+			
 			<div class="input-field col s12">
 				<form:input path="pageTitle" type="text" disabled="${readonly}" />
 				<form:errors path="pageTitle" cssClass="red-text" />

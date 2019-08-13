@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ContentItemDTO {
 	
-	private Integer contentItemId;
+	private Integer id;
 	private String html;
 	private String contentItemTitle;
 	private Date created;
@@ -15,11 +15,12 @@ public class ContentItemDTO {
 	private String siteBasepath;
 	
 	
-	public Integer getContentItemId() {
-		return contentItemId;
+
+	public Integer getId() {
+		return id;
 	}
-	public void setContentItemId(Integer contentItemId) {
-		this.contentItemId = contentItemId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public String getHtml() {
 		return html;
@@ -65,7 +66,7 @@ public class ContentItemDTO {
 	}
 	@Override
 	public String toString() {
-		return "ContentItemDTO [contentItemId=" + contentItemId + ", html=" + html + ", contentItemTitle="
+		return "ContentItemDTO [contentItemId=" + id + ", html=" + html + ", contentItemTitle="
 				+ contentItemTitle + ", created=" + created + ", updated=" + updated + ", siteId=" + siteId
 				+ ", siteName=" + siteName + ", siteBasepath=" + siteBasepath + "]";
 	}

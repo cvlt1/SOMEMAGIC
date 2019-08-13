@@ -28,7 +28,6 @@ import com.itacademy.jd2.yi.cms.service.ISiteService;
 import com.itacademy.jd2.yi.cms.web.converter.ContentItemFromDTOConverter;
 import com.itacademy.jd2.yi.cms.web.converter.ContentItemToDTOConverter;
 import com.itacademy.jd2.yi.cms.web.dto.ContentItemDTO;
-import com.itacademy.jd2.yi.cms.web.dto.CssItemDTO;
 import com.itacademy.jd2.yi.cms.web.dto.grid.GridStateDTO;
 
 @Controller
@@ -71,7 +70,6 @@ public class ContentItemController extends AbstractController {
 		prepareFilter(gridState, filter);
 		gridState.setTotalCount(contentItemService.getCount(filter));
 
-		//filter.setFetchSite(true);
 		final List<IContentItem> entities = contentItemService.find(filter);
 		List<ContentItemDTO> dtos = entities.stream().map(toDtoConverter).collect(Collectors.toList());
 
@@ -83,8 +81,8 @@ public class ContentItemController extends AbstractController {
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView showForm() {
 		final Map<String, Object> hashMap = new HashMap<>();
-		hashMap.put("formModel", new CssItemDTO());
-		// loadCommonFormModels(hashMap);
+		hashMap.put("formModel", new ContentItemDTO());
+		loadCommonFormModels(hashMap);
 		return new ModelAndView("contentItem.edit", hashMap);
 	}
 
@@ -93,7 +91,7 @@ public class ContentItemController extends AbstractController {
 		if (result.hasErrors()) {
 			final Map<String, Object> hashMap = new HashMap<>();
 			hashMap.put("formModel", formModel);
-			// loadCommonFormModels(hashMap);
+			loadCommonFormModels(hashMap);
 			return new ModelAndView("contentItem.edit", hashMap);
 		} else {
 			final IContentItem entity = fromDtoConverter.apply(formModel);
@@ -119,7 +117,7 @@ public class ContentItemController extends AbstractController {
 
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);
-		loadCommonFormSites(hashMap);
+		loadCommonFormModels(hashMap);
 		return new ModelAndView("contentItem.edit", hashMap);
 	}
 
@@ -129,12 +127,12 @@ public class ContentItemController extends AbstractController {
 		return "redirect:/contentitem";
 	}
 
-    private void loadCommonFormSites(final Map<String, Object> hashMap) {
+    private void loadCommonFormModels(final Map<String, Object> hashMap) {
 
-        final Map<Integer, String> engineTypesMap = siteService.getAll().stream()
+        final Map<Integer, String> contentMap = siteService.getAll().stream()
                 .collect(Collectors.toMap(ISite::getId, ISite::getName));
 
-        hashMap.put("sitesChoices", engineTypesMap);
+        hashMap.put("sitesChoices", contentMap);
 
     }
 

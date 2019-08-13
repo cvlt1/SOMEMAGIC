@@ -22,7 +22,7 @@ public class ContentItemFromDTOConverter implements Function<ContentItemDTO, ICo
     @Override
     public IContentItem apply(final ContentItemDTO dto) {
         final IContentItem entity = contentItemService.createEntity();
-        entity.setId(dto.getContentItemId());
+        entity.setId(dto.getId());
         entity.setHtml(dto.getHtml());
         entity.setTitle(dto.getContentItemTitle());
         

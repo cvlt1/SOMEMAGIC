@@ -82,7 +82,7 @@ public class ContentItemServiceImpl implements IContentItemService {
 
 	@Override
 	public List<IContentItem> find(ContentItemFilter filter) {
-		return dao.find(filter);
+		return dao.find(filter); //TODO
 	}
 	
 	  @Override
@@ -103,10 +103,10 @@ public class ContentItemServiceImpl implements IContentItemService {
 		return dao.getFullInfo(id);
 	}
 	
-	@Override
-	@Transactional
-	public List<IContentItem> search(String text) {
-		return dao.search(text);
-	}
+//	@Override
+//	@Transactional
+//	public List<IContentItem> search(String text) {
+//		return dao.search(text);
+//	}
 
 }

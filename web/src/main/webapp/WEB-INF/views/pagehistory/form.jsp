@@ -3,27 +3,23 @@
 
 <h4 class="header">Edit content</h4>
 <div class="row">
-	<form:form class="col s12" method="POST" action="${pagesContentItem}"
+	<form:form class="col s12" method="POST" action="${pagesPageHistory}"
 		modelAttribute="formModel">
 		<form:input path="id" type="hidden" />
 		<div class="row">
 			<div class="input-field col s12">
-				<form:input path="html" type="text" disabled="${readonly}" />
-				<form:errors path="html" cssClass="red-text" />
-				<label for="html">html</label>
-
-			</div>
-			<div class="input-field col s12">
-				<form:input path="contentItemTitle" type="text" disabled="${readonly}" />
-				<form:errors path="contentItemTitle" cssClass="red-text" />
-				<label for="contentItemTitle">"title"</label>
-			</div>
-			<div class="input-field col s12">
-				<form:select path="siteId" disabled="${readonly}">
-					<form:options items="${sitesChoices}" />
+				<form:select path="pageId" disabled="${readonly}">
+					<form:options items="${pagesChoices}" />
 				</form:select>
-				<form:errors path="siteId" cssClass="red-text" />
-				<label for="siteId">siteId</label>
+				<form:errors path="pageId" cssClass="red-text" />
+				<label for="pageId">page id</label>
+			</div>
+			<div class="input-field col s12">
+				<form:select path="changedBy" disabled="${readonly}">
+					<form:options items="${uAccChoices}" />
+				</form:select>
+				<form:errors path="changedBy" cssClass="red-text" />
+				<label for="changedBy">changed by</label>
 			</div>
 		</div>
 		<div class="row">
@@ -35,7 +31,7 @@
 			</div>
 			<div class="col s3">
 				<a class="btn waves-effect waves-light right"
-					href="${pagesContentItem}">to list<i
+					href="${pagesPageHistory}">to list<i
 					class="material-icons right"></i>
 				</a>
 			</div>
