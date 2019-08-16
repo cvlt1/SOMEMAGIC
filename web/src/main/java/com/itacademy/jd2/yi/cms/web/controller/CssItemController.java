@@ -92,7 +92,7 @@ public class CssItemController extends AbstractController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ModelAndView viewDetails(@PathVariable(name = "id", required = true) final Integer id) {
-		final ICssItem dbModel = cssItemService.get(id);
+		final ICssItem dbModel = cssItemService.getFullInfo(id);
 		final CssItemDTO dto = toDtoConverter.apply(dbModel);
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);
@@ -103,7 +103,7 @@ public class CssItemController extends AbstractController {
 
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
 	public ModelAndView edit(@PathVariable(name = "id", required = true) final Integer id) {
-		final CssItemDTO dto = toDtoConverter.apply(cssItemService.get(id));
+		final CssItemDTO dto = toDtoConverter.apply(cssItemService.getFullInfo(id));
 
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);

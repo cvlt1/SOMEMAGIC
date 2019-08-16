@@ -60,6 +60,13 @@ public final class StartJetty {
 		bb.setWar("src/main/webapp");
 
 		server.setHandler(bb);
+		
+		final EnvConfiguration envConfiguration = new EnvConfiguration();
+		final URL url = new File("src/test/resources/jetty-env.xml").toURI().toURL();
+		envConfiguration.setJettyEnvXml(url);
+		final Configuration[] configurations = new Configuration[] { new WebInfConfiguration(), envConfiguration,
+		new WebXmlConfiguration() };
+		bb.setConfigurations(configurations);
 
 		try {
 			server.start();
@@ -68,4 +75,5 @@ public final class StartJetty {
 			System.exit(100);
 		}
 	}
+	
 }

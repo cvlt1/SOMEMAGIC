@@ -408,3 +408,86 @@ org.apache.lucene.store.LockObtainFailedException: Lock obtain timed out: Native
 20:59:36.849 [Hibernate Search: identifierloader-1] INFO  org.hibernate.search.batchindexing.impl.SimpleIndexingProgressMonitor - HSEARCH000027: Going to reindex 2 entities
 20:59:37.319 [main] INFO  org.hibernate.search.batchindexing.impl.SimpleIndexingProgressMonitor - HSEARCH000028: Reindexed 2 entities
 20:59:37.319 [main] INFO  com.itacademy.jd2.yi.cms.dao.orm.impl.HibernateSearchInitializer - index intialization completed.
+20:32:58.858 [main] INFO  org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+20:32:58.878 [main] INFO  org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7b98f307, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4802796d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@34123d65, org.springframework.test.context.transaction.TransactionalTestExecutionListener@59474f18, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@65fb9ffc]
+20:32:59.544 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: my-unit
+	...]
+20:32:59.644 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.8.Final}
+20:32:59.646 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+20:32:59.648 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+20:32:59.825 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+20:33:00.166 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+20:33:00.177 [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+20:33:00.264 [main] WARN  org.hibernate.cfg.AnnotationBinder - HHH000136: Inapropriate use of @OnDelete on entity, annotation ignored: com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page
+20:33:00.320 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+20:33:00.419 [main] INFO  org.hibernate.search.engine.Version - HSEARCH000034: Hibernate Search 5.0.1.Final
+20:33:00.817 [main] WARN  org.hibernate.search.engine.impl.ConfigContext - HSEARCH000075: Configuration setting hibernate.search.lucene_version was not specified: using LUCENE_CURRENT.
+20:33:01.159 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'my-unit'
+20:33:01.224 [main] INFO  com.itacademy.jd2.yi.cms.dao.orm.impl.HibernateSearchInitializer - index intialization started.
+20:33:01.619 [Hibernate Search: identifierloader-1] INFO  org.hibernate.search.batchindexing.impl.SimpleIndexingProgressMonitor - HSEARCH000027: Going to reindex 1 entities
+20:33:01.914 [main] INFO  org.hibernate.search.batchindexing.impl.SimpleIndexingProgressMonitor - HSEARCH000028: Reindexed 1 entities
+20:33:01.914 [main] INFO  com.itacademy.jd2.yi.cms.dao.orm.impl.HibernateSearchInitializer - index intialization completed.
+20:33:02.360 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23503
+20:33:02.361 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: UPDATE или DELETE в таблице "user_account" нарушает ограничение внешнего ключа "page_fk3" таблицы "page"
+  Detail: На ключ (id)=(1) всё ещё есть ссылки в таблице "page".
+20:33:04.606 [Thread-2] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'my-unit'
+20:34:00.525 [main] INFO  org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+20:34:00.536 [main] INFO  org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7b98f307, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4802796d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@34123d65, org.springframework.test.context.transaction.TransactionalTestExecutionListener@59474f18, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@65fb9ffc]
+20:34:01.334 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: my-unit
+	...]
+20:34:01.403 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.8.Final}
+20:34:01.405 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+20:34:01.406 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+20:34:01.559 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+20:34:01.895 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+20:34:01.906 [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+20:34:02.004 [main] WARN  org.hibernate.cfg.AnnotationBinder - HHH000136: Inapropriate use of @OnDelete on entity, annotation ignored: com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page
+20:34:02.089 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+20:34:02.189 [main] INFO  org.hibernate.search.engine.Version - HSEARCH000034: Hibernate Search 5.0.1.Final
+20:34:02.531 [main] WARN  org.hibernate.search.engine.impl.ConfigContext - HSEARCH000075: Configuration setting hibernate.search.lucene_version was not specified: using LUCENE_CURRENT.
+20:34:02.869 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'my-unit'
+20:34:02.923 [main] INFO  com.itacademy.jd2.yi.cms.dao.orm.impl.HibernateSearchInitializer - index intialization started.
+20:34:03.410 [Hibernate Search: identifierloader-1] INFO  org.hibernate.search.batchindexing.impl.SimpleIndexingProgressMonitor - HSEARCH000027: Going to reindex 1 entities
+20:34:03.687 [main] INFO  org.hibernate.search.batchindexing.impl.SimpleIndexingProgressMonitor - HSEARCH000028: Reindexed 1 entities
+20:34:03.687 [main] INFO  com.itacademy.jd2.yi.cms.dao.orm.impl.HibernateSearchInitializer - index intialization completed.
+20:34:03.859 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:createEntity=37 microseconds]
+20:34:03.886 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:save=20958 microseconds]
+20:34:03.906 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:createEntity=9 microseconds]
+20:34:03.908 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:save=1092 microseconds]
+20:34:03.935 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:createEntity=12 microseconds]
+20:34:03.939 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:save=3393 microseconds]
+20:34:03.943 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:createEntity=11 microseconds]
+20:34:03.944 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:save=1112 microseconds]
+20:34:03.983 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:createEntity=8 microseconds]
+20:34:03.988 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:save=4262 microseconds]
+20:34:04.027 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:createEntity=9 microseconds]
+20:34:04.029 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:save=1292 microseconds]
+20:34:04.263 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:getCount=203641 microseconds]
+20:34:04.393 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:createEntity=7 microseconds]
+20:34:04.445 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:save=2107 microseconds]
+20:34:04.456 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23503
+20:34:04.457 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - ОШИБКА: UPDATE или DELETE в таблице "user_account" нарушает ограничение внешнего ключа "page_fk3" таблицы "page"
+  Detail: На ключ (id)=(1) всё ещё есть ссылки в таблице "page".
+20:34:04.473 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:getAll=8469 microseconds]
+20:34:04.473 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:createEntity=9 microseconds]
+20:34:04.473 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:createEntity=5 microseconds]
+20:34:04.480 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:getAll=5135 microseconds]
+20:34:04.482 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:createEntity=8 microseconds]
+20:34:04.484 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:save=1364 microseconds]
+20:34:04.493 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:get=7461 microseconds]
+20:34:04.496 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:createEntity=8 microseconds]
+20:34:04.507 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:save=11113 microseconds]
+20:34:04.525 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:delete=13667 microseconds]
+20:34:04.528 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:get=1414 microseconds]
+20:34:04.535 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:getAll=4769 microseconds]
+20:34:04.535 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:createEntity=12 microseconds]
+20:34:04.539 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:save=3597 microseconds]
+20:34:04.540 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:createEntity=15 microseconds]
+20:34:04.544 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:save=2803 microseconds]
+20:34:04.550 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:getAll=3971 microseconds]
+20:34:04.552 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:createEntity=10 microseconds]
+20:34:04.554 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:save=2150 microseconds]
+20:34:06.590 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:save=32014 microseconds]
+20:34:06.593 [main] INFO  MethodExecutionTimeProfiler - method execution: [UserAccountServiceImpl:get=1962 microseconds]
