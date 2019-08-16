@@ -4,9 +4,9 @@ public interface IContentItem extends IBaseEntity {
 
 	String toString();
 
-	void setSiteId(ISite site);
+	void setSite(ISite site);
 
-	ISite getSiteId();
+	ISite getSite();
 
 	void setTitle(String title);
 
@@ -15,5 +15,6 @@ public interface IContentItem extends IBaseEntity {
 	void setHtml(String html);
 
 	String getHtml();
+
 
 }

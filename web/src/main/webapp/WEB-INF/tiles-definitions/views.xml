@@ -70,6 +70,8 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/contentitem/form.jsp" />
 	</definition>
+
+
 	<definition name="pageHistory.list"
 		extends="DefaultTemplate">
 		<put-attribute name="body"
@@ -80,6 +82,19 @@
 		extends="DefaultTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/views/pagehistory/form.jsp" />
+	</definition>
+
+
+	<definition name="cssItem.list"
+		extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/cssitem/list.jsp" />
+	</definition>
+
+	<definition name="cssItem.edit"
+		extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/cssitem/form.jsp" />
 	</definition>
 
 

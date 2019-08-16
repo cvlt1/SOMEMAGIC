@@ -41,11 +41,11 @@ public class ContentItem extends BaseEntity implements IContentItem {
 		this.title = title;
 	}
 	@Override
-	public ISite getSiteId() {
+	public ISite getSite() {
 		return site;
 	}
 	@Override
-	public void setSiteId(ISite site) {
+	public void setSite(ISite site) {
 		this.site = site;
 	}
 	@Override

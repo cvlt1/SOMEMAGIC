@@ -20,8 +20,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ICssItem;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.CssItemFilter;
 import com.itacademy.jd2.yi.cms.service.ICssItemService;
+import com.itacademy.jd2.yi.cms.service.ISiteService;
 import com.itacademy.jd2.yi.cms.web.converter.CssItemFromDTOConverter;
 import com.itacademy.jd2.yi.cms.web.converter.CssItemToDTOConverter;
 import com.itacademy.jd2.yi.cms.web.dto.CssItemDTO;
@@ -34,8 +38,8 @@ public class CssItemController extends AbstractController {
 	@Autowired
 	private ICssItemService cssItemService;
 
-//	@Autowired
-//	private ISiteService siteService;
+	@Autowired
+	private ISiteService siteService;
 
 	@Autowired
 	private CssItemFromDTOConverter fromDtoConverter;
@@ -56,7 +60,6 @@ public class CssItemController extends AbstractController {
 		prepareFilter(gridState, filter);
 		gridState.setTotalCount(cssItemService.getCount(filter));
 
-		//filter.setFetchSite(true);
 		final List<ICssItem> entities = cssItemService.find(filter);
 		List<CssItemDTO> dtos = entities.stream().map(toDtoConverter).collect(Collectors.toList());
 
@@ -69,7 +72,7 @@ public class CssItemController extends AbstractController {
 	public ModelAndView showForm() {
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", new CssItemDTO());
-		// loadCommonFormModels(hashMap);
+		loadCommonFormModels(hashMap);
 		return new ModelAndView("cssItem.edit", hashMap);
 	}
 
@@ -78,7 +81,7 @@ public class CssItemController extends AbstractController {
 		if (result.hasErrors()) {
 			final Map<String, Object> hashMap = new HashMap<>();
 			hashMap.put("formModel", formModel);
-			// loadCommonFormModels(hashMap);
+			loadCommonFormModels(hashMap);
 			return new ModelAndView("cssItem.edit", hashMap);
 		} else {
 			final ICssItem entity = fromDtoConverter.apply(formModel);
@@ -104,7 +107,7 @@ public class CssItemController extends AbstractController {
 
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);
-		// loadCommonFormModels(hashMap);
+		loadCommonFormModels(hashMap);
 		return new ModelAndView("cssItem.edit", hashMap);
 	}
 
@@ -114,21 +117,14 @@ public class CssItemController extends AbstractController {
 		return "redirect:/cssitem";
 	}
 
-//	private void loadCommonFormModels(final Map<String, Object> hashMap) {
-//		final List<ISite> sites = siteService.getAll();
-//
-//		final Map<Integer, String> sitesMap = new HashMap<>();
-//		for (final ISite iSite : sites) {
-//			sitesMap.put(iSite.getId(), iSite.getSiteName());
-//		}
-//
-//		final Map<Integer, String> sitesMap = sites.stream().collect(Collectors.toMap(ISite::getId, ISite::getName));
-//		hashMap.put("siteChoices", sitesMap);
-//
-////        final Map<Integer, String> enginesMap = engineService.getAll().stream()
-////                .collect(Collectors.toMap(IEngine::getId, IEngine::getTitle));
-////        hashMap.put("engineChoices", enginesMap);
-//	}
+	private void loadCommonFormModels(final Map<String, Object> hashMap) {
+        final List<ISite> sites = siteService.getAll();
+
+        final Map<Integer, String> sitesMap = sites.stream()
+                .collect(Collectors.toMap(ISite::getId, ISite::getName));
+        hashMap.put("sitesChoices", sitesMap);
+
+    }
 
 }
 

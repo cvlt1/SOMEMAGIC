@@ -5,43 +5,40 @@
 <%@ taglib prefix="mytaglib" uri="my-custom-tags-uri"%>
 
 
-<h4 class="header">Content</h4>
+<h4 class="header">Css</h4>
 <table class="bordered highlight">
 	<tbody>
 		<tr>
-			<th><mytaglib:sort-link pageUrl="${pagesContentItem}"
+			<th><mytaglib:sort-link pageUrl="${pagesCssItem}"
 					column="id">id</mytaglib:sort-link></th>
-			<th><mytaglib:sort-link pageUrl="${pagesContentItem}"
-					column="html">html</mytaglib:sort-link></th>
-			<th><mytaglib:sort-link pageUrl="${pagesContentItem}"
+			<th><mytaglib:sort-link pageUrl="${pagesCssItem}"
+					column="content">content</mytaglib:sort-link></th>
+			<th><mytaglib:sort-link pageUrl="${pagesCssItem}"
 					column="siteId">site</mytaglib:sort-link></th>
-			<th><mytaglib:sort-link pageUrl="${pagesContentItem}"
-					column="title">title</mytaglib:sort-link></th>
-			<th><mytaglib:sort-link pageUrl="${pagesContentItem}"
+			<th><mytaglib:sort-link pageUrl="${pagesCssItem}"
 					column="created">created</mytaglib:sort-link></th>
-			<th><mytaglib:sort-link pageUrl="${pagesContentItem}"
+			<th><mytaglib:sort-link pageUrl="${pagesCssItem}"
 					column="updated">updated</mytaglib:sort-link></th>
 			<th></th>
 		</tr>
-		<c:forEach var="contentItem" items="${gridItems}"
+		<c:forEach var="cssItem" items="${gridItems}"
 			varStatus="loopCounter">
 			<tr>
-				<td><c:out value="${contentItem.id}" /></td>
-				<td><c:out value="${contentItem.html}" /></td>
-				<td><c:out value="${contentItem.siteId}" /></td>
-				<td><c:out value="${contentItem.title}" /></td>
+				<td><c:out value="${cssItem.id}" /></td>
+				<td><c:out value="${cssItem.content}" /></td>
+				<td><c:out value="${cssItem.siteId}" /></td>
 				<td><fmt:formatDate pattern="yyyy-MM-dd"
-						value="${contentItem.created}" /></td>
+						value="${cssItem.created}" /></td>
 				<td><fmt:formatDate pattern="yyyy-MM-dd"
-						value="${contentItem.updated}" /></td>
+						value="${cssItem.updated}" /></td>
 				<td class="right"><a class="btn-floating"
-					href="${pagesContentItem}/${contentItem.id}"><i
+					href="${pagesCssItem}/${cssItem.id}"><i
 						class="material-icons">info</i></a> <a class="btn-floating green"
-					href="${pagesContentItem}/${contentItem.id}/add"><i
+					href="${pagesCssItem}/${cssItem.id}/add"><i
 						class="material-icons">add</i></a> <a class="btn-floating"
-					href="${pagesContentItem}/${contentItem.id}/edit"><i
+					href="${pagesContentItem}/${cssItem.id}/edit"><i
 						class="material-icons">edit</i></a> <a class="btn-floating red"
-					href="${pagesContentItem}/${contentItem.id}/delete"><i
+					href="${pagesContentItem}/${cssItem.id}/delete"><i
 						class="material-icons">delete</i></a></td>
 			</tr>
 		</c:forEach>
@@ -49,4 +46,4 @@
 </table>
 <jspFragments:paging />
 <a class="waves-effect waves-light btn right"
-	href="${pagesContentItem}/add"><i class="material-icons">add</i></a>
+	href="${pagesCssItem}/add"><i class="material-icons">add</i></a>

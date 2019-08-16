@@ -101,7 +101,7 @@ public class PageItemController extends AbstractController {
 
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
 	public ModelAndView edit(@PathVariable(name = "id", required = true) final Integer id) {
-		final PageItemDTO dto = toDtoConverter.apply(pageItemService.get(id));
+		final PageItemDTO dto = toDtoConverter.apply(pageItemService.getFullInfo(id));
 
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);

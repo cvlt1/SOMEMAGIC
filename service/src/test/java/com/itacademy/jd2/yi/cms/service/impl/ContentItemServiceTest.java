@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IContentItem;
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 
 public class ContentItemServiceTest extends AbstractTest {
 
@@ -16,7 +15,7 @@ public class ContentItemServiceTest extends AbstractTest {
     public void createTest() {
         final IContentItem entity = contentItemService.createEntity();
         entity.setHtml("html-" + getRandomPrefix());
-        entity.setSiteId(saveNewSite());
+        entity.setSite(saveNewSite());
         entity.setTitle("title-" + getRandomPrefix());
         contentItemService.save(entity);
 
@@ -24,7 +23,7 @@ public class ContentItemServiceTest extends AbstractTest {
 
         assertEquals(entity.getHtml(), entityFromDb.getHtml());
         assertEquals(entity.getTitle(), entityFromDb.getTitle());
-        assertEquals(entity.getSiteId().getId(), entityFromDb.getSiteId().getId());
+        assertEquals(entity.getSite().getId(), entityFromDb.getSite().getId());
         assertNotNull(entityFromDb.getId());
         assertNotNull(entityFromDb.getCreated());
         assertNotNull(entityFromDb.getUpdated());

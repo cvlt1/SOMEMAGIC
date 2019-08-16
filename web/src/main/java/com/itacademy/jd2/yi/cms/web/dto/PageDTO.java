@@ -19,9 +19,10 @@ public class PageDTO {
 	private Date updated;
 	
 	private Integer siteId;
+	
+	private Integer creatorId;
 	private String siteName;
 	private String siteBasepath;
-	private Integer creatorId;
 	private String creatorName;
 	private String creatorPassword;
 	private String creatorEmail;
@@ -33,6 +34,13 @@ public class PageDTO {
 	
 	
 	
+	
+	public Integer getCreatorId() {
+		return creatorId;
+	}
+	public void setCreatorId(Integer creatorId) {
+		this.creatorId = creatorId;
+	}
 	public Integer getTemplateId() {
 		return templateId;
 	}
@@ -45,12 +53,7 @@ public class PageDTO {
 	public void setJspPath(String jspPath) {
 		this.jspPath = jspPath;
 	}
-	public Integer getCreatorId() {
-		return creatorId;
-	}
-	public void setCreatorId(Integer creatorId) {
-		this.creatorId = creatorId;
-	}
+
 	public String getCreatorName() {
 		return creatorName;
 	}

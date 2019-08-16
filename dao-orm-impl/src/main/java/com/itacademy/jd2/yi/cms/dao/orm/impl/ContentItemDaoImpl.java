@@ -1,5 +1,6 @@
 package com.itacademy.jd2.yi.cms.dao.orm.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.metamodel.SingularAttribute;
 
@@ -15,6 +17,7 @@ import org.hibernate.jpa.criteria.OrderImpl;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.query.dsl.QueryBuilder;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import com.itacademy.jd2.yi.cms.dao.api.IContentItemDao;
 import com.itacademy.jd2.yi.cms.dao.api.ISiteDao;
@@ -23,12 +26,15 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.ContentItemFilter;
+import com.itacademy.jd2.yi.cms.dao.api.filter.PageFilter;
 import com.itacademy.jd2.yi.cms.dao.api.filter.SiteFilter;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.ContentItem;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.ContentItem_;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page_;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site_;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Template_;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.UserAccount;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.UserAccount_;
 
@@ -54,26 +60,60 @@ public class ContentItemDaoImpl  extends AbstractDaoImpl<IContentItem, Integer> 
 	public List<IContentItem> find(ContentItemFilter filter) {
 		final EntityManager em = getEntityManager();
 		final CriteriaBuilder cb = em.getCriteriaBuilder();
-
 		final CriteriaQuery<IContentItem> cq = cb.createQuery(IContentItem.class);
+		final Root<ContentItem> from = cq.from(ContentItem.class);
+		cq.select(from);
 
-		final Root<ContentItem> from = cq.from(ContentItem.class);// select from brand
-		cq.select(from); // select what? select *
+		from.fetch(ContentItem_.site, JoinType.LEFT);
 
+		applyFilter(filter, cb, cq, from);
+
+		// set sort params
 		if (filter.getSortColumn() != null) {
-			final SingularAttribute<? super ContentItem, ?> sortProperty = toMetamodelFormat(filter.getSortColumn());
-			final Path<?> expression = from.get(sortProperty); // build path to
-			// sort
-			// property
-			cq.orderBy(new OrderImpl(expression, filter.getSortOrder())); // order
-			// by
-			// column_name
-			// order
+			final Path<?> expression = getSortPath(from, filter.getSortColumn());
+			cq.orderBy(new OrderImpl(expression, filter.getSortOrder()));
 		}
+
 		final TypedQuery<IContentItem> q = em.createQuery(cq);
 		setPaging(filter, q);
-
 		return q.getResultList();
+	}
+	
+	private void applyFilter(final ContentItemFilter filter, final CriteriaBuilder cb, final CriteriaQuery<?> cq,
+			final Root<ContentItem> from) {
+		final List<Predicate> ands = new ArrayList<>();
+
+		final String html = filter.getHtml();
+		if (!StringUtils.isEmpty(html)) {
+			ands.add(cb.equal(from.get(ContentItem_.html), html));
+		}
+		final String title = filter.getTitle();
+		if (!StringUtils.isEmpty(title)) {
+			ands.add(cb.equal(from.get(ContentItem_.title), title));
+		}
+
+		if (!ands.isEmpty()) {
+			cq.where(cb.and(ands.toArray(new Predicate[0])));
+		}
+	}
+
+	private Path<?> getSortPath(final Root<ContentItem> from, final String sortColumn) {
+		switch (sortColumn) {
+		case "created":
+			return from.get(ContentItem_.created);
+		case "updated":
+			return from.get(ContentItem_.updated);
+		case "id":
+			return from.get(ContentItem_.id);
+		case "html":
+			return from.get(ContentItem_.html);
+		case "title":
+			return from.get(ContentItem_.title);
+		case "site_id":
+			return from.get(ContentItem_.site).get(Site_.name);
+		default:
+			throw new UnsupportedOperationException("sorting is not supported by column:" + sortColumn);
+		}
 	}
 	
     @Override

@@ -16,11 +16,11 @@ public class ContentItemToDTOConverter implements Function<IContentItem, Content
 	        final ContentItemDTO contentItemDto = new ContentItemDTO();
 	        contentItemDto.setId(entity.getId());
 	        contentItemDto.setHtml(entity.getHtml());
-	        contentItemDto.setContentItemTitle(entity.getTitle());
+	        contentItemDto.setTitle(entity.getTitle());
 	        contentItemDto.setCreated(entity.getCreated());
 	        contentItemDto.setUpdated(entity.getUpdated());
 
-	        final ISite site = entity.getSiteId();
+	        final ISite site = entity.getSite();
 	        if (site != null) {
 	        	 contentItemDto.setSiteId(site.getId());
 	        	 contentItemDto.setSiteName(site.getName());

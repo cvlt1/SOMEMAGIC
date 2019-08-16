@@ -6,7 +6,7 @@ public class ContentItemDTO {
 	
 	private Integer id;
 	private String html;
-	private String contentItemTitle;
+	private String title;
 	private Date created;
 	private Date updated;
 	
@@ -16,6 +16,12 @@ public class ContentItemDTO {
 	
 	
 
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -27,12 +33,6 @@ public class ContentItemDTO {
 	}
 	public void setHtml(String html) {
 		this.html = html;
-	}
-	public String getContentItemTitle() {
-		return contentItemTitle;
-	}
-	public void setContentItemTitle(String contentItemTitle) {
-		this.contentItemTitle = contentItemTitle;
 	}
 	public Date getCreated() {
 		return created;
@@ -67,7 +67,7 @@ public class ContentItemDTO {
 	@Override
 	public String toString() {
 		return "ContentItemDTO [contentItemId=" + id + ", html=" + html + ", contentItemTitle="
-				+ contentItemTitle + ", created=" + created + ", updated=" + updated + ", siteId=" + siteId
+				+ title + ", created=" + created + ", updated=" + updated + ", siteId=" + siteId
 				+ ", siteName=" + siteName + ", siteBasepath=" + siteBasepath + "]";
 	}
 	

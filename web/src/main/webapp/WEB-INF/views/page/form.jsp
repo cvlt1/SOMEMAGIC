@@ -24,7 +24,7 @@
 			</div>
 			
 			<div class="input-field col s12">
-				<form:select path="templateId" disabled="${readonly}">
+				<form:select path="creatorId" disabled="${readonly}">
 					<form:options items="${uAccChoices}" />
 				</form:select>
 				<form:errors path="creatorId" cssClass="red-text" />

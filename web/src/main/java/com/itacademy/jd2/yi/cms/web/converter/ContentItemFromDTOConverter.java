@@ -24,12 +24,12 @@ public class ContentItemFromDTOConverter implements Function<ContentItemDTO, ICo
         final IContentItem entity = contentItemService.createEntity();
         entity.setId(dto.getId());
         entity.setHtml(dto.getHtml());
-        entity.setTitle(dto.getContentItemTitle());
+        entity.setTitle(dto.getTitle());
         
         
         final ISite site = siteService.createEntity();
         site.setId(dto.getSiteId());
-        entity.setSiteId(site);
+        entity.setSite(site);
         
         return entity;
     }

@@ -124,8 +124,8 @@ public class PageHistoryDaoImpl extends AbstractDaoImpl<IPageHistory, Integer> i
             return from.get(PageHistory_.id);
         case "comment":
             return from.get(PageHistory_.comment);
-        case "path":
-            return from.get(PageHistory_.page).get(Page_.path);
+        case "page_id":
+            return from.get(PageHistory_.page).get(Page_.id);
         case "changed_by":
             return from.get(PageHistory_.changedBy).get(UserAccount_.id);
         default:

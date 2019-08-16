@@ -27,3 +27,4 @@ public class UserAccountFromDTOConverter implements Function<UserAccountDTO, IUs
         return entity;
     }
 }
+//entity.setType(EngineType.valueOf(dto.getType()));

@@ -14,6 +14,12 @@
 				<form:errors path="pageId" cssClass="red-text" />
 				<label for="pageId">page id</label>
 			</div>
+
+			<div class="input-field col s12">
+				<form:input path="comment" type="text" disabled="${readonly}" />
+				<form:errors path="comment" cssClass="red-text" />
+				<label for="comment">comment</label>
+			</div>
 			<div class="input-field col s12">
 				<form:select path="changedBy" disabled="${readonly}">
 					<form:options items="${uAccChoices}" />

@@ -20,8 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageHistory;
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageHistoryFilter;
 import com.itacademy.jd2.yi.cms.service.IPageHistoryService;
@@ -29,7 +27,6 @@ import com.itacademy.jd2.yi.cms.service.IPageService;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
 import com.itacademy.jd2.yi.cms.web.converter.PageHistoryFromDTOConverter;
 import com.itacademy.jd2.yi.cms.web.converter.PageHistoryToDTOConverter;
-import com.itacademy.jd2.yi.cms.web.dto.PageDTO;
 import com.itacademy.jd2.yi.cms.web.dto.PageHistoryDTO;
 import com.itacademy.jd2.yi.cms.web.dto.grid.GridStateDTO;
 
@@ -108,7 +105,7 @@ public class PageHistoryController extends AbstractController {
 
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
 	public ModelAndView edit(@PathVariable(name = "id", required = true) final Integer id) {
-		final PageHistoryDTO dto = toDtoConverter.apply(pageHistoryService.get(id));
+		final PageHistoryDTO dto = toDtoConverter.apply(pageHistoryService.getFullInfo(id));
 
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);

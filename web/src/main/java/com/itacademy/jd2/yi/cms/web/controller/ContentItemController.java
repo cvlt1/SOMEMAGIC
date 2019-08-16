@@ -49,11 +49,13 @@ public class ContentItemController extends AbstractController {
 	
 	@Autowired
 	private ContentItemController(IContentItemService contentItemService, ContentItemToDTOConverter toDtoConverter,
-			ContentItemFromDTOConverter fromDtoConverter) {
+			ContentItemFromDTOConverter fromDtoConverter, ISiteService siteService) {
 		super();
+		this.siteService = siteService;
 		this.contentItemService = contentItemService;
 		this.toDtoConverter = toDtoConverter;
 		this.fromDtoConverter = fromDtoConverter;
+		
 	}
 
 
@@ -102,7 +104,7 @@ public class ContentItemController extends AbstractController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ModelAndView viewDetails(@PathVariable(name = "id", required = true) final Integer id) {
-		final IContentItem dbModel = contentItemService.get(id);
+		final IContentItem dbModel = contentItemService.getFullInfo(id);
 		final ContentItemDTO dto = toDtoConverter.apply(dbModel);
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);
@@ -113,7 +115,7 @@ public class ContentItemController extends AbstractController {
 
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
 	public ModelAndView edit(@PathVariable(name = "id", required = true) final Integer id) {
-		final ContentItemDTO dto = toDtoConverter.apply(contentItemService.get(id));
+		final ContentItemDTO dto = toDtoConverter.apply(contentItemService.getFullInfo(id));
 
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);
