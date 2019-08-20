@@ -28,7 +28,11 @@ public class PageHistoryServiceImpl implements IPageHistoryService {
 
 	@Override
 	public IPageHistory createEntity() {
-		return dao.createEntity();
+		IPageHistory newPageHistory = dao.createEntity();
+		newPageHistory.setVersion(1);
+		return newPageHistory;
+		
+		
 	}
 
 	@Override

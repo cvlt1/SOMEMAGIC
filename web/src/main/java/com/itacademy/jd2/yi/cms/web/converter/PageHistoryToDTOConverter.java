@@ -22,6 +22,8 @@ public class PageHistoryToDTOConverter implements Function<IPageHistory, PageHis
 	        pageHistoryDto.setComment(entity.getComment());
 	        pageHistoryDto.setCreated(entity.getCreated());
 	        pageHistoryDto.setUpdated(entity.getUpdated());
+	        pageHistoryDto.setVersion(entity.getVersion());
+
 
 	        final IPage page = entity.getPage();
 	        if (page != null) {

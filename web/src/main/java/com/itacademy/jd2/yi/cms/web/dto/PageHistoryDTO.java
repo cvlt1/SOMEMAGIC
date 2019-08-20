@@ -2,6 +2,8 @@ package com.itacademy.jd2.yi.cms.web.dto;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.PageStatus;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserStatus;
@@ -16,6 +18,8 @@ public class PageHistoryDTO {
 	private Date updated;
 	private Integer changedBy;
 	private Integer pageId;
+	@NotNull
+	private Integer version;
 	
 	
 	private String userAccountName;
@@ -34,6 +38,12 @@ public class PageHistoryDTO {
 	
 	
 	
+	public Integer getVersion() {
+		return version;
+	}
+	public void setVersion(Integer version) {
+		this.version = version;
+	}
 	public String getPagePath() {
 		return pagePath;
 	}

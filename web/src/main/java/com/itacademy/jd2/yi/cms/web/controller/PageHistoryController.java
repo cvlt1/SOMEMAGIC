@@ -73,7 +73,11 @@ public class PageHistoryController extends AbstractController {
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView showForm() {
 		final Map<String, Object> hashMap = new HashMap<>();
-		hashMap.put("formModel", new PageHistoryDTO());
+		
+		IPageHistory newPageHistory = pageHistoryService.createEntity(); // TODO fix in other controllers
+		final PageHistoryDTO dto = toDtoConverter.apply(newPageHistory);
+		
+		hashMap.put("formModel", dto);
 		loadCommonFormModels(hashMap);
 		return new ModelAndView("pageHistory.edit", hashMap);
 	}
@@ -94,7 +98,7 @@ public class PageHistoryController extends AbstractController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ModelAndView viewDetails(@PathVariable(name = "id", required = true) final Integer id) {
-		final IPageHistory dbModel = pageHistoryService.get(id);
+		final IPageHistory dbModel = pageHistoryService.getFullInfo(id);
 		final PageHistoryDTO dto = toDtoConverter.apply(dbModel);
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);

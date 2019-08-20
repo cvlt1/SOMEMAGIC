@@ -28,6 +28,8 @@ public class PageHistoryFromDTOConverter implements Function<PageHistoryDTO, IPa
         final IPageHistory entity = pageHistoryService.createEntity();
         entity.setId(dto.getId());
         entity.setComment(dto.getComment());
+        entity.setVersion(dto.getVersion());
+
         
         final IPage page = pageService.createEntity();
         page.setId(dto.getPageId());

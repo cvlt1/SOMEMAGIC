@@ -14,4 +14,8 @@ public interface IPageHistory extends IBaseEntity {
 
 	IUserAccount getChangedBy();
 
+	void setVersion(Integer version);
+
+	Integer getVersion();
+
 }

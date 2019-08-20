@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.Version;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageHistory;
@@ -20,6 +21,20 @@ public class PageHistory extends BaseEntity implements IPageHistory {
 	@Column
 	private String comment;
 	
+	@Column
+	@Version
+	private Integer version;
+	
+	
+	
+	@Override
+	public Integer getVersion() {
+		return version;
+	}
+	@Override
+	public void setVersion(Integer version) {
+		this.version = version;
+	}
 	public IUserAccount getChangedBy() {
 		return changedBy;
 	}

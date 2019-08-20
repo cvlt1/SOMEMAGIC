@@ -34,7 +34,7 @@ public class PageHistoryDaoImpl extends AbstractDaoImpl<IPageHistory, Integer> i
 
 	@Override
 	public IPageHistory createEntity() {
-        final PageHistory pageHistory = new PageHistory();
+        final IPageHistory pageHistory = new PageHistory();
         return pageHistory;
 	}
 
