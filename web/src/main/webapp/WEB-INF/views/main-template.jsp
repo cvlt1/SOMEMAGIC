@@ -11,6 +11,8 @@
 <c:set var="pagesContentItem" value="${contextPath}/contentitem" scope="request" />
 <c:set var="pagesPageHistory" value="${contextPath}/pagehistory" scope="request" />
 <c:set var="pagesCssItem" value="${contextPath}/cssitem" scope="request" />
+<c:set var="pagesPageItem" value="${contextPath}/pageitem" scope="request" />
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

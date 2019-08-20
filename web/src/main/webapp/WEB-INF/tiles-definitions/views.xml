@@ -85,16 +85,24 @@
 	</definition>
 
 
-	<definition name="cssItem.list"
-		extends="DefaultTemplate">
+	<definition name="cssItem.list" extends="DefaultTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/views/cssitem/list.jsp" />
 	</definition>
 
-	<definition name="cssItem.edit"
-		extends="DefaultTemplate">
+	<definition name="cssItem.edit" extends="DefaultTemplate">
 		<put-attribute name="body"
 			value="/WEB-INF/views/cssitem/form.jsp" />
+	</definition>
+
+	<definition name="pageItem.list" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/pageitem/list.jsp" />
+	</definition>
+
+	<definition name="pageItem.edit" extends="DefaultTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/pageitem/form.jsp" />
 	</definition>
 
 

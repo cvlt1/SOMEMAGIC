@@ -92,9 +92,9 @@ public class UserAccountDaoImpl extends AbstractDaoImpl<IUserAccount, Integer> i
 
 	}
 
-	@Override
-	public IUserAccount findByNickname(String name) {
-		throw new RuntimeException("not implemented3");
-	}
+//	@Override
+//	public IUserAccount findByNickname(String name) {
+//		throw new RuntimeException("not implemented3");
+//	}
 
 }

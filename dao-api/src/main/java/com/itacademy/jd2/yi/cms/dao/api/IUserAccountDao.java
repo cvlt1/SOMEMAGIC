@@ -1,9 +1,7 @@
 package com.itacademy.jd2.yi.cms.dao.api;
 
-import java.sql.SQLException;
 import java.util.List;
 
-import com.itacademy.jd2.yi.cms.dao.api.IDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
 

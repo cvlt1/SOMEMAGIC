@@ -19,12 +19,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IContentItem;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageItem;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageItemFilter;
+import com.itacademy.jd2.yi.cms.service.IContentItemService;
 import com.itacademy.jd2.yi.cms.service.IPageItemService;
+import com.itacademy.jd2.yi.cms.service.IPageService;
 import com.itacademy.jd2.yi.cms.web.converter.PageItemFromDTOConverter;
 import com.itacademy.jd2.yi.cms.web.converter.PageItemToDTOConverter;
-import com.itacademy.jd2.yi.cms.web.dto.PageHistoryDTO;
 import com.itacademy.jd2.yi.cms.web.dto.PageItemDTO;
 import com.itacademy.jd2.yi.cms.web.dto.grid.GridStateDTO;
 
@@ -35,8 +38,11 @@ public class PageItemController extends AbstractController {
 	@Autowired
 	private IPageItemService pageItemService;
 
-//	@Autowired
-//	private ISiteService siteService;
+	@Autowired
+	private IContentItemService contentItemService;
+	
+	@Autowired
+	private IPageService pageService;
 
 	@Autowired
 	private PageItemFromDTOConverter fromDtoConverter;
@@ -57,7 +63,6 @@ public class PageItemController extends AbstractController {
 		prepareFilter(gridState, filter);
 		gridState.setTotalCount(pageItemService.getCount(filter));
 
-		//filter.setFetchSite(true);
 		final List<IPageItem> entities = pageItemService.find(filter);
 		List<PageItemDTO> dtos = entities.stream().map(toDtoConverter).collect(Collectors.toList());
 
@@ -69,8 +74,8 @@ public class PageItemController extends AbstractController {
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView showForm() {
 		final Map<String, Object> hashMap = new HashMap<>();
-		hashMap.put("formModel", new PageHistoryDTO());
-		// loadCommonFormModels(hashMap);
+		hashMap.put("formModel", new PageItemDTO());
+		loadCommonFormModels(hashMap);
 		return new ModelAndView("pageItem.edit", hashMap);
 	}
 
@@ -79,7 +84,7 @@ public class PageItemController extends AbstractController {
 		if (result.hasErrors()) {
 			final Map<String, Object> hashMap = new HashMap<>();
 			hashMap.put("formModel", formModel);
-			// loadCommonFormModels(hashMap);
+			loadCommonFormModels(hashMap);
 			return new ModelAndView("pageItem.edit", hashMap);
 		} else {
 			final IPageItem entity = fromDtoConverter.apply(formModel);
@@ -90,7 +95,7 @@ public class PageItemController extends AbstractController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ModelAndView viewDetails(@PathVariable(name = "id", required = true) final Integer id) {
-		final IPageItem dbModel = pageItemService.get(id);
+		final IPageItem dbModel = pageItemService.getFullInfo(id);
 		final PageItemDTO dto = toDtoConverter.apply(dbModel);
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);
@@ -105,31 +110,28 @@ public class PageItemController extends AbstractController {
 
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);
-		// loadCommonFormModels(hashMap);
+		loadCommonFormModels(hashMap);
 		return new ModelAndView("pageItem.edit", hashMap);
 	}
 
 	@RequestMapping(value = "/{id}/delete", method = RequestMethod.GET)
 	public String delete(@PathVariable(name = "id", required = true) final Integer id) {
 		pageItemService.delete(id);
-		return "redirect:/pagehistory";
+		return "redirect:/pageitem";
 	}
 
-//	private void loadCommonFormModels(final Map<String, Object> hashMap) {
-//		final List<ISite> sites = siteService.getAll();
-//
-//		final Map<Integer, String> sitesMap = new HashMap<>();
-//		for (final ISite iSite : sites) {
-//			sitesMap.put(iSite.getId(), iSite.getSiteName());
-//		}
-//
-//		final Map<Integer, String> sitesMap = sites.stream().collect(Collectors.toMap(ISite::getId, ISite::getName));
-//		hashMap.put("siteChoices", sitesMap);
-//
-////        final Map<Integer, String> enginesMap = engineService.getAll().stream()
-////                .collect(Collectors.toMap(IEngine::getId, IEngine::getTitle));
-////        hashMap.put("engineChoices", enginesMap);
-//	}
+	private void loadCommonFormModels(final Map<String, Object> hashMap) {
+        final List<IPage> pages = pageService.getAll();
+        final List<IContentItem> contentItem = contentItemService.getAll();
+
+        final Map<Integer, String> pagesMap = pages.stream()
+                .collect(Collectors.toMap(IPage::getId, IPage::getPath));
+        hashMap.put("pagesChoices", pagesMap);
+
+        final Map<Integer, String> contentItemMap = contentItem.stream()
+                .collect(Collectors.toMap(IContentItem::getId, IContentItem::getHtml));
+        hashMap.put("contentItemChoices", contentItemMap);
+    }
 
 }
 

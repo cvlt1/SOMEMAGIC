@@ -38,6 +38,8 @@ Logged user is anonymous
 				<li><a class="grey-text text-darken-3" href="${pagesContentItem}">Content</a></li>
 				<li><a class="grey-text text-darken-3" href="${pagesPageHistory}">Page History</a></li>
 				<li><a class="grey-text text-darken-3" href="${pagesCssItem}">css</a></li>
+				<li><a class="grey-text text-darken-3" href="${pagesPageItem}">page item</a></li>
+				
 				
 				<a class="right" class="grey-text text-darken-3" href="${contextPath}/execute_logout" title="logout"><i
 					class="material-icons" class="grey-text text-darken-3">arrow_forward</i></a>

@@ -35,7 +35,7 @@ public class PageItemFromDTOConverter implements Function<PageItemDTO, IPageItem
         entity.setPosition(dto.getPosition());
         
         final IPage page = pageService.createEntity();
-        page.setId(dto.getSiteId());
+        page.setId(dto.getPageId());
         entity.setPage(page);
         
         final IContentItem contentItem = contentItemService.createEntity();
