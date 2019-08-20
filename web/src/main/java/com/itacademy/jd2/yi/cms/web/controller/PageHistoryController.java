@@ -94,7 +94,7 @@ public class PageHistoryController extends AbstractController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ModelAndView viewDetails(@PathVariable(name = "id", required = true) final Integer id) {
-		final IPageHistory dbModel = pageHistoryService.get(id);
+		final IPageHistory dbModel = pageHistoryService.getFullInfo(id);
 		final PageHistoryDTO dto = toDtoConverter.apply(dbModel);
 		final Map<String, Object> hashMap = new HashMap<>();
 		hashMap.put("formModel", dto);

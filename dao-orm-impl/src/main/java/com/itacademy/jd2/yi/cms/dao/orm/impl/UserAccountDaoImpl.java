@@ -3,6 +3,7 @@ package com.itacademy.jd2.yi.cms.dao.orm.impl;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -96,11 +97,20 @@ public class UserAccountDaoImpl extends AbstractDaoImpl<IUserAccount, Integer> i
 	public IUserAccount findByNickname(String name) {
 		final EntityManager em = getEntityManager();
 		final CriteriaBuilder cb = em.getCriteriaBuilder();
-		final CriteriaQuery<IUserAccount> cq = cb.createQuery(IUserAccount.class);
-		final Root<UserAccount> from = cq.from(UserAccount.class);
-		cq.where(cb.equal(from.get(UserAccount_.name), ()));
-		return q.getSingleResult();
+		CriteriaQuery<IUserAccount> cq = cb.createQuery(IUserAccount.class);
+		final Root<UserAccount> root = cq.from(UserAccount.class);
 		
+		cq = cq.select(root).where(cb.equal(root.get(UserAccount_.name), name));
+		try {
+            return em.createQuery(cq).getSingleResult();
+        } catch (NoResultException nre) {
+            return null;
+        }
 	}
+	
 
 }
+	
+	
+
+
