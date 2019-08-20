@@ -92,9 +92,15 @@ public class UserAccountDaoImpl extends AbstractDaoImpl<IUserAccount, Integer> i
 
 	}
 
-//	@Override
-//	public IUserAccount findByNickname(String name) {
-//		throw new RuntimeException("not implemented3");
-//	}
+	@Override
+	public IUserAccount findByNickname(String name) {
+		final EntityManager em = getEntityManager();
+		final CriteriaBuilder cb = em.getCriteriaBuilder();
+		final CriteriaQuery<IUserAccount> cq = cb.createQuery(IUserAccount.class);
+		final Root<UserAccount> from = cq.from(UserAccount.class);
+		cq.where(cb.equal(from.get(UserAccount_.name), ()));
+		return q.getSingleResult();
+		
+	}
 
 }
