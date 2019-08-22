@@ -24,6 +24,9 @@ public class UserAccount extends BaseEntity implements IUserAccount {
 	private UserStatus status;
 	
 	
+	
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -45,6 +48,7 @@ public class UserAccount extends BaseEntity implements IUserAccount {
 	}
 	
 	public void setPassword(String password) {
+
 		this.password = password;
 	}
 	

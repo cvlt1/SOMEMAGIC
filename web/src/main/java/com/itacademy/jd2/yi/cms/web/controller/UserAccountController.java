@@ -72,8 +72,12 @@ public class UserAccountController extends AbstractController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView showForm() {
         final Map<String, Object> hashMap = new HashMap<>();
-        final IUserAccount newEntity = userAccountService.createEntity();
-        hashMap.put("formModel", toDtoConverter.apply(newEntity));
+        
+        
+        IUserAccount newEntity = userAccountService.createEntity(); // TODO fix in other controllers
+		final UserAccountDTO dto = toDtoConverter.apply(newEntity);
+
+ 		hashMap.put("formModel", dto);
 
         return new ModelAndView("uAcc.edit", hashMap);
     }

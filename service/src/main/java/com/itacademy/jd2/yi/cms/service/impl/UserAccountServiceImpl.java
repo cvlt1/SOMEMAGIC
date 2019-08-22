@@ -1,8 +1,6 @@
 package com.itacademy.jd2.yi.cms.service.impl;
 
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itacademy.jd2.yi.cms.dao.api.IUserAccountDao;
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
@@ -23,6 +20,8 @@ import com.itacademy.jd2.yi.cms.service.IUserAccountService;
 public class UserAccountServiceImpl implements IUserAccountService {
 	
 	 private static final Logger LOGGER = LoggerFactory.getLogger(UserAccountServiceImpl.class);
+	 
+	 
 
     private IUserAccountDao dao; 
     
@@ -37,16 +36,20 @@ public class UserAccountServiceImpl implements IUserAccountService {
 
     @Override
     public IUserAccount createEntity() {
+    	
+    	
         return dao.createEntity();
     }
 
     @Override
     public void save(final IUserAccount entity) {
         final Date modifedOn = new Date();
+        
         entity.setUpdated(modifedOn);
         if (entity.getId() == null) {
         	LOGGER.info("new user account created: {}", entity);
             entity.setCreated(modifedOn);
+            
             dao.insert(entity);
         } else {
         	LOGGER.debug("user account updated: {}", entity);
@@ -106,7 +109,6 @@ public class UserAccountServiceImpl implements IUserAccountService {
 	public IUserAccount findNickname(String name) {
 		return dao.findByNickname(name);
 	}
-
 
 
 
