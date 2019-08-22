@@ -9,10 +9,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 import com.itacademy.jd2.yi.cms.dao.api.IUserAccountDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
+
 
 
 
@@ -24,6 +27,8 @@ public class UserAccountServiceImpl implements IUserAccountService {
 	 
 
     private IUserAccountDao dao; 
+    
+    
     
     
     @Autowired
@@ -42,12 +47,13 @@ public class UserAccountServiceImpl implements IUserAccountService {
     }
 
     @Override
-    public void save(final IUserAccount entity) {
+    public void save(final IUserAccount entity, String password) {
         final Date modifedOn = new Date();
         
         entity.setUpdated(modifedOn);
         if (entity.getId() == null) {
         	LOGGER.info("new user account created: {}", entity);
+        	entity.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
             entity.setCreated(modifedOn);
             
             dao.insert(entity);
@@ -100,7 +106,7 @@ public class UserAccountServiceImpl implements IUserAccountService {
 
         }
 
-        dao.save(entities);
+        dao.save1(entities);
 }
 
 
@@ -109,6 +115,10 @@ public class UserAccountServiceImpl implements IUserAccountService {
 	public IUserAccount findNickname(String name) {
 		return dao.findByNickname(name);
 	}
+
+
+
+
 
 
 

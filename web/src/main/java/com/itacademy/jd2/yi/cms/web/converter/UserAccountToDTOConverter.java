@@ -15,7 +15,6 @@ public class UserAccountToDTOConverter implements Function<IUserAccount, UserAcc
     public UserAccountDTO apply(final IUserAccount entity) {
         final UserAccountDTO dto = new UserAccountDTO();
         
-        String hashed = BCrypt.hashpw(entity.getPassword(), BCrypt.gensalt());
         dto.setId(entity.getId());
         dto.setName(entity.getName());
         dto.setEmail(entity.getEmail());

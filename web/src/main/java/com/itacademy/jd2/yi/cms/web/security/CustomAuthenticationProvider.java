@@ -11,6 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
@@ -32,8 +33,11 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 		if (userAccount == null) {
 			throw new BadCredentialsException("1000");
 		}
+		
+		//String pw_hash = BCrypt.hashpw(password, BCrypt.gensalt());
 
 		// TODO verify password (DB contains hash - not a plain password)
+		
 		if (!userAccount.getPassword().equals(password)) {
 			throw new BadCredentialsException("1000");
 		}

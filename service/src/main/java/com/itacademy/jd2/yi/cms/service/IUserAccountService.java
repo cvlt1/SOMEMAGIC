@@ -1,11 +1,9 @@
 package com.itacademy.jd2.yi.cms.service;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
 
@@ -30,10 +28,13 @@ public interface IUserAccountService {
 	
 	List<IUserAccount> find(UserAccountFilter filter);
 	
-	@Transactional
-	void save(IUserAccount entity);
+//	@Transactional
+//	void save(IUserAccount entity);
 	
 	IUserAccount findNickname(String name);
+	
+	@Transactional
+	void save(IUserAccount entity, String password);
 
 	
 
