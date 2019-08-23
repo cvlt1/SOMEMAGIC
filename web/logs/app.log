@@ -9894,3 +9894,25 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: UPDATE или DELETE
 20:55:35.250 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@5c1a8622{/cms,file:/D:/JD02-iyatsevich/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
 20:55:35.264 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@3c60c681{HTTP/1.1}{0.0.0.0:8081}
 20:55:35.265 [main] INFO  org.eclipse.jetty.server.Server - Started @6764ms
+21:25:29.617 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: my-unit
+	...]
+21:25:30.030 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.8.Final}
+21:25:30.032 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+21:25:30.034 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+21:25:30.262 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+21:25:30.646 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+21:25:30.657 [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+21:25:30.774 [main] WARN  org.hibernate.cfg.AnnotationBinder - HHH000136: Inapropriate use of @OnDelete on entity, annotation ignored: com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page
+21:25:30.842 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+21:26:53.011 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: my-unit
+	...]
+21:26:53.144 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.8.Final}
+21:26:53.147 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+21:26:53.149 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+21:26:53.378 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+21:26:53.723 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+21:26:53.734 [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+21:26:53.841 [main] WARN  org.hibernate.cfg.AnnotationBinder - HHH000136: Inapropriate use of @OnDelete on entity, annotation ignored: com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page
+21:26:53.918 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
