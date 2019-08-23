@@ -3,6 +3,8 @@ package com.itacademy.jd2.yi.cms.web.security;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -25,18 +27,32 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 	@Override
 	public Authentication authenticate(final Authentication authentication) throws AuthenticationException {
-
+		
 		final String username = authentication.getPrincipal() + "";
 		final String password = authentication.getCredentials() + "";
-
+		
 		IUserAccount userAccount = userAccountService.findNickname(username);
 		
+<<<<<<< HEAD
+=======
+		
+		final String hashedPassword = userAccount.getPassword();
+
+		
+>>>>>>> hash
 		if (userAccount == null) {
 			throw new BadCredentialsException("1000");
 		}
-
+		
+		if (!BCrypt.checkpw(password, hashedPassword)) {
+			throw new BadCredentialsException("1000");
+		}
 		// TODO verify password (DB contains hash - not a plain password)
+<<<<<<< HEAD
 		if (BCrypt.checkpw(password, userAccount.getPassword())) {
+=======
+		if (!hashedPassword.equals(password)) {
+>>>>>>> hash
 			throw new BadCredentialsException("1000");
 		}
 
