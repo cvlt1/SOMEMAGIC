@@ -2,6 +2,8 @@ package com.itacademy.jd2.yi.cms.dao.api.entity.table;
 
 import java.util.Date;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserStatus;
 

@@ -31,6 +31,7 @@ Logged user is anonymous
 		<div class="nav-wrapper container">
 			<ul class="left hide-on-med-and-down">
 				<li><a class="grey-text text-darken-3" href="${contextPath}/">home</a></li>
+				<li><a class="grey-text text-darken-3" href="${contextPath}/login">login</a></li>
 				<li><a class="grey-text text-darken-3" href="${pagesTemplate}">Templates</a></li>
 				<li><a class="grey-text text-darken-3" href="${pagesPage}">Pages</a></li>
 				<li><a class="grey-text text-darken-3" href="${pagesUacc}">User Account</a></li>

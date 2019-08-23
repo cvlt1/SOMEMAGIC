@@ -49,7 +49,6 @@ public class UserAccountServiceImpl implements IUserAccountService {
         entity.setUpdated(modifedOn);
         if (entity.getId() == null) {
         	LOGGER.info("new user account created: {}", entity);
-        	entity.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
             entity.setCreated(modifedOn);
             
             dao.insert(entity);

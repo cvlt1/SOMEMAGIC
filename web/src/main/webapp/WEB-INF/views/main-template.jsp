@@ -12,6 +12,7 @@
 <c:set var="pagesPageHistory" value="${contextPath}/pagehistory" scope="request" />
 <c:set var="pagesCssItem" value="${contextPath}/cssitem" scope="request" />
 <c:set var="pagesPageItem" value="${contextPath}/pageitem" scope="request" />
+<c:set var="login" value="${contextPath}/login" scope="request" />
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">

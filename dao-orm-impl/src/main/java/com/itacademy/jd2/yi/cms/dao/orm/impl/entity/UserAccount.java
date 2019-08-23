@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserStatus;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
@@ -39,7 +41,7 @@ public class UserAccount extends BaseEntity implements IUserAccount {
 		return email;
 	}
 	
-	public void setEmail(String email) {
+	public void setEmail(String email ) {
 		this.email = email;
 	}
 	
@@ -73,6 +75,7 @@ public class UserAccount extends BaseEntity implements IUserAccount {
 		return "UserAccount [name=" + name + ", email=" + email + ", password=" + password + ", role=" + role
 				+ ", status=" + status + "]";
 	}
+
 	
 	
 	

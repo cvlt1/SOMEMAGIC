@@ -34,6 +34,12 @@
 	<dependencyManagement>
 		<dependencies>
 
+			<dependency>
+				<groupId>com.sun.mail</groupId>
+				<artifactId>javax.mail</artifactId>
+				<version>1.6.2</version>
+			</dependency>
+
 			<!-- Hibernate -->
 			<dependency>
 				<groupId>org.hibernate.javax.persistence</groupId>
@@ -298,7 +304,7 @@
 
 
 		<!-- Spring AOP + AspectJ -->
-		<dependency>
+	<!--  	<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
 		</dependency>
@@ -316,7 +322,7 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjtools</artifactId>
-		</dependency>
+		</dependency> -->
 
 	</dependencyManagement>
 

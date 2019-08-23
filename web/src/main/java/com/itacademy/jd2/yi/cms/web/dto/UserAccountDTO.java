@@ -2,6 +2,8 @@ package com.itacademy.jd2.yi.cms.web.dto;
 
 import java.util.Date;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserRole;
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.UserStatus;
 
@@ -37,7 +39,9 @@ public class UserAccountDTO {
 		return password;
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		
+		String hashed = BCrypt.hashpw(password, BCrypt.gensalt(10));
+		this.password = hashed;
 	}
 	public UserRole getRole() {
 		return role;

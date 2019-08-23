@@ -32,31 +32,24 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 		final String password = authentication.getCredentials() + "";
 		
 		IUserAccount userAccount = userAccountService.findNickname(username);
-		
-<<<<<<< HEAD
-=======
-		
-		final String hashedPassword = userAccount.getPassword();
 
+	
 		
->>>>>>> hash
-		if (userAccount == null) {
+		
+
+		if (!userAccount.getName().equals(username)) {
 			throw new BadCredentialsException("1000");
 		}
 		
-		if (!BCrypt.checkpw(password, hashedPassword)) {
+		if (!BCrypt.checkpw(password, userAccount.getPassword())) {
 			throw new BadCredentialsException("1000");
 		}
 		// TODO verify password (DB contains hash - not a plain password)
-<<<<<<< HEAD
-		if (BCrypt.checkpw(password, userAccount.getPassword())) {
-=======
-		if (!hashedPassword.equals(password)) {
->>>>>>> hash
-			throw new BadCredentialsException("1000");
-		}
-
-		final int userId = userAccount.getId(); // FIXME: it should be the real user id from DB
+//		if (!hashedPassword.equals(password)) {
+//			throw new BadCredentialsException("1000");
+//		}
+		final int userId = userAccount.getId();
+		 // FIXME: it should be the real user id from DB
 
 		UserRole role = userAccount.getRole();
 
