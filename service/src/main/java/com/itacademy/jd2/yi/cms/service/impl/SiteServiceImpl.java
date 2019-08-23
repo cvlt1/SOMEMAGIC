@@ -85,11 +85,12 @@ public class SiteServiceImpl implements ISiteService {
         }
 
         dao.save(entities);
-}	
-	
+}
 
-   
-
+	@Override
+	public ISite get(String basePath) {
+		return dao.getByBasePath(basePath);
+	}	
 
 }
 

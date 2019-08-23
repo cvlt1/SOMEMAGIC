@@ -113,4 +113,22 @@
 
 
 
+
+	<definition name="BaseSiteTemplate"
+		template="/WEB-INF/views/site-page/base.jsp">
+	</definition>
+
+
+	<definition name="template1" extends="BaseSiteTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/site-page/template1.jsp" />
+	</definition>
+
+	<definition name="template2" extends="BaseSiteTemplate">
+		<put-attribute name="body"
+			value="/WEB-INF/views/site-page/template2.jsp" />
+	</definition>
+
+
+
 </tiles-definitions>

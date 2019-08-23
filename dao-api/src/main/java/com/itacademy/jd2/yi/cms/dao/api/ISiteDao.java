@@ -14,4 +14,6 @@ public interface ISiteDao extends IDao<ISite, Integer> {
 	
 	long getCount (SiteFilter filter);
 
+	ISite getByBasePath(String basePath);
+
 }

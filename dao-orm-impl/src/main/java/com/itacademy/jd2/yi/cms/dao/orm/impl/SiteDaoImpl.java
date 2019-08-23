@@ -19,13 +19,12 @@ import com.itacademy.jd2.yi.cms.dao.api.filter.SiteFilter;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site_;
 
-
 @Repository
-public class SiteDaoImpl  extends AbstractDaoImpl<ISite, Integer> implements ISiteDao {
+public class SiteDaoImpl extends AbstractDaoImpl<ISite, Integer> implements ISiteDao {
 
-    protected SiteDaoImpl() {
-        super(Site.class);
-    }
+	protected SiteDaoImpl() {
+		super(Site.class);
+	}
 
 	@Override
 	public ISite createEntity() {
@@ -35,7 +34,7 @@ public class SiteDaoImpl  extends AbstractDaoImpl<ISite, Integer> implements ISi
 
 	@Override
 	public void save(ISite... entities) {
-		throw new RuntimeException ("not implemented");		
+		throw new RuntimeException("not implemented");
 	}
 
 	@Override
@@ -64,7 +63,7 @@ public class SiteDaoImpl  extends AbstractDaoImpl<ISite, Integer> implements ISi
 
 		return q.getResultList();
 	}
-	
+
 	private SingularAttribute<? super Site, ?> toMetamodelFormat(final String sortColumn) {
 		switch (sortColumn) {
 		case "created":
@@ -92,6 +91,24 @@ public class SiteDaoImpl  extends AbstractDaoImpl<ISite, Integer> implements ISi
 		cq.select(cb.count(from)); // select what? select count(*)
 		final TypedQuery<Long> q = em.createQuery(cq);
 		return q.getSingleResult(); // execute query
+	}
+
+	@Override
+	public ISite getByBasePath(String basePath) {
+		final EntityManager em = getEntityManager();
+		final CriteriaBuilder cb = em.getCriteriaBuilder();
+
+		final CriteriaQuery<ISite> cq = cb.createQuery(ISite.class);
+
+		final Root<Site> from = cq.from(Site.class);
+		cq.select(from); 
+		
+		cq.where(cb.equal(from.get(Site_.basepath), basePath));
+
+		final TypedQuery<ISite> q = em.createQuery(cq);
+
+		return getSingleResult(q);
+
 	}
 
 }

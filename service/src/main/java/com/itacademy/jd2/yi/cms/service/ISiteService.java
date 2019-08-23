@@ -27,6 +27,8 @@ public interface ISiteService {
 	@Transactional
 	void save(ISite entity);
 
+	ISite get(String basePath);
+
     //List<IBrand> find(BrandFilter filter);
 
     //long getCount(BrandFilter filter);
