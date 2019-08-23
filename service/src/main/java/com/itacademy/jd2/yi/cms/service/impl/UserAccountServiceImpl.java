@@ -7,6 +7,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.itacademy.jd2.yi.cms.dao.api.IUserAccountDao;
@@ -22,7 +23,9 @@ public class UserAccountServiceImpl implements IUserAccountService {
 	 private static final Logger LOGGER = LoggerFactory.getLogger(UserAccountServiceImpl.class);
 	 
 	 
-
+	 private String password;
+	 
+	 
     private IUserAccountDao dao; 
     
     
@@ -36,8 +39,6 @@ public class UserAccountServiceImpl implements IUserAccountService {
 
     @Override
     public IUserAccount createEntity() {
-    	
-    	
         return dao.createEntity();
     }
 
@@ -48,6 +49,7 @@ public class UserAccountServiceImpl implements IUserAccountService {
         entity.setUpdated(modifedOn);
         if (entity.getId() == null) {
         	LOGGER.info("new user account created: {}", entity);
+        	entity.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
             entity.setCreated(modifedOn);
             
             dao.insert(entity);
