@@ -20,11 +20,9 @@ import org.springframework.util.StringUtils;
 
 import com.itacademy.jd2.yi.cms.dao.api.IPageDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageFilter;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page_;
-import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site_;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Template_;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.UserAccount_;
