@@ -15,7 +15,7 @@ public class TemplateToDTOConverter implements Function<ITemplate, TemplateDTO> 
     public TemplateDTO apply(final ITemplate entity) {
         final TemplateDTO dto = new TemplateDTO();
         dto.setId(entity.getId());
-        dto.setJspPath(entity.getJspPath());
+        dto.setViewName(entity.getViewName());
         dto.setCreated(entity.getCreated());
         dto.setUpdated(entity.getUpdated());
         return dto;

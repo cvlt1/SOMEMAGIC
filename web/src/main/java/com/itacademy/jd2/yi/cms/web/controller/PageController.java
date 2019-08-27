@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -32,7 +30,6 @@ import com.itacademy.jd2.yi.cms.service.IUserAccountService;
 import com.itacademy.jd2.yi.cms.web.converter.PageFromDTOConverter;
 import com.itacademy.jd2.yi.cms.web.converter.PageToDTOConverter;
 import com.itacademy.jd2.yi.cms.web.dto.PageDTO;
-import com.itacademy.jd2.yi.cms.web.dto.TemplateDTO;
 import com.itacademy.jd2.yi.cms.web.dto.grid.GridStateDTO;
 
 @Controller
@@ -138,7 +135,7 @@ public class PageController extends AbstractController {
         hashMap.put("sitesChoices", sitesMap);
 
         final Map<Integer, String> templatesMap = templates.stream()
-                .collect(Collectors.toMap(ITemplate::getId, ITemplate::getJspPath));
+                .collect(Collectors.toMap(ITemplate::getId, ITemplate::getViewName));
         hashMap.put("templatesChoices", templatesMap);
         
         final Map<Integer, String> userAccountMap = userAccounts.stream()

@@ -106,4 +106,9 @@ public class PageServiceImpl implements IPageService {
 		return dao.search(text);
 	}
 
+	@Override
+	public IPage get(String pagePath) {
+		return dao.getByPagePath(pagePath);
+	}
+
 }

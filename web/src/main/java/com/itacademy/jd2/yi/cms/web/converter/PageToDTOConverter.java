@@ -42,7 +42,7 @@ public class PageToDTOConverter implements Function<IPage, PageDTO> {
 	        final ITemplate template = entity.getTemplate();
 	        if (site != null) {
 	            pageDto.setTemplateId(template.getId());
-	            pageDto.setJspPath(template.getJspPath());
+	            pageDto.setViewName(template.getViewName());
 	        }
 			return pageDto;
 	        

@@ -34,4 +34,6 @@ public interface IPageService {
 	
 	@Transactional
 	List<IPage> search(String text);
+
+	IPage get(String pagePath);
 }

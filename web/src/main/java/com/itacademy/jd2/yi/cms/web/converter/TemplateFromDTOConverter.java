@@ -19,7 +19,7 @@ public class TemplateFromDTOConverter implements Function<TemplateDTO, ITemplate
     public ITemplate apply(final TemplateDTO dto) {
         final ITemplate entity = templateService.createEntity();
         entity.setId(dto.getId());
-        entity.setJspPath(dto.getJspPath());
+        entity.setViewName(dto.getViewName());
         return entity;
     }
 }

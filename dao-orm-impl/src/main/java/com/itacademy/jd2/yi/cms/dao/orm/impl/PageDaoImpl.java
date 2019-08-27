@@ -20,9 +20,11 @@ import org.springframework.util.StringUtils;
 
 import com.itacademy.jd2.yi.cms.dao.api.IPageDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageFilter;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page_;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site_;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Template_;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.UserAccount_;
@@ -139,7 +141,7 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 		case "page_status":
 			return from.get(Page_.pageStatus);
 		case "template":
-			return from.get(Page_.template).get(Template_.jspPath);
+			return from.get(Page_.template).get(Template_.viewName);
 		case "creator":
 			return from.get(Page_.creator).get(UserAccount_.name);
 		case "site":
@@ -168,6 +170,23 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 
 		return jpaQuery.getResultList();
 
+	}
+
+	@Override
+	public IPage getByPagePath(String pagePath) {
+		final EntityManager em = getEntityManager();
+		final CriteriaBuilder cb = em.getCriteriaBuilder();
+
+		final CriteriaQuery<IPage> cq = cb.createQuery(IPage.class);
+
+		final Root<Page> from = cq.from(Page.class);
+		cq.select(from); 
+		
+		cq.where(cb.equal(from.get(Page_.path), pagePath));
+
+		final TypedQuery<IPage> q = em.createQuery(cq);
+
+		return getSingleResult(q);
 	}
 
 }

@@ -75,7 +75,7 @@ public class TemplateDaoImpl extends AbstractDaoImpl<ITemplate, Integer> impleme
 		case "id":
 			return Template_.id;
 		case "name":
-			return Template_.jspPath;
+			return Template_.viewName;
 		default:
 			throw new UnsupportedOperationException("sorting is not supported by column:" + sortColumn);
 		}

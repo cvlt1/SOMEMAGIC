@@ -34,7 +34,7 @@ public class TemplateServiceTest extends AbstractTest {
         int initialSize = templateService.getAll().size();
 
         final ITemplate entity1 = templateService.createEntity();
-        entity1.setJspPath("D:\\templates\\-" + getRandomPrefix() + ".jsp");
+        entity1.setViewName("D:\\templates\\-" + getRandomPrefix() + ".jsp");
 
         try {
             final ITemplate entity2 = templateService.createEntity();
@@ -50,15 +50,15 @@ public class TemplateServiceTest extends AbstractTest {
     public void testUpdate() throws InterruptedException {
         final ITemplate entity = saveNewTemplate();
 
-        String newJspPath = entity.getJspPath() + "_updated";
-        entity.setJspPath(newJspPath);
+        String newJspPath = entity.getViewName() + "_updated";
+        entity.setViewName(newJspPath);
         Thread.sleep(2000);
         templateService.save(entity);
 
         final ITemplate entityFromDb = templateService.get(entity.getId());
 
         assertNotNull(entityFromDb);
-        assertEquals(entity.getJspPath(), entityFromDb.getJspPath());
+        assertEquals(entity.getViewName(), entityFromDb.getViewName());
 
         assertNotNull(entityFromDb.getCreated());
         assertNotNull(entityFromDb.getUpdated());
@@ -78,7 +78,7 @@ public class TemplateServiceTest extends AbstractTest {
 
         for (final ITemplate entityFromDb : allEntities) {
         	assertNotNull(entityFromDb.getId());
-            assertNotNull(entityFromDb.getJspPath());
+            assertNotNull(entityFromDb.getViewName());
             assertNotNull(entityFromDb.getCreated());
             assertNotNull(entityFromDb.getUpdated());
         }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.itacademy.jd2.yi.cms.dao.api.entity.enums.PageStatus;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IContentItem;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
@@ -43,14 +44,14 @@ public class SitePageController extends AbstractController {
 		if (site == null) {
 			throw new ResourceNotFoundException();
 		}
-		IPage page = null;// pageService.get(pagePath);  //fetch all data(template, site etc)
+		IPage page = pageService.get(pagePath);  //fetch all data(template, site etc)
 
-		if (page == null) { // or if not published status
+		if (page == null || !(page.getPageStatus() == PageStatus.PUBLISHED)) { // or if not published status
 			throw new ResourceNotFoundException();
 		}
 		
 		ITemplate template = page.getTemplate();
-		String viewName = template.getJspPath(); // rename to 'viewName'
+		String viewName = template.getViewName(); // rename to 'viewName'
 		
 		
 		

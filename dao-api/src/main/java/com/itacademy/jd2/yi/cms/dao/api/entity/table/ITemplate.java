@@ -6,10 +6,6 @@ public interface ITemplate extends IBaseEntity {
 
 	String toString();
 
-	void setJspPath(String jspPath);
-
-	String getJspPath();
-	
 	void setUpdated(Date updated);
 
 	Date getUpdated();
@@ -17,6 +13,10 @@ public interface ITemplate extends IBaseEntity {
 	void setCreated(Date created);
 
 	Date getCreated();
+
+	void setViewName(String viewName);
+
+	String getViewName();
 
 	
 	// TODO PULL UP

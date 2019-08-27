@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 
 public class TemplateDTO {
 	 @Size(min = 3, max = 50)
-	private String jspPath;
+	private String viewName;
 	private Date created;
 	private Date updated;
 	private Integer id;
@@ -14,6 +14,22 @@ public class TemplateDTO {
 	public Integer getId() {
 		return id;
 	}
+	
+	
+
+
+	public String getViewName() {
+		return viewName;
+	}
+
+
+
+
+	public void setViewName(String viewName) {
+		this.viewName = viewName;
+	}
+
+
 
 
 	public Date getCreated() {
@@ -32,17 +48,10 @@ public class TemplateDTO {
 		this.updated = updated;
 	}
 	
-	public String getJspPath() {
-		return jspPath;
-	}
-
-	public void setJspPath(String jspPath) {
-		this.jspPath = jspPath;
-	}
 
 	@Override
 	public String toString() {
-		return "Template [jspPath=" + jspPath + ", created=" + created + ", updated=" + updated + "]";
+		return "Template [jspPath=" + viewName + ", created=" + created + ", updated=" + updated + "]";
 	}
 
 	public void setId(Integer id) {

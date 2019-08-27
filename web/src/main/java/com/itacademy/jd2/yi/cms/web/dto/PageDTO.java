@@ -29,12 +29,18 @@ public class PageDTO {
 	private UserRole creatorRole;
 	private UserStatus creatorStatus;
 	private Integer templateId;
-	private String jspPath;
+	private String viewName;
 	
 	
 	
 	
 	
+	public String getViewName() {
+		return viewName;
+	}
+	public void setViewName(String viewName) {
+		this.viewName = viewName;
+	}
 	public Integer getCreatorId() {
 		return creatorId;
 	}
@@ -47,12 +53,7 @@ public class PageDTO {
 	public void setTemplateId(Integer templateId) {
 		this.templateId = templateId;
 	}
-	public String getJspPath() {
-		return jspPath;
-	}
-	public void setJspPath(String jspPath) {
-		this.jspPath = jspPath;
-	}
+
 
 	public String getCreatorName() {
 		return creatorName;
@@ -146,7 +147,7 @@ public class PageDTO {
 				+ ", siteBasepath=" + siteBasepath + ", creatorId=" + creatorId + ", creatorName=" + creatorName
 				+ ", creatorPassword=" + creatorPassword + ", creatorEmail=" + creatorEmail + ", creatorRole="
 				+ creatorRole + ", creatorStatus=" + creatorStatus + ", templateId=" + templateId + ", jspPath="
-				+ jspPath + "]";
+				+ viewName + "]";
 	}
 	
 	

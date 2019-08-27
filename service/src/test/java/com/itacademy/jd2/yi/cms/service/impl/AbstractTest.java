@@ -87,7 +87,7 @@ public abstract class AbstractTest {
 
     protected ITemplate saveNewTemplate() {
         final ITemplate entity = templateService.createEntity();
-        entity.setJspPath("D:\\templates\\" + getRandomPrefix() + ".jsp");
+        entity.setViewName("D:\\templates\\" + getRandomPrefix() + ".jsp");
         templateService.save(entity);
         return entity;
     }

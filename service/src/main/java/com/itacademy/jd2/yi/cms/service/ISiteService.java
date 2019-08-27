@@ -29,7 +29,5 @@ public interface ISiteService {
 
 	ISite get(String basePath);
 
-    //List<IBrand> find(BrandFilter filter);
 
-    //long getCount(BrandFilter filter);
 }

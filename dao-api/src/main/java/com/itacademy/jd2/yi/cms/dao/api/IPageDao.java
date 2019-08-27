@@ -20,5 +20,7 @@ public interface IPageDao extends IDao<IPage, Integer>{
 
 	List<IPage> search(String text);
 
+	IPage getByPagePath(String pagePath);
+
 
 }
