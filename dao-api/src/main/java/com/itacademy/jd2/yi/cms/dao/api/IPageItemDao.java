@@ -14,6 +14,7 @@ public interface IPageItemDao extends IDao<IPageItem, Integer>{
 	long getCount (PageItemFilter filter);
 
 	IPageItem getFullInfo(Integer id);
+	
 
 }
 

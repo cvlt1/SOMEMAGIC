@@ -111,4 +111,9 @@ public class PageServiceImpl implements IPageService {
 		return dao.getByPagePath(pagePath);
 	}
 
+	@Override
+	public IPage getFullInfo(String pagePath) {
+		return dao.getFullInfo(pagePath);
+	}
+
 }

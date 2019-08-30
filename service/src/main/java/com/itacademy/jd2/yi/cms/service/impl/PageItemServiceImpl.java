@@ -98,6 +98,8 @@ public class PageItemServiceImpl implements IPageItemService {
 	public IPageItem getFullInfo(Integer id) {
 		return dao.getFullInfo(id);
 	}
+	
+
 
 }
 

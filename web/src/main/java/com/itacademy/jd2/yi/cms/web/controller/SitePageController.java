@@ -44,9 +44,9 @@ public class SitePageController extends AbstractController {
 		if (site == null) {
 			throw new ResourceNotFoundException();
 		}
-		IPage page = pageService.get(pagePath);  //fetch all data(template, site etc)
+		IPage page = pageService.getFullInfo(pagePath);  //fetch all data(template, site etc)
 
-		if (page == null || !(page.getPageStatus() == PageStatus.PUBLISHED)) { // or if not published status
+		if (page == null || !(page.getPageStatus().equals(PageStatus.PUBLISHED))) { // or if not published status
 			throw new ResourceNotFoundException();
 		}
 		
@@ -62,8 +62,8 @@ public class SitePageController extends AbstractController {
 
 		final Map<String, Object> models = new HashMap<>();
 
-		models.put("siteName", site.getName());
-		
+		models.put("sitePath", site.getBasepath());
+		models.put("pagePath", page.getPath());
 		models.put("contentItems", pageContentItems);
 		return new ModelAndView(viewName, models);
 	}

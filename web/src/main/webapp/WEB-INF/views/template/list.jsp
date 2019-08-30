@@ -8,7 +8,7 @@
 	<tbody>
 		<tr>
 			<th><mytaglib:sort-link pageUrl="${pagesTemplate}" column="id">id</mytaglib:sort-link></th>
-			<th><mytaglib:sort-link pageUrl="${pagesTemplate}" column="jsp_path">jsp_path</mytaglib:sort-link></th>
+			<th><mytaglib:sort-link pageUrl="${pagesTemplate}" column="view_name">view_name</mytaglib:sort-link></th>
 			<th><mytaglib:sort-link pageUrl="${pagesTemplate}" column="created">created</mytaglib:sort-link></th>
 			<th><mytaglib:sort-link pageUrl="${pagesTemplate}" column="updated">updated</mytaglib:sort-link></th>
 			<th></th>
@@ -16,7 +16,7 @@
 		<c:forEach var="template" items="${gridItems}" varStatus="loopCounter">
 			<tr>
 				<td><c:out value="${template.id}" /></td>
-				<td><c:out value="${template.jspPath}" /></td>
+				<td><c:out value="${template.viewName}" /></td>
 				<td><fmt:formatDate pattern="yyyy-MM-dd"
 						value="${template.created}" /></td>
 				<td><fmt:formatDate pattern="yyyy-MM-dd"
