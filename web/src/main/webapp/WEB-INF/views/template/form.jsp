@@ -8,9 +8,9 @@
         <form:input path="id" type="hidden" />
         <div class="row">
             <div class="input-field col s12">
-                <form:input path="jspPath" type="text" disabled="${readonly}" />
-                <form:errors path="jspPath" cssClass="red-text" />
-                <label for="jspPath">path</label>
+                <form:input path="viewName" type="text" disabled="${readonly}" />
+                <form:errors path="viewName" cssClass="red-text" />
+                <label for="viewName">viewName</label>
             </div>
         </div>
         <div class="row">
