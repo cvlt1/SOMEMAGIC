@@ -36,4 +36,6 @@ public interface IPageService {
 	List<IPage> search(String text);
 
 	IPage get(String pagePath);
+
+	IPage getFullInfo(String pagePath);
 }

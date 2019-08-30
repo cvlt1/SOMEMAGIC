@@ -5,13 +5,14 @@
 
 <body>
 
-
-	<c:forEach var="item" items="${contentItems}" varStatus="loopCounter">
-		<div class="row">
-			<div class="col s12">${item.html}</div>
-		</div>
+<div class="row">
+<h1>test content outer</h1>
+	<c:forEach var="contentItem" items="${contentItems}" varStatus="loopCounter">
+		
+			<div class="col s12">${contentItem.html}</div>
+		
 	</c:forEach>
-
+</div>
 
 
 </body>

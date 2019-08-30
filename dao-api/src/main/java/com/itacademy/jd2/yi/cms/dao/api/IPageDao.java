@@ -22,5 +22,7 @@ public interface IPageDao extends IDao<IPage, Integer>{
 
 	IPage getByPagePath(String pagePath);
 
+	IPage getFullInfo(String pagePath);
+
 
 }

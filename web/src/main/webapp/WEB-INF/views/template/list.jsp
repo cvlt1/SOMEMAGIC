@@ -8,7 +8,11 @@
 	<tbody>
 		<tr>
 			<th><mytaglib:sort-link pageUrl="${pagesTemplate}" column="id">id</mytaglib:sort-link></th>
+<<<<<<< HEAD
 			<th><mytaglib:sort-link pageUrl="${pagesTemplate}" column="view_name">viewName</mytaglib:sort-link></th>
+=======
+			<th><mytaglib:sort-link pageUrl="${pagesTemplate}" column="view_name">view_name</mytaglib:sort-link></th>
+>>>>>>> 1deb6ea0a9cf2a6d3f30634f265d57b64dffcd8c
 			<th><mytaglib:sort-link pageUrl="${pagesTemplate}" column="created">created</mytaglib:sort-link></th>
 			<th><mytaglib:sort-link pageUrl="${pagesTemplate}" column="updated">updated</mytaglib:sort-link></th>
 			<th></th>
