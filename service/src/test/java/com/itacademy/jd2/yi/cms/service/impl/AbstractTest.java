@@ -95,7 +95,7 @@ public abstract class AbstractTest {
     protected ISite saveNewSite() {
         final ISite entity = siteService.createEntity();
         entity.setName("sitename" + getRandomPrefix());
-        entity.setBasepath("somepath" + getRandomPrefix() + ".com");
+        entity.setBasePath("somepath" + getRandomPrefix() + ".com");
         siteService.save(entity);
         return entity;
     }

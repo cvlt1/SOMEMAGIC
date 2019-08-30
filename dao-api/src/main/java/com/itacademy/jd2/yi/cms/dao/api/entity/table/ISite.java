@@ -7,13 +7,14 @@ public interface ISite extends IBaseEntity {
 
 	String toString();
 
-	void setBasepath(String basepath);
+	void setBasePath(String basePath);
 
-	String getBasepath();
+	String getBasePath();
 
 	void setName(String name);
 
 	String getName();
+
 
 
 	

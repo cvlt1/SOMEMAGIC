@@ -9,7 +9,7 @@ public class Site extends BaseEntity implements ISite{
 	@Column
 	private String name;
 	@Column
-	private String basepath;
+	private String basePath;
 	
 	
 	
@@ -19,19 +19,18 @@ public class Site extends BaseEntity implements ISite{
 	public void setName(String name) {
 		this.name = name;
 	}
-	@Override
-	public String getBasepath() {
-		return basepath;
-	}
-	@Override
-	public void setBasepath(String basepath) {
-		this.basepath = basepath;
-	}
+
 	
 	
+	public String getBasePath() {
+		return basePath;
+	}
+	public void setBasePath(String basePath) {
+		this.basePath = basePath;
+	}
 	@Override
 	public String toString() {
-		return "Site [siteName=" + name + ", basepath=" + basepath + "]";
+		return "Site [siteName=" + name + ", basepath=" + basePath + "]";
 	}
 
 }

@@ -19,4 +19,6 @@ public interface IContentItemDao extends IDao<IContentItem, Integer> {
 	
 	List<IContentItem> search(String text);
 
+	IContentItem getFullInfo(String content);
+
 }

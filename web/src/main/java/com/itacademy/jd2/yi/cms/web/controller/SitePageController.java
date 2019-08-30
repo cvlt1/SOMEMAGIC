@@ -1,9 +1,11 @@
 package com.itacademy.jd2.yi.cms.web.controller;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,8 +21,12 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.IContentItem;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
+import com.itacademy.jd2.yi.cms.service.IContentItemService;
 import com.itacademy.jd2.yi.cms.service.IPageService;
 import com.itacademy.jd2.yi.cms.service.ISiteService;
+import com.itacademy.jd2.yi.cms.web.converter.ContentItemFromDTOConverter;
+import com.itacademy.jd2.yi.cms.web.converter.ContentItemToDTOConverter;
+import com.itacademy.jd2.yi.cms.web.dto.ContentItemDTO;
 import com.itacademy.jd2.yi.cms.web.exception.ResourceNotFoundException;
 
 @Controller
@@ -32,7 +38,16 @@ public class SitePageController extends AbstractController {
 
 	@Autowired
 	private IPageService pageService;
-
+	
+	
+	
+	@Autowired
+	ContentItemToDTOConverter toDtoConverter;
+	
+	@Autowired
+	ContentItemFromDTOConverter fromDtoConverter;
+	
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/{sitePath}/{pagePath}")
 	public ModelAndView index(final HttpServletRequest req,
 			@PathVariable(name = "sitePath", required = true) final String sitePath,
@@ -50,21 +65,33 @@ public class SitePageController extends AbstractController {
 			throw new ResourceNotFoundException();
 		}
 		
+		ContentItemDTO contentItem = new ContentItemDTO();
 		ITemplate template = page.getTemplate();
 		String viewName = template.getViewName(); // rename to 'viewName'
+		String ci = contentItem.getHtml();
 		
+//		ArrayList<IContentItem> pageContentItems = new ArrayList<IContentItem>(); // load items by page
+////		
+//
+////		
+//		Collection<ContentItemDTO> dtos = pageContentItems.stream().map(toDtoConverter).collect(Collectors.toList());
 		
+		final List<ContentItemDTO> contentList = new ArrayList<ContentItemDTO>();
+		ContentItemDTO content = new ContentItemDTO();
+		content.setHtml(ci);
+
+		contentList.add(content);
+	
+		//turn to DTO
 		
-		List<IContentItem> pageContentItems = new ArrayList<IContentItem>(); // load items by page
 		
 
 		// render page content according to template
 
 		final Map<String, Object> models = new HashMap<>();
 
-		models.put("sitePath", site.getBasepath());
-		models.put("pagePath", page.getPath());
-		models.put("contentItems", pageContentItems);
+		models.put("sitePath", site.getBasePath());
+		models.put("contentItems", contentList);
 		return new ModelAndView(viewName, models);
 	}
 }

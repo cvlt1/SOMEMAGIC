@@ -75,7 +75,7 @@ public class SiteDaoImpl extends AbstractDaoImpl<ISite, Integer> implements ISit
 		case "name":
 			return Site_.name;
 		case "basepath":
-			return Site_.basepath;
+			return Site_.basePath;
 		default:
 			throw new UnsupportedOperationException("sorting is not supported by column:" + sortColumn);
 		}
@@ -103,7 +103,7 @@ public class SiteDaoImpl extends AbstractDaoImpl<ISite, Integer> implements ISit
 		final Root<Site> from = cq.from(Site.class);
 		cq.select(from); 
 		
-		cq.where(cb.equal(from.get(Site_.basepath), basePath));
+		cq.where(cb.equal(from.get(Site_.basePath), basePath));
 
 		final TypedQuery<ISite> q = em.createQuery(cq);
 

@@ -36,9 +36,9 @@
 						class="material-icons">info</i></a> <a class="btn-floating green"
 					href="${pagesCssItem}/${cssItem.id}/add"><i
 						class="material-icons">add</i></a> <a class="btn-floating"
-					href="${pagesContentItem}/${cssItem.id}/edit"><i
+					href="${pagesCssItem}/${cssItem.id}/edit"><i
 						class="material-icons">edit</i></a> <a class="btn-floating red"
-					href="${pagesContentItem}/${cssItem.id}/delete"><i
+					href="${pagesCssItem}/${cssItem.id}/delete"><i
 						class="material-icons">delete</i></a></td>
 			</tr>
 		</c:forEach>

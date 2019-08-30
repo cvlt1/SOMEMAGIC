@@ -4,12 +4,13 @@
 
 
 <body>
-
+<h1>outer test content before row</h1>
 <div class="row">
-<h1>test content outer</h1>
-	<c:forEach var="contentItem" items="${contentItems}" varStatus="loopCounter">
-		
-			<div class="col s12">${contentItem.html}</div>
+<h1>outer test content</h1>
+	<c:forEach var="item" items="${contentItems}" varStatus="loopCounter">
+		<h1>inner test content</h1>
+		<div class="col s12">inner test content</div>
+			<div class="col s12">${item.html}</div>
 		
 	</c:forEach>
 </div>

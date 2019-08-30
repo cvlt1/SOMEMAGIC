@@ -33,4 +33,6 @@ public interface IContentItemService {
 //	
 //	@Transactional
 //	List<IContentItem> search(String text);
+
+	IContentItem getFullInfo(String content);
 }

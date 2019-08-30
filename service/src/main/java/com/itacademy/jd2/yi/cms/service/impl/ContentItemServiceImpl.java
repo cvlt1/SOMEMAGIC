@@ -102,6 +102,11 @@ public class ContentItemServiceImpl implements IContentItemService {
 	public IContentItem getFullInfo(Integer id) {
 		return dao.getFullInfo(id);
 	}
+
+	@Override
+	public IContentItem getFullInfo(String content) {
+		return dao.getFullInfo(content);
+	}
 	
 //	@Override
 //	@Transactional

@@ -5,7 +5,7 @@ import java.util.Date;
 public class SiteDTO {
 
 	private String siteName;
-	private String basepath;
+	private String basePath;
 	private Integer id;
 	private Date created;
 	private Date updated;
@@ -31,11 +31,12 @@ public class SiteDTO {
 	public void setSiteName(String siteName) {
 		this.siteName = siteName;
 	}
-	public String getBasepath() {
-		return basepath;
+
+	public String getBasePath() {
+		return basePath;
 	}
-	public void setBasepath(String basepath) {
-		this.basepath = basepath;
+	public void setBasePath(String basePath) {
+		this.basePath = basePath;
 	}
 	public Integer getId() {
 		return id;
@@ -45,7 +46,7 @@ public class SiteDTO {
 	}
 	@Override
 	public String toString() {
-		return "SiteDTO [siteName=" + siteName + ", basepath=" + basepath + ", id=" + id + "]";
+		return "SiteDTO [siteName=" + siteName + ", basepath=" + basePath + ", id=" + id + "]";
 	}
 	
 	

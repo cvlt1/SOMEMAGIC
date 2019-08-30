@@ -13,9 +13,9 @@
 				<label for="siteName">siteName</label>
 			</div>
 			<div class="input-field col s12">
-				<form:input path="basepath" type="text" disabled="${readonly}" />
-				<form:errors path="basepath" cssClass="red-text" />
-				<label for="basepath">basepath</label>
+				<form:input path="basePath" type="text" disabled="${readonly}" />
+				<form:errors path="basePath" cssClass="red-text" />
+				<label for="basePath">basepath</label>
 			</div>
 		</div>
 		<div class="row">

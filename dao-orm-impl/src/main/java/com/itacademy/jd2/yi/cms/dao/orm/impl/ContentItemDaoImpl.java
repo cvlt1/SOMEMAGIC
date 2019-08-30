@@ -190,5 +190,27 @@ public class ContentItemDaoImpl  extends AbstractDaoImpl<IContentItem, Integer> 
  		return jpaQuery.getResultList();
 
  	}
+	
+    @Override
+    public IContentItem getFullInfo(final String content) {
+        final EntityManager em = getEntityManager();
+        final CriteriaBuilder cb = em.getCriteriaBuilder();
+
+        final CriteriaQuery<IContentItem> cq = cb.createQuery(IContentItem.class); // define returning result
+        final Root<ContentItem> from = cq.from(ContentItem.class); // define table for select
+
+        cq.select(from); // define what need to be selected
+
+        from.fetch(ContentItem_.site, JoinType.LEFT);
+
+        cq.distinct(true); // to avoid duplicate rows in result
+
+        // .. where id=...
+        cq.where(cb.equal(from.get(ContentItem_.html), content)); // where id=?
+
+        final TypedQuery<IContentItem> q = em.createQuery(cq);
+
+        return getSingleResult(q);
+    }
 
 }

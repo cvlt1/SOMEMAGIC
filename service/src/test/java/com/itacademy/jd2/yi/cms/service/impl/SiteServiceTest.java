@@ -60,7 +60,7 @@ public class SiteServiceTest extends AbstractTest {
 
         assertNotNull(entityFromDb);
         assertEquals(entity.getName(), entityFromDb.getName());
-        assertEquals(entity.getBasepath(), entityFromDb.getBasepath());
+        assertEquals(entity.getBasePath(), entityFromDb.getBasePath());
         assertNotNull(entityFromDb.getCreated());
         assertNotNull(entityFromDb.getUpdated());
         //assertTrue(entityFromDb.getCreated().equals(entityFromDb.getUpdated()));
@@ -80,7 +80,7 @@ public class SiteServiceTest extends AbstractTest {
         for (final ISite entityFromDb : allEntities) {
         	assertNotNull(entityFromDb.getId());
             assertNotNull(entityFromDb.getName());
-            assertNotNull(entityFromDb.getBasepath());
+            assertNotNull(entityFromDb.getBasePath());
             assertNotNull(entityFromDb.getCreated());
             assertNotNull(entityFromDb.getUpdated());
         }

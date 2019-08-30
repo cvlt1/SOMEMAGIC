@@ -5,7 +5,7 @@
 
 <body>
 	<div class="row">
-		<c:forEach var="contentItem" items="${contentItems}" varStatus="loopCounter">
+		<c:forEach var="item" items="${contentItems}" varStatus="loopCounter">
 			<div class="col s6">${item.html}</div>
 		</c:forEach>
 	</div>
