@@ -21,6 +21,8 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.IContentItem;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
+import com.itacademy.jd2.yi.cms.dao.api.filter.ContentItemFilter;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.ContentItem;
 import com.itacademy.jd2.yi.cms.service.IContentItemService;
 import com.itacademy.jd2.yi.cms.service.IPageService;
 import com.itacademy.jd2.yi.cms.service.ISiteService;
@@ -39,7 +41,8 @@ public class SitePageController extends AbstractController {
 	@Autowired
 	private IPageService pageService;
 	
-	
+	@Autowired
+	private IContentItemService contentItemService;
 	
 	@Autowired
 	ContentItemToDTOConverter toDtoConverter;
@@ -47,11 +50,24 @@ public class SitePageController extends AbstractController {
 	@Autowired
 	ContentItemFromDTOConverter fromDtoConverter;
 	
+	@Autowired
+	private SitePageController(IContentItemService contentItemService, ContentItemToDTOConverter toDtoConverter,
+			ContentItemFromDTOConverter fromDtoConverter, ISiteService siteService, IPageService pageService) {
+		super();
+		this.siteService = siteService;
+		this.contentItemService = contentItemService;
+		this.toDtoConverter = toDtoConverter;
+		this.fromDtoConverter = fromDtoConverter;
+		this.pageService = pageService;
+
+	}
+	
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/{sitePath}/{pagePath}")
 	public ModelAndView index(final HttpServletRequest req,
 			@PathVariable(name = "sitePath", required = true) final String sitePath,
-			@PathVariable(name = "pagePath", required = true) final String pagePath) {
+			@PathVariable(name = "pagePath", required = true) final String pagePath,
+			Integer id) {
 
 		// get sit
 		ISite site = siteService.get(sitePath);
@@ -65,33 +81,25 @@ public class SitePageController extends AbstractController {
 			throw new ResourceNotFoundException();
 		}
 		
-		ContentItemDTO contentItem = new ContentItemDTO();
 		ITemplate template = page.getTemplate();
 		String viewName = template.getViewName(); // rename to 'viewName'
-		String ci = contentItem.getHtml();
 		
-//		ArrayList<IContentItem> pageContentItems = new ArrayList<IContentItem>(); // load items by page
-////		
-//
-////		
-//		Collection<ContentItemDTO> dtos = pageContentItems.stream().map(toDtoConverter).collect(Collectors.toList());
-		
-		final List<ContentItemDTO> contentList = new ArrayList<ContentItemDTO>();
-		ContentItemDTO content = new ContentItemDTO();
-		content.setHtml(ci);
+		final ContentItemFilter filter = new ContentItemFilter();
 
-		contentList.add(content);
+		final List<IContentItem> entities = contentItemService.find(filter);
+		List<ContentItemDTO> dtos = entities.stream().map(toDtoConverter).collect(Collectors.toList());
+		
+		
+
+		// render page content according to template
 	
 		//turn to DTO
-		
-		
-
 		// render page content according to template
 
 		final Map<String, Object> models = new HashMap<>();
 
 		models.put("sitePath", site.getBasePath());
-		models.put("contentItems", contentList);
+		models.put("contentItems", dtos);
 		return new ModelAndView(viewName, models);
 	}
 }
