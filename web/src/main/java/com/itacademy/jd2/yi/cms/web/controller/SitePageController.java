@@ -90,12 +90,6 @@ public class SitePageController extends AbstractController {
 		List<ContentItemDTO> dtos = entities.stream().map(toDtoConverter).collect(Collectors.toList());
 		
 		
-
-		// render page content according to template
-	
-		//turn to DTO
-		// render page content according to template
-
 		final Map<String, Object> models = new HashMap<>();
 
 		models.put("sitePath", site.getBasePath());

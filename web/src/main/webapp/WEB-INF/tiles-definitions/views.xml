@@ -110,6 +110,11 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/login.jsp" />
 	</definition>
+	
+	
+	<definition name="errors.404" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/errors/404.jsp" />
+    </definition>  
 
 
 

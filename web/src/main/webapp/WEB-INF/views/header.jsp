@@ -40,12 +40,15 @@ Logged user is anonymous
 				<li><a class="grey-text text-darken-3" href="${pagesPageHistory}">Page History</a></li>
 				<li><a class="grey-text text-darken-3" href="${pagesCssItem}">css</a></li>
 				<li><a class="grey-text text-darken-3" href="${pagesPageItem}">page item</a></li>
+
 				
 				
-				<a class="right" class="grey-text text-darken-3" href="${contextPath}/execute_logout" title="logout"><i
-					class="material-icons" class="grey-text text-darken-3">arrow_forward</i></a>
-				<li><a class="highlighted-menu-ru" class="grey-text text-darken-3" href="?lang=ru">RU</a></li>
-				<li><a class="highlighted-menu-en" class="grey-text text-darken-3" href="?lang=en">EN</a></li>
+				<sec:authorize access="!isAnonymous()">
+					<a class="right" href="${contextPath}/execute_logout" title="logout"><i
+						class="material-icons">arrow_forward</i></a>
+				</sec:authorize>
+                <li><a class="highlighted-menu-ru" href="?lang=ru">RU</a></li>
+                <li><a class="highlighted-menu-en"  href="?lang=en">EN</a></li>
 
 			</ul>
 		</div>

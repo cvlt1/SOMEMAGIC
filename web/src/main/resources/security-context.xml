@@ -15,9 +15,18 @@ http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 		base-package="com.itacademy.jd2.yi.cms.web.security" />
 
 	<http>
-		<intercept-url pattern="/car**" access="!isAnonymous()" />
-		<!--   <intercept-url pattern="/template**" access="!isAnonymous()" /> -->
-		<!-- <intercept-url pattern="/model**" access="hasRole('admin')" /> -->
+		<intercept-url pattern="/template/**" access="hasRole('ADMIN')" /> 
+		<intercept-url pattern="/page/**" access="hasAnyRole('BASIC','ADMIN')" /> 
+		<intercept-url pattern="/useraccount/**" access="hasRole('ADMIN')" /> 
+		<intercept-url pattern="/site/**" access="hasAnyRole('BASIC','ADMIN')" /> 
+		<intercept-url pattern="/contentitem/**" access="hasRole('ADMIN')" /> 
+		<intercept-url pattern="/pagehistory/**" access="hasAnyRole('BASIC','ADMIN')" /> 
+		<intercept-url pattern="/cssitem/**" access="hasRole('ADMIN')" /> 
+		<intercept-url pattern="/pageitem/**" access="hasRole('ADMIN')" /> 
+		
+				
+		
+		
 
 		<form-login login-page="/login" default-target-url="/"
 			authentication-failure-url="/login?error"

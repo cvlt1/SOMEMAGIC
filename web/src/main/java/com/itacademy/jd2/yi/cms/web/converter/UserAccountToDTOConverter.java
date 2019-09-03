@@ -19,7 +19,7 @@ public class UserAccountToDTOConverter implements Function<IUserAccount, UserAcc
         dto.setId(entity.getId());
         dto.setName(entity.getName());
         dto.setEmail(entity.getEmail());
-        dto.setPassword(entity.getPassword());
+        dto.setPassword(hashed);
         dto.setRole(entity.getRole());
         dto.setStatus(entity.getStatus());
         dto.setCreated(entity.getCreated());
