@@ -17,6 +17,7 @@ import org.hibernate.search.annotations.Store;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.enums.PageStatus;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageItem;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
@@ -30,7 +31,8 @@ public class Page extends BaseEntity implements IPage {
 	@ManyToOne (fetch = FetchType.LAZY, targetEntity = Site.class)
 	private ISite site; // many to one
 	
-	
+	@ManyToOne (fetch = FetchType.LAZY, targetEntity = PageItem.class)
+	private IPageItem pageItem;
 
 	@ManyToOne (fetch = FetchType.LAZY, targetEntity = Template.class)
 	private ITemplate template;
@@ -98,10 +100,22 @@ public class Page extends BaseEntity implements IPage {
 	}
 
 	@Override
-	public String toString() {
-		return "Page [site=" + site + ", template=" + template + ", creator=" + creator + ", path=" + path
-				+ ", pageTitle=" + pageTitle + ", pageStatus=" + pageStatus + "]";
+	public IPageItem getPageItem() {
+		return pageItem;
 	}
+
+	@Override
+	public void setPageItem(IPageItem pageItem) {
+		this.pageItem = pageItem;
+	}
+
+	@Override
+	public String toString() {
+		return "Page [site=" + site + ", pageItem=" + pageItem + ", template=" + template + ", creator=" + creator
+				+ ", path=" + path + ", pageTitle=" + pageTitle + ", pageStatus=" + pageStatus + "]";
+	}
+
+
 	
 	
 

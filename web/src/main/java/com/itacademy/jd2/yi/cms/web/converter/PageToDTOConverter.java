@@ -5,6 +5,7 @@ import java.util.function.Function;
 import org.springframework.stereotype.Component;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageItem;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
@@ -26,7 +27,7 @@ public class PageToDTOConverter implements Function<IPage, PageDTO> {
 	        final ISite site = entity.getSite();
 	        if (site != null) {
 	            pageDto.setSiteId(site.getId());
-	            pageDto.setSiteName(site.getName());
+	            pageDto.setSiteName(site.getSiteName());
 	            pageDto.setSiteBasepath(site.getBasePath());
 	        }
 	        
@@ -40,9 +41,14 @@ public class PageToDTOConverter implements Function<IPage, PageDTO> {
 	        	pageDto.setCreatorStatus(userAccount.getStatus());
 	        }
 	        final ITemplate template = entity.getTemplate();
-	        if (site != null) {
+	        if (template != null) {
 	            pageDto.setTemplateId(template.getId());
 	            pageDto.setViewName(template.getViewName());
+	        }
+	        final IPageItem pageItem = entity.getPageItem();
+	        if (pageItem != null) {
+	            pageDto.setPageItemId(pageItem.getId());
+	            pageDto.setPageItemPosition(pageItem.getPosition());
 	        }
 			return pageDto;
 	        

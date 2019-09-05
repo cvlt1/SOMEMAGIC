@@ -132,7 +132,7 @@ public class ContentItemController extends AbstractController {
     private void loadCommonFormModels(final Map<String, Object> hashMap) {
 
         final Map<Integer, String> contentMap = siteService.getAll().stream()
-                .collect(Collectors.toMap(ISite::getId, ISite::getName));
+                .collect(Collectors.toMap(ISite::getId, ISite::getSiteName));
 
         hashMap.put("sitesChoices", contentMap);
 

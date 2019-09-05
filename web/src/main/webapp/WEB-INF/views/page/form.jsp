@@ -14,7 +14,7 @@
 				<form:errors path="siteId" cssClass="red-text" />
 				<label for="siteId">site</label>
 			</div>
-			
+
 			<div class="input-field col s12">
 				<form:select path="templateId" disabled="${readonly}">
 					<form:options items="${templatesChoices}" />
@@ -22,7 +22,7 @@
 				<form:errors path="templateId" cssClass="red-text" />
 				<label for="templateId">template</label>
 			</div>
-			
+
 			<div class="input-field col s12">
 				<form:select path="creatorId" disabled="${readonly}">
 					<form:options items="${uAccChoices}" />
@@ -30,19 +30,27 @@
 				<form:errors path="creatorId" cssClass="red-text" />
 				<label for="creatorId">creator</label>
 			</div>
-			
+
+			<div class="input-field col s12">
+				<form:select path="pageItemId" disabled="${readonly}">
+					<form:options items="${pageItemChoices}" />
+				</form:select>
+				<form:errors path="pageItemId" cssClass="red-text" />
+				<label for="pageItemId">pageItemId</label>
+			</div>
+
 			<div class="input-field col s12">
 				<form:input path="path" type="text" disabled="${readonly}" />
 				<form:errors path="path" cssClass="red-text" />
 				<label for="path">path</label>
 			</div>
-			
+
 			<div class="input-field col s12">
 				<form:input path="pageStatus" type="text" disabled="${readonly}" />
 				<form:errors path="pageStatus" cssClass="red-text" />
 				<label for="pageStatus">status</label>
 			</div>
-			
+
 			<div class="input-field col s12">
 				<form:input path="pageTitle" type="text" disabled="${readonly}" />
 				<form:errors path="pageTitle" cssClass="red-text" />

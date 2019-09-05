@@ -24,9 +24,9 @@ public class PageItemFromDTOConverter implements Function<PageItemDTO, IPageItem
     @Autowired
     private IPageItemService pageItemService;
     @Autowired
-    private IPageService pageService;
-    @Autowired
     private IContentItemService contentItemService;
+    @Autowired
+    private IPageService pageService;
 
     @Override
     public IPageItem apply(final PageItemDTO dto) {
@@ -36,7 +36,6 @@ public class PageItemFromDTOConverter implements Function<PageItemDTO, IPageItem
         
         final IPage page = pageService.createEntity();
         page.setId(dto.getPageId());
-        entity.setPage(page);
         
         final IContentItem contentItem = contentItemService.createEntity();
         contentItem.setId(dto.getContentItemId());

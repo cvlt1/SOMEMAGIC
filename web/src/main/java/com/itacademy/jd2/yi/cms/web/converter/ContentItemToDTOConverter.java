@@ -23,7 +23,7 @@ public class ContentItemToDTOConverter implements Function<IContentItem, Content
 	        final ISite site = entity.getSite();
 	        if (site != null) {
 	        	 contentItemDto.setSiteId(site.getId());
-	        	 contentItemDto.setSiteName(site.getName());
+	        	 contentItemDto.setSiteName(site.getSiteName());
 	        	 contentItemDto.setSiteBasepath(site.getBasePath());
 	        }
 	        

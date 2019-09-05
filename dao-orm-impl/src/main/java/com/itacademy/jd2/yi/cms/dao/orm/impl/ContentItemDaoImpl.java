@@ -110,7 +110,7 @@ public class ContentItemDaoImpl  extends AbstractDaoImpl<IContentItem, Integer> 
 		case "title":
 			return from.get(ContentItem_.title);
 		case "site_id":
-			return from.get(ContentItem_.site).get(Site_.name);
+			return from.get(ContentItem_.site).get(Site_.siteName);
 		default:
 			throw new UnsupportedOperationException("sorting is not supported by column:" + sortColumn);
 		}

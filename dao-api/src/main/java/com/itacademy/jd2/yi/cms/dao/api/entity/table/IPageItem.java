@@ -12,8 +12,6 @@ public interface IPageItem extends IBaseEntity {
 
 	IContentItem getContentItem();
 
-	void setPage(IPage page);
 
-	IPage getPage();
 
 }

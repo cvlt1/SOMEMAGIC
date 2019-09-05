@@ -23,13 +23,6 @@ public class PageItemToDTOConverter implements Function<IPageItem, PageItemDTO> 
 	        pageItemDto.setCreated(entity.getCreated());
 	        pageItemDto.setUpdated(entity.getUpdated());
 
-	        final IPage page = entity.getPage();
-	        if (page != null) {
-	            pageItemDto.setPageId(page.getId());
-	            pageItemDto.setPagePath(page.getPath());
-	            pageItemDto.setPageTitle(page.getPageTitle());
-	            pageItemDto.setPageStatus(page.getPageStatus());
-	        }
 	        
 	        final IContentItem contentItem = entity.getContentItem();
 	        if (contentItem != null) {

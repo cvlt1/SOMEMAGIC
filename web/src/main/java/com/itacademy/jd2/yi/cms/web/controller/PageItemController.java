@@ -129,7 +129,7 @@ public class PageItemController extends AbstractController {
         hashMap.put("pagesChoices", pagesMap);
 
         final Map<Integer, String> contentItemMap = contentItem.stream()
-                .collect(Collectors.toMap(IContentItem::getId, IContentItem::getHtml));
+                .collect(Collectors.toMap(IContentItem::getId, IContentItem::getTitle));
         hashMap.put("contentItemChoices", contentItemMap);
     }
 

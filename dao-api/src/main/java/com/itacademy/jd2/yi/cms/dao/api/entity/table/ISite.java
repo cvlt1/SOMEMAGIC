@@ -11,9 +11,11 @@ public interface ISite extends IBaseEntity {
 
 	String getBasePath();
 
-	void setName(String name);
 
-	String getName();
+	void setSiteName(String siteName);
+
+	String getSiteName();
+
 
 
 

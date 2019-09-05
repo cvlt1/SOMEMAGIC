@@ -7,13 +7,7 @@
 		modelAttribute="formModel">
 		<form:input path="id" type="hidden" />
 		<div class="row">
-			<div class="input-field col s12">
-				<form:select path="pageId" disabled="${readonly}">
-					<form:options items="${pagesChoices}" />
-				</form:select>
-				<form:errors path="pageId" cssClass="red-text" />
-				<label for="pageId">page id</label>
-			</div>
+			
 
 			<div class="input-field col s12">
 				<form:input path="position" type="text" disabled="${readonly}" />

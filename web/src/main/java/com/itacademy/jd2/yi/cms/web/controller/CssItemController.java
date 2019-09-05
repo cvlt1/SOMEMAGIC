@@ -121,7 +121,7 @@ public class CssItemController extends AbstractController {
         final List<ISite> sites = siteService.getAll();
 
         final Map<Integer, String> sitesMap = sites.stream()
-                .collect(Collectors.toMap(ISite::getId, ISite::getName));
+                .collect(Collectors.toMap(ISite::getId, ISite::getSiteName));
         hashMap.put("sitesChoices", sitesMap);
 
     }

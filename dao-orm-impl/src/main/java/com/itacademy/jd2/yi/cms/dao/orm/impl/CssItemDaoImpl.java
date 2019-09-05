@@ -117,7 +117,7 @@ public class CssItemDaoImpl extends AbstractDaoImpl<ICssItem, Integer> implement
         case "sold":
             return from.get(CssItem_.content);
         case "model":
-            return from.get(CssItem_.site).get(Site_.name);
+            return from.get(CssItem_.site).get(Site_.siteName);
         default:
             throw new UnsupportedOperationException("sorting is not supported by column:" + sortColumn);
         }

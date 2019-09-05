@@ -19,10 +19,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageItem;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageFilter;
+import com.itacademy.jd2.yi.cms.service.IPageItemService;
 import com.itacademy.jd2.yi.cms.service.IPageService;
 import com.itacademy.jd2.yi.cms.service.ISiteService;
 import com.itacademy.jd2.yi.cms.service.ITemplateService;
@@ -47,6 +49,9 @@ public class PageController extends AbstractController {
 	
 	@Autowired
 	private IUserAccountService userAccountService;
+	
+	@Autowired
+	private IPageItemService pageItemService;
 
 	@Autowired
 	private PageFromDTOConverter fromDtoConverter;
@@ -129,9 +134,10 @@ public class PageController extends AbstractController {
         final List<ISite> sites = siteService.getAll();
         final List<ITemplate> templates = templateService.getAll();
         final List<IUserAccount> userAccounts = userAccountService.getAll();
+        final List<IPageItem> pageItems = pageItemService.getAll();
 
         final Map<Integer, String> sitesMap = sites.stream()
-                .collect(Collectors.toMap(ISite::getId, ISite::getName));
+                .collect(Collectors.toMap(ISite::getId, ISite::getSiteName));
         hashMap.put("sitesChoices", sitesMap);
 
         final Map<Integer, String> templatesMap = templates.stream()
@@ -141,6 +147,10 @@ public class PageController extends AbstractController {
         final Map<Integer, String> userAccountMap = userAccounts.stream()
                 .collect(Collectors.toMap(IUserAccount::getId, IUserAccount::getName));
         hashMap.put("uAccChoices", userAccountMap);
+        
+        final Map<Integer, Integer> pageItemMap = pageItems.stream()
+                .collect(Collectors.toMap(IPageItem::getId, IPageItem::getPosition));
+        hashMap.put("pageItemChoices", pageItemMap);
     }
 
 

@@ -7,21 +7,24 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 @Entity
 public class Site extends BaseEntity implements ISite{
 	@Column
-	private String name;
+	private String siteName;
 	@Column
 	private String basePath;
 	
 	
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+
 
 	
 	
+	@Override
+	public String getSiteName() {
+		return siteName;
+	}
+	@Override
+	public void setSiteName(String siteName) {
+		this.siteName = siteName;
+	}
 	public String getBasePath() {
 		return basePath;
 	}
@@ -30,7 +33,7 @@ public class Site extends BaseEntity implements ISite{
 	}
 	@Override
 	public String toString() {
-		return "Site [siteName=" + name + ", basepath=" + basePath + "]";
+		return "Site [siteName=" + siteName + ", basepath=" + basePath + "]";
 	}
 
 }

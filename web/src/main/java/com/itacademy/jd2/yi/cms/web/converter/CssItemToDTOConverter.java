@@ -22,7 +22,7 @@ public class CssItemToDTOConverter implements Function<ICssItem, CssItemDTO> {
 	        final ISite site = entity.getSite();
 	        if (site != null) {
 	        	 cssItemDto.setSiteId(site.getId());
-	        	 cssItemDto.setSiteName(site.getName());
+	        	 cssItemDto.setSiteName(site.getSiteName());
 	        	 cssItemDto.setSiteBasepath(site.getBasePath());
 	        }
 	        

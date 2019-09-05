@@ -22,7 +22,7 @@ public class SiteFromDTOConverter implements Function<SiteDTO, ISite> {
     public ISite apply(final SiteDTO dto) {
         final ISite entity = siteService.createEntity();
         entity.setId(dto.getId());
-        entity.setName(dto.getSiteName());
+        entity.setSiteName(dto.getSiteName());
         entity.setBasePath(dto.getBasePath());
         return entity;
     }

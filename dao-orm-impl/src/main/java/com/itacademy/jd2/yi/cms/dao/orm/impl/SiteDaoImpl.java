@@ -73,7 +73,7 @@ public class SiteDaoImpl extends AbstractDaoImpl<ISite, Integer> implements ISit
 		case "id":
 			return Site_.id;
 		case "name":
-			return Site_.name;
+			return Site_.siteName;
 		case "basepath":
 			return Site_.basePath;
 		default:

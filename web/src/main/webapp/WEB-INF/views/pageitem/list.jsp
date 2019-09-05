@@ -11,8 +11,7 @@
 		<tr>
 			<th><mytaglib:sort-link pageUrl="${pagesPageItem}"
 					column="id">id</mytaglib:sort-link></th>
-			<th><mytaglib:sort-link pageUrl="${pagesPageItem}"
-					column="pageId">page id</mytaglib:sort-link></th>
+			
 			<th><mytaglib:sort-link pageUrl="${pagesPageItem}"
 					column="position">position</mytaglib:sort-link></th>
 			<th><mytaglib:sort-link pageUrl="${pagesPageItem}"
@@ -27,7 +26,6 @@
 			varStatus="loopCounter">
 			<tr>
 				<td><c:out value="${pageItem.id}" /></td>
-				<td><c:out value="${pageItem.pageId}" /></td>
 				<td><c:out value="${pageItem.position}" /></td>
 				<td><c:out value="${pageItem.contentItemId}" /></td>
 				<td><fmt:formatDate pattern="yyyy-MM-dd"

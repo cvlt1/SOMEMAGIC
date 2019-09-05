@@ -14,8 +14,7 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageItem;
 @Entity
 public class PageItem extends BaseEntity implements IPageItem {
 	
-	@ManyToOne (fetch = FetchType.LAZY, targetEntity = Page.class)
-	private IPage page; // many to one
+
 	
 	
 	@OnDelete( action = OnDeleteAction.CASCADE)
@@ -25,15 +24,7 @@ public class PageItem extends BaseEntity implements IPageItem {
 	@Column
 	private Integer position;
 
-	@Override
-	public IPage getPage() {
-		return page;
-	}
 
-	@Override
-	public void setPage(IPage page) {
-		this.page = page;
-	}
 
 	@Override
 	public IContentItem getContentItem() {
@@ -57,8 +48,10 @@ public class PageItem extends BaseEntity implements IPageItem {
 
 	@Override
 	public String toString() {
-		return "PageItem [page=" + page + ", contentItem=" + contentItem + ", position=" + position + "]";
+		return "PageItem [contentItem=" + contentItem + ", position=" + position + "]";
 	}
+
+
 	
 	
 	
