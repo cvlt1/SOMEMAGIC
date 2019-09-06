@@ -31,6 +31,8 @@ import com.itacademy.jd2.yi.cms.service.ISiteService;
 import com.itacademy.jd2.yi.cms.service.ITemplateService;
 import com.itacademy.jd2.yi.cms.service.IUserAccountService;
 import com.itacademy.jd2.yi.cms.web.converter.PageFromDTOConverter;
+import com.itacademy.jd2.yi.cms.web.converter.PageItemFromDTOConverter;
+import com.itacademy.jd2.yi.cms.web.converter.PageItemToDTOConverter;
 import com.itacademy.jd2.yi.cms.web.converter.PageToDTOConverter;
 import com.itacademy.jd2.yi.cms.web.dto.PageDTO;
 import com.itacademy.jd2.yi.cms.web.dto.PageItemDTO;
@@ -60,6 +62,12 @@ public class PageController extends AbstractController {
 
 	@Autowired
 	private PageToDTOConverter toDtoConverter;
+	
+	@Autowired
+	private PageItemFromDTOConverter itemFromDtoConverter;
+
+	@Autowired
+	private PageItemToDTOConverter itemToDtoConverter;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView index(final HttpServletRequest req,
@@ -155,20 +163,15 @@ public class PageController extends AbstractController {
         hashMap.put("pageItemChoices", pageItemMap);
     }
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}/currentpageitem", method = RequestMethod.GET)
 	public ModelAndView viewCrrentPageItems(@PathVariable(name = "id", required = true) final Integer id) {
-		final IPage dbModel = pageService.get(id);
-		final PageDTO dto = toDtoConverter.apply(dbModel);
-		final PageItemFilter filter = new PageItemFilter();
-		prepareFilter(gridState, filter);
-		gridState.setTotalCount(pageItemService.getCount(filter));
+		final IPageItem dbModel = pageItemService.getFullInfo(id);
+		final PageItemDTO dto = itemToDtoConverter.apply(dbModel);
+		final Map<String, Object> hashMap = new HashMap<>();
+		hashMap.put("formModel", dto);
+		hashMap.put("readonly", true);
 
-		final List<IPageItem> entities = pageItemService.find(filter);
-		List<PageItemDTO> dtos = entities.stream().map(toDtoConverter).collect(Collectors.toList());
-
-		final Map<String, Object> models = new HashMap<>();
-		models.put("gridItems", dtos);
-		return new ModelAndView("pageItem.list", models);
+		return new ModelAndView("currentPageItem.list", hashMap);
 	}
 
 
