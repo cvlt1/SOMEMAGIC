@@ -1,0 +1,3 @@
+select * from content_item ci
+where site_id =1 
+and  (ci.id	  NOT IN (select pi.content_item_id from page_item pi where pi.page_id=1));
