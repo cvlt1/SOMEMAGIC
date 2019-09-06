@@ -58,7 +58,6 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 
 		from.fetch(Page_.template, JoinType.LEFT);
 		from.fetch(Page_.site, JoinType.LEFT);
-		from.fetch(Page_.pageItem, JoinType.LEFT);
 		from.fetch(Page_.creator, JoinType.LEFT);
 		cq.distinct(true); // to avoid duplicate rows in result
 
@@ -77,7 +76,6 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 		final CriteriaQuery<IPage> cq = cb.createQuery(IPage.class);
 		final Root<Page> from = cq.from(Page.class);
 		cq.select(from);
-		from.fetch(Page_.pageItem, JoinType.LEFT);
 		from.fetch(Page_.creator, JoinType.LEFT);
 		from.fetch(Page_.site, JoinType.LEFT);
 		from.fetch(Page_.template, JoinType.LEFT);
@@ -145,8 +143,6 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 			return from.get(Page_.creator).get(UserAccount_.name);
 		case "site":
 			return from.get(Page_.site).get(Site_.siteName);
-		case "page_item_id":
-			return from.get(Page_.pageItem).get(PageItem_.id);
 		default:
 			throw new UnsupportedOperationException("sorting is not supported by column:" + sortColumn);
 		}
@@ -202,7 +198,6 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 
 		from.fetch(Page_.template, JoinType.LEFT);
 		from.fetch(Page_.site, JoinType.LEFT);
-		from.fetch(Page_.pageItem, JoinType.LEFT);
 		from.fetch(Page_.creator, JoinType.LEFT);
 		cq.distinct(true); // to avoid duplicate rows in result
 

@@ -73,7 +73,7 @@ public class PageItemDaoImpl extends AbstractDaoImpl<IPageItem, Integer> impleme
         cq.select(from); // define what need to be selected
 
         from.fetch(PageItem_.contentItem, JoinType.LEFT);
-
+        from.fetch(PageItem_.page, JoinType.LEFT);
         cq.distinct(true); // to avoid duplicate rows in result
 
         // .. where id=...
@@ -130,6 +130,8 @@ public class PageItemDaoImpl extends AbstractDaoImpl<IPageItem, Integer> impleme
             return from.get(PageItem_.position);
         case "content_item_id":
             return from.get(PageItem_.contentItem).get(ContentItem_.title);
+        case "page_id":
+            return from.get(PageItem_.page).get(Page_.path);
         default:
             throw new UnsupportedOperationException("sorting is not supported by column:" + sortColumn);
         }
