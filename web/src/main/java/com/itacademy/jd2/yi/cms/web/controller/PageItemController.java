@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IContentItem;
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageItem;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageItemFilter;
 import com.itacademy.jd2.yi.cms.service.IContentItemService;
@@ -41,8 +40,7 @@ public class PageItemController extends AbstractController {
 	@Autowired
 	private IContentItemService contentItemService;
 	
-	@Autowired
-	private IPageService pageService;
+
 
 	@Autowired
 	private PageItemFromDTOConverter fromDtoConverter;
@@ -121,12 +119,8 @@ public class PageItemController extends AbstractController {
 	}
 
 	private void loadCommonFormModels(final Map<String, Object> hashMap) {
-        final List<IPage> pages = pageService.getAll();
         final List<IContentItem> contentItem = contentItemService.getAll();
 
-        final Map<Integer, String> pagesMap = pages.stream()
-                .collect(Collectors.toMap(IPage::getId, IPage::getPath));
-        hashMap.put("pagesChoices", pagesMap);
 
         final Map<Integer, String> contentItemMap = contentItem.stream()
                 .collect(Collectors.toMap(IContentItem::getId, IContentItem::getTitle));

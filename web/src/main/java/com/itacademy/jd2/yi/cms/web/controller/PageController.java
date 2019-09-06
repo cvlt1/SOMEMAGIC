@@ -24,6 +24,7 @@ import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.ITemplate;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageFilter;
+import com.itacademy.jd2.yi.cms.dao.api.filter.PageItemFilter;
 import com.itacademy.jd2.yi.cms.service.IPageItemService;
 import com.itacademy.jd2.yi.cms.service.IPageService;
 import com.itacademy.jd2.yi.cms.service.ISiteService;
@@ -32,6 +33,7 @@ import com.itacademy.jd2.yi.cms.service.IUserAccountService;
 import com.itacademy.jd2.yi.cms.web.converter.PageFromDTOConverter;
 import com.itacademy.jd2.yi.cms.web.converter.PageToDTOConverter;
 import com.itacademy.jd2.yi.cms.web.dto.PageDTO;
+import com.itacademy.jd2.yi.cms.web.dto.PageItemDTO;
 import com.itacademy.jd2.yi.cms.web.dto.grid.GridStateDTO;
 
 @Controller
@@ -152,6 +154,22 @@ public class PageController extends AbstractController {
                 .collect(Collectors.toMap(IPageItem::getId, IPageItem::getPosition));
         hashMap.put("pageItemChoices", pageItemMap);
     }
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ModelAndView viewCrrentPageItems(@PathVariable(name = "id", required = true) final Integer id) {
+		final IPage dbModel = pageService.get(id);
+		final PageDTO dto = toDtoConverter.apply(dbModel);
+		final PageItemFilter filter = new PageItemFilter();
+		prepareFilter(gridState, filter);
+		gridState.setTotalCount(pageItemService.getCount(filter));
+
+		final List<IPageItem> entities = pageItemService.find(filter);
+		List<PageItemDTO> dtos = entities.stream().map(toDtoConverter).collect(Collectors.toList());
+
+		final Map<String, Object> models = new HashMap<>();
+		models.put("gridItems", dtos);
+		return new ModelAndView("pageItem.list", models);
+	}
 
 
 }

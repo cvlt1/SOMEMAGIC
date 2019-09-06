@@ -29,6 +29,7 @@
 				<td><c:out value="${page.creatorId}" /></td>
 				<td><c:out value="${page.pageTitle}" /></td>
 				<td><c:out value="${page.pageItemId}" /></td>
+				<td class="right"><a class="btn-floating green" href="${pagesPageItem}/add"><i class="material-icons">add</i></a> </td>
 				<td><fmt:formatDate pattern="yyyy-MM-dd"
 						value="${page.created}" /></td>
 				<td><fmt:formatDate pattern="yyyy-MM-dd"
