@@ -18,4 +18,4 @@ public interface IPageItemDao extends IDao<IPageItem, Integer>{
 
 }
 
-//sdadsd
+// init
