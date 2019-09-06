@@ -44,14 +44,11 @@ public class PageToDTOConverter implements Function<IPage, PageDTO> {
 	        if (template != null) {
 	            pageDto.setTemplateId(template.getId());
 	            pageDto.setViewName(template.getViewName());
-	        }
-	        final IPageItem pageItem = entity.getPageItem();
-	        if (pageItem != null) {
-	            pageDto.setPageItemId(pageItem.getId());
-	            pageDto.setPageItemPosition(pageItem.getPosition());
-	        }
-			return pageDto;
+
+			
 	        
 	 }
+			return pageDto;
 
+	 }
 }

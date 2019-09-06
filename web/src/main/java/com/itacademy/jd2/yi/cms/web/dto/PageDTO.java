@@ -30,32 +30,11 @@ public class PageDTO {
 	private UserStatus creatorStatus;
 	private Integer templateId;
 	private String viewName;
-	private Integer pageItemId;
-	private Integer contentItemId;
-	private Integer pageItemPosition;
 	
 	
 	
 	
 	
-	public Integer getPageItemId() {
-		return pageItemId;
-	}
-	public void setPageItemId(Integer pageItemId) {
-		this.pageItemId = pageItemId;
-	}
-	public Integer getContentItemId() {
-		return contentItemId;
-	}
-	public void setContentItemId(Integer contentItemId) {
-		this.contentItemId = contentItemId;
-	}
-	public Integer getPageItemPosition() {
-		return pageItemPosition;
-	}
-	public void setPageItemPosition(Integer pageItemPosition) {
-		this.pageItemPosition = pageItemPosition;
-	}
 	public String getViewName() {
 		return viewName;
 	}
@@ -168,9 +147,8 @@ public class PageDTO {
 				+ ", siteName=" + siteName + ", siteBasepath=" + siteBasepath + ", creatorName=" + creatorName
 				+ ", creatorPassword=" + creatorPassword + ", creatorEmail=" + creatorEmail + ", creatorRole="
 				+ creatorRole + ", creatorStatus=" + creatorStatus + ", templateId=" + templateId + ", viewName="
-				+ viewName + ", pageItemId=" + pageItemId + ", contentItemId=" + contentItemId + ", pageItemPosition="
-				+ pageItemPosition + "]";
+				+ viewName + "]";
 	}
-	
+
 	
 }

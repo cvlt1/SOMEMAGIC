@@ -28,8 +28,6 @@ public class PageFromDTOConverter implements Function<PageDTO, IPage> {
     private ITemplateService templateService;
     @Autowired
     private IUserAccountService userAccountService;
-    @Autowired
-    private IPageItemService pageItemService;
 
     @Override
     public IPage apply(final PageDTO dto) {
@@ -51,9 +49,6 @@ public class PageFromDTOConverter implements Function<PageDTO, IPage> {
         userAccount.setId(dto.getCreatorId());
         entity.setCreator(userAccount);
         
-        final IPageItem pageItem = pageItemService.createEntity();
-        pageItem.setId(dto.getCreatorId());
-        entity.setPageItem(pageItem);
         
         return entity;
         

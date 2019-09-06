@@ -32,4 +32,5 @@ public interface IPageItemService {
 
 	IPageItem getFullInfo(Integer id);
 
+
 }

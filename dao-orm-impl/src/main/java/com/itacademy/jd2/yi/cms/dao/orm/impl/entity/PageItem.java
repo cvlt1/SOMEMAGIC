@@ -17,9 +17,13 @@ public class PageItem extends BaseEntity implements IPageItem {
 
 	
 	
-	@OnDelete( action = OnDeleteAction.CASCADE)
+	//@OnDelete( action = OnDeleteAction.CASCADE)
 	@ManyToOne (fetch = FetchType.LAZY, targetEntity = ContentItem.class)
 	private IContentItem contentItem; // many to one
+	
+	@ManyToOne (fetch = FetchType.LAZY, targetEntity = Page.class)
+	private IPage page; // many to one
+	
 	
 	@Column
 	private Integer position;
@@ -44,6 +48,14 @@ public class PageItem extends BaseEntity implements IPageItem {
 	@Override
 	public void setPosition(Integer position) {
 		this.position = position;
+	}
+
+	public IPage getPage() {
+		return page;
+	}
+
+	public void setPage(IPage page) {
+		this.page = page;
 	}
 
 	@Override

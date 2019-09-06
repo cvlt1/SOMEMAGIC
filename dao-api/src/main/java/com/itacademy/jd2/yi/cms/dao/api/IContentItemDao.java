@@ -21,4 +21,8 @@ public interface IContentItemDao extends IDao<IContentItem, Integer> {
 
 	IContentItem getFullInfo(String content);
 
+	IContentItem getBySite(Integer id);
+
+	List<? extends IContentItem> getApplicableItems(Integer pageId, Integer siteId);
+
 }

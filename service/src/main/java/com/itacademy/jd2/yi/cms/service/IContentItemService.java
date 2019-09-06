@@ -34,5 +34,8 @@ public interface IContentItemService {
 //	@Transactional
 //	List<IContentItem> search(String text);
 
-	IContentItem getFullInfo(String content);
+
+	IContentItem getBySite(Integer id);
+
+	List<? extends IContentItem> getApplicableItems(Integer pageId, Integer siteId);
 }

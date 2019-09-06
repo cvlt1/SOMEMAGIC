@@ -20,7 +20,7 @@ import com.itacademy.jd2.yi.cms.service.IPageHistoryService;
 
 @Service
 public class ContentItemServiceImpl implements IContentItemService {
-	
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(ContentItemServiceImpl.class);
 
 	private IContentItemDao dao;
@@ -60,7 +60,7 @@ public class ContentItemServiceImpl implements IContentItemService {
 	@Override
 	public void delete(final Integer id) {
 		dao.delete(id);
-}
+	}
 
 	@Override
 	public void deleteAll() {
@@ -74,7 +74,6 @@ public class ContentItemServiceImpl implements IContentItemService {
 		return all;
 	}
 
-
 	@Override
 	public long getCount(ContentItemFilter filter) {
 		return dao.getCount(filter);
@@ -82,21 +81,21 @@ public class ContentItemServiceImpl implements IContentItemService {
 
 	@Override
 	public List<IContentItem> find(ContentItemFilter filter) {
-		return dao.find(filter); //TODO
+		return dao.find(filter); // TODO
 	}
-	
-	  @Override
-	    public void save(IContentItem... entities) {
-	        Date modified = new Date();
-	        for (IContentItem iPage : entities) {
 
-	            iPage.setUpdated(modified);
-	            iPage.setCreated(modified);
+	@Override
+	public void save(IContentItem... entities) {
+		Date modified = new Date();
+		for (IContentItem iPage : entities) {
 
-	        }
+			iPage.setUpdated(modified);
+			iPage.setCreated(modified);
 
-	        dao.save(entities);
-	    }
+		}
+
+		dao.save(entities);
+	}
 
 	@Override
 	public IContentItem getFullInfo(Integer id) {
@@ -104,10 +103,16 @@ public class ContentItemServiceImpl implements IContentItemService {
 	}
 
 	@Override
-	public IContentItem getFullInfo(String content) {
-		return dao.getFullInfo(content);
+	public IContentItem getBySite(Integer id) {
+		return dao.getBySite(id);
 	}
-	
+
+	@Override
+	public List<? extends IContentItem> getApplicableItems(Integer pageId, Integer siteId) {
+		return dao.getApplicableItems(pageId, siteId); // replace with call of SQL
+
+	}
+
 //	@Override
 //	@Transactional
 //	public List<IContentItem> search(String text) {

@@ -32,14 +32,6 @@
 			</div>
 
 			<div class="input-field col s12">
-				<form:select path="pageItemId" disabled="${readonly}">
-					<form:options items="${pageItemChoices}" />
-				</form:select>
-				<form:errors path="pageItemId" cssClass="red-text" />
-				<label for="pageItemId">pageItemId</label>
-			</div>
-
-			<div class="input-field col s12">
 				<form:input path="path" type="text" disabled="${readonly}" />
 				<form:errors path="path" cssClass="red-text" />
 				<label for="path">path</label>

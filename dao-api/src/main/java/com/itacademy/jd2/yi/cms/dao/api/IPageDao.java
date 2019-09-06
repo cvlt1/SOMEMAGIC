@@ -3,6 +3,7 @@ package com.itacademy.jd2.yi.cms.dao.api;
 import java.util.List;
 
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
+import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageItem;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageFilter;
 import com.itacademy.jd2.yi.cms.dao.api.filter.UserAccountFilter;
@@ -23,6 +24,7 @@ public interface IPageDao extends IDao<IPage, Integer>{
 	IPage getByPagePath(String pagePath);
 
 	IPage getFullInfo(String pagePath);
+
 
 
 }

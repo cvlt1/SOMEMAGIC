@@ -30,9 +30,6 @@ public interface IPage extends IBaseEntity {
 
 	ISite getSite();
 
-	void setPageItem(IPageItem pageItem);
-
-	IPageItem getPageItem();
 
 
 

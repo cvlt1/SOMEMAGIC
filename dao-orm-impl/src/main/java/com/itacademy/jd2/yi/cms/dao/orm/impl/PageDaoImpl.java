@@ -208,5 +208,7 @@ public class PageDaoImpl extends AbstractDaoImpl<IPage, Integer> implements IPag
 
 		return getSingleResult(q);
 	}
+	
+	
 
 }

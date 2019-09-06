@@ -17,14 +17,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import com.itacademy.jd2.yi.cms.dao.api.IPageItemDao;
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPageItem;
 import com.itacademy.jd2.yi.cms.dao.api.filter.PageItemFilter;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.ContentItem_;
-import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.PageItem;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.PageItem_;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page_;
+import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site_;
 
 @Repository
 public class PageItemDaoImpl extends AbstractDaoImpl<IPageItem, Integer> implements IPageItemDao {
@@ -112,6 +111,11 @@ public class PageItemDaoImpl extends AbstractDaoImpl<IPageItem, Integer> impleme
         }
 
 
+        Integer pageId = filter.getPageId();
+		if (pageId!=null) {
+            ands.add(cb.equal(from.get(PageItem_.page).get(Page_.id), pageId));
+        }
+        
         if (!ands.isEmpty()) {
             cq.where(cb.and(ands.toArray(new Predicate[0])));
         }
@@ -137,6 +141,9 @@ public class PageItemDaoImpl extends AbstractDaoImpl<IPageItem, Integer> impleme
         }
     }
 	//TODO add save method
+    
+    
+
 
 
 	

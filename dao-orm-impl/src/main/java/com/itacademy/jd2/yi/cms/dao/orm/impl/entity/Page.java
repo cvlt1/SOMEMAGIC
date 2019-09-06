@@ -31,8 +31,6 @@ public class Page extends BaseEntity implements IPage {
 	@ManyToOne (fetch = FetchType.LAZY, targetEntity = Site.class)
 	private ISite site; // many to one
 	
-	@ManyToOne (fetch = FetchType.LAZY, targetEntity = PageItem.class)
-	private IPageItem pageItem;
 
 	@ManyToOne (fetch = FetchType.LAZY, targetEntity = Template.class)
 	private ITemplate template;
@@ -100,20 +98,12 @@ public class Page extends BaseEntity implements IPage {
 	}
 
 	@Override
-	public IPageItem getPageItem() {
-		return pageItem;
-	}
-
-	@Override
-	public void setPageItem(IPageItem pageItem) {
-		this.pageItem = pageItem;
-	}
-
-	@Override
 	public String toString() {
-		return "Page [site=" + site + ", pageItem=" + pageItem + ", template=" + template + ", creator=" + creator
-				+ ", path=" + path + ", pageTitle=" + pageTitle + ", pageStatus=" + pageStatus + "]";
+		return "Page [site=" + site + ", template=" + template + ", creator=" + creator + ", path=" + path
+				+ ", pageTitle=" + pageTitle + ", pageStatus=" + pageStatus + "]";
 	}
+
+
 
 
 	

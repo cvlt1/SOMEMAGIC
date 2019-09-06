@@ -20,30 +20,19 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import com.itacademy.jd2.yi.cms.dao.api.IContentItemDao;
-import com.itacademy.jd2.yi.cms.dao.api.ISiteDao;
 import com.itacademy.jd2.yi.cms.dao.api.entity.table.IContentItem;
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.IPage;
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.ISite;
-import com.itacademy.jd2.yi.cms.dao.api.entity.table.IUserAccount;
 import com.itacademy.jd2.yi.cms.dao.api.filter.ContentItemFilter;
-import com.itacademy.jd2.yi.cms.dao.api.filter.PageFilter;
-import com.itacademy.jd2.yi.cms.dao.api.filter.SiteFilter;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.ContentItem;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.ContentItem_;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page;
-import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page_;
-import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site;
 import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Site_;
-import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Template_;
-import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.UserAccount;
-import com.itacademy.jd2.yi.cms.dao.orm.impl.entity.UserAccount_;
 
 @Repository
-public class ContentItemDaoImpl  extends AbstractDaoImpl<IContentItem, Integer> implements IContentItemDao {
+public class ContentItemDaoImpl extends AbstractDaoImpl<IContentItem, Integer> implements IContentItemDao {
 
-    protected ContentItemDaoImpl() {
-        super(ContentItem.class);
-    }
+	protected ContentItemDaoImpl() {
+		super(ContentItem.class);
+	}
 
 	@Override
 	public IContentItem createEntity() {
@@ -78,10 +67,15 @@ public class ContentItemDaoImpl  extends AbstractDaoImpl<IContentItem, Integer> 
 		setPaging(filter, q);
 		return q.getResultList();
 	}
-	
+
 	private void applyFilter(final ContentItemFilter filter, final CriteriaBuilder cb, final CriteriaQuery<?> cq,
 			final Root<ContentItem> from) {
 		final List<Predicate> ands = new ArrayList<>();
+
+		Integer siteId = filter.getSiteId();
+		if (siteId != null) {
+			ands.add(cb.equal(from.get(ContentItem_.site).get(Site_.id), siteId));
+		}
 
 		final String html = filter.getHtml();
 		if (!StringUtils.isEmpty(html)) {
@@ -115,29 +109,29 @@ public class ContentItemDaoImpl  extends AbstractDaoImpl<IContentItem, Integer> 
 			throw new UnsupportedOperationException("sorting is not supported by column:" + sortColumn);
 		}
 	}
-	
-    @Override
-    public IContentItem getFullInfo(final Integer id) {
-        final EntityManager em = getEntityManager();
-        final CriteriaBuilder cb = em.getCriteriaBuilder();
 
-        final CriteriaQuery<IContentItem> cq = cb.createQuery(IContentItem.class); // define returning result
-        final Root<ContentItem> from = cq.from(ContentItem.class); // define table for select
+	@Override
+	public IContentItem getFullInfo(final Integer id) {
+		final EntityManager em = getEntityManager();
+		final CriteriaBuilder cb = em.getCriteriaBuilder();
 
-        cq.select(from); // define what need to be selected
+		final CriteriaQuery<IContentItem> cq = cb.createQuery(IContentItem.class); // define returning result
+		final Root<ContentItem> from = cq.from(ContentItem.class); // define table for select
 
-        from.fetch(ContentItem_.site, JoinType.LEFT);
+		cq.select(from); // define what need to be selected
 
-        cq.distinct(true); // to avoid duplicate rows in result
+		from.fetch(ContentItem_.site, JoinType.LEFT);
 
-        // .. where id=...
-        cq.where(cb.equal(from.get(ContentItem_.id), id)); // where id=?
+		cq.distinct(true); // to avoid duplicate rows in result
 
-        final TypedQuery<IContentItem> q = em.createQuery(cq);
+		// .. where id=...
+		cq.where(cb.equal(from.get(ContentItem_.id), id)); // where id=?
 
-        return getSingleResult(q);
-    }
-	
+		final TypedQuery<IContentItem> q = em.createQuery(cq);
+
+		return getSingleResult(q);
+	}
+
 	private SingularAttribute<? super ContentItem, ?> toMetamodelFormat(final String sortColumn) {
 		switch (sortColumn) {
 		case "created":
@@ -168,15 +162,15 @@ public class ContentItemDaoImpl  extends AbstractDaoImpl<IContentItem, Integer> 
 		final TypedQuery<Long> q = em.createQuery(cq);
 		return q.getSingleResult(); // execute query
 	}
-	
+
 	@Override
 
- 	public List<IContentItem> search(String text) {
+	public List<IContentItem> search(String text) {
 
- 		EntityManager em = getEntityManager();
+		EntityManager em = getEntityManager();
 		FullTextEntityManager fullTextEntityManager = org.hibernate.search.jpa.Search.getFullTextEntityManager(em);
 
- 		// create native Lucene query unsing the query DSL
+		// create native Lucene query unsing the query DSL
 		// alternatively you can write the Lucene query using the Lucene query
 		// parser
 		// or the Lucene programmatic API. The Hibernate Search DSL is
@@ -184,33 +178,65 @@ public class ContentItemDaoImpl  extends AbstractDaoImpl<IContentItem, Integer> 
 		QueryBuilder qb = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(Page.class).get();
 		org.apache.lucene.search.Query luceneQuery = qb.keyword().onFields("title").matching(text).createQuery();
 
- 		// wrap Lucene query in a javax.persistence.Query
+		// wrap Lucene query in a javax.persistence.Query
 		javax.persistence.Query jpaQuery = fullTextEntityManager.createFullTextQuery(luceneQuery, Page.class);
 
- 		return jpaQuery.getResultList();
+		return jpaQuery.getResultList();
 
- 	}
-	
-    @Override
-    public IContentItem getFullInfo(final String content) {
-        final EntityManager em = getEntityManager();
-        final CriteriaBuilder cb = em.getCriteriaBuilder();
+	}
 
-        final CriteriaQuery<IContentItem> cq = cb.createQuery(IContentItem.class); // define returning result
-        final Root<ContentItem> from = cq.from(ContentItem.class); // define table for select
+	@Override
+	public IContentItem getFullInfo(final String content) {
+		final EntityManager em = getEntityManager();
+		final CriteriaBuilder cb = em.getCriteriaBuilder();
 
-        cq.select(from); // define what need to be selected
+		final CriteriaQuery<IContentItem> cq = cb.createQuery(IContentItem.class); // define returning result
+		final Root<ContentItem> from = cq.from(ContentItem.class); // define table for select
 
-        from.fetch(ContentItem_.site, JoinType.LEFT);
+		cq.select(from); // define what need to be selected
 
-        cq.distinct(true); // to avoid duplicate rows in result
+		from.fetch(ContentItem_.site, JoinType.LEFT);
 
-        // .. where id=...
-        cq.where(cb.equal(from.get(ContentItem_.html), content)); // where id=?
+		cq.distinct(true); // to avoid duplicate rows in result
 
-        final TypedQuery<IContentItem> q = em.createQuery(cq);
+		// .. where id=...
+		cq.where(cb.equal(from.get(ContentItem_.html), content)); // where id=?
 
-        return getSingleResult(q);
-    }
+		final TypedQuery<IContentItem> q = em.createQuery(cq);
+
+		return getSingleResult(q);
+	}
+
+	@Override
+	public IContentItem getBySite(final Integer id) {
+		final EntityManager em = getEntityManager();
+		final CriteriaBuilder cb = em.getCriteriaBuilder();
+
+		final CriteriaQuery<IContentItem> cq = cb.createQuery(IContentItem.class); // define returning result
+		final Root<ContentItem> from = cq.from(ContentItem.class); // define table for select
+
+		cq.select(from); // define what need to be selected
+
+		from.fetch(ContentItem_.id, JoinType.LEFT);
+		cq.distinct(true); // to avoid duplicate rows in result
+
+		// .. where id=...
+		cq.where(cb.equal(from.get(Site_.id), id)); // where id=?
+
+		final TypedQuery<IContentItem> q = em.createQuery(cq);
+
+		return getSingleResult(q);
+	}
+
+	@Override
+	public List<? extends IContentItem> getApplicableItems(Integer pageId, Integer siteId) {
+		TypedQuery<? extends IContentItem> query = getEntityManager().createQuery(
+				"select ci from ContentItem ci join fetch ci.site  where ci.site.id =? and  (ci.id	 NOT IN (select pi.contentItem.id from PageItem pi where pi.page.id=?))",
+				ContentItem.class);
+		query.setParameter(1, siteId);
+		query.setParameter(2, pageId);
+
+		return query.getResultList();
+	}
 
 }

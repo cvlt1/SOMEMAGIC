@@ -14,7 +14,6 @@
 			<th><mytaglib:sort-link pageUrl="${pagesPage}" column="status">status</mytaglib:sort-link></th>
 			<th><mytaglib:sort-link pageUrl="${pagesPage}" column="creator">creator</mytaglib:sort-link></th>
 			<th><mytaglib:sort-link pageUrl="${pagesPage}" column="title">title</mytaglib:sort-link></th>
-			<th><mytaglib:sort-link pageUrl="${pagesPage}" column="pageItemId">pageItemId</mytaglib:sort-link></th>
 			<th><mytaglib:sort-link pageUrl="${pagesPage}" column="created">created</mytaglib:sort-link></th>
 			<th><mytaglib:sort-link pageUrl="${pagesPage}" column="updated">updated</mytaglib:sort-link></th>
 			<th></th>
@@ -28,7 +27,6 @@
 				<td><c:out value="${page.pageStatus}" /></td>
 				<td><c:out value="${page.creatorId}" /></td>
 				<td><c:out value="${page.pageTitle}" /></td>
-				<td><c:out value="${page.pageItemId}" /></td>
 				<td><fmt:formatDate pattern="yyyy-MM-dd"
 						value="${page.created}" /></td>
 				<td><fmt:formatDate pattern="yyyy-MM-dd"
@@ -36,7 +34,7 @@
 				<td class="right"><a class="btn-floating"
 					href="${pagesPage}/${page.id}"><i
 						class="material-icons">info</i></a> <a class="btn-floating green"
-					href="${pagesPage}/${page.id}/add"><i
+					href="${pagesPage}/${page.id}/items"><i
 						class="material-icons">add</i></a> <a class="btn-floating"
 					href="${pagesPage}/${page.id}/edit"><i
 						class="material-icons">edit</i></a> <a class="btn-floating red"
