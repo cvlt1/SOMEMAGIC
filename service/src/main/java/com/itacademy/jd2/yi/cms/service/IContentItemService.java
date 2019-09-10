@@ -38,4 +38,5 @@ public interface IContentItemService {
 	IContentItem getBySite(Integer id);
 
 	List<? extends IContentItem> getApplicableItems(Integer pageId, Integer siteId);
+
 }

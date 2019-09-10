@@ -33,11 +33,12 @@
 	<tbody>
 		<tr class="highlight">
 			<th>id</th>
-			<th></th>
+			<th>position</th>
 		</tr>
 		<c:forEach var="item" items="${selectedItems}">
 			<tr>
 				<td><c:out value="${item.id}" /></td>
+				<td><c:out value="${item.position}" /></td>
 				<td class="right"><a class="btn-floating red"
 					href="${pagesPage}/${page.id}/items/${item.id}/delete"><i
 						class="material-icons">delete</i></a></td>
@@ -45,4 +46,7 @@
 		</c:forEach>
 	</tbody>
 </table>
+
+<a class="waves-effect waves-light btn center"
+	href="${pagesPage}/${page.id}/items/refresh"><i class="material-icons">refresh</i></a>
 

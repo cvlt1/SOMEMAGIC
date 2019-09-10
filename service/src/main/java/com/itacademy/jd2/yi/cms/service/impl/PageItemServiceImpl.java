@@ -1,6 +1,5 @@
 package com.itacademy.jd2.yi.cms.service.impl;
 
-
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +15,7 @@ import com.itacademy.jd2.yi.cms.service.IPageItemService;
 
 @Service
 public class PageItemServiceImpl implements IPageItemService {
-	
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(PageItemServiceImpl.class);
 
 	private IPageItemDao dao;
@@ -56,7 +55,7 @@ public class PageItemServiceImpl implements IPageItemService {
 	@Override
 	public void delete(final Integer id) {
 		dao.delete(id);
-}
+	}
 
 	@Override
 	public void deleteAll() {
@@ -70,7 +69,6 @@ public class PageItemServiceImpl implements IPageItemService {
 		return all;
 	}
 
-
 	@Override
 	public long getCount(PageItemFilter filter) {
 		return dao.getCount(filter);
@@ -80,28 +78,58 @@ public class PageItemServiceImpl implements IPageItemService {
 	public List<IPageItem> find(PageItemFilter filter) {
 		return dao.find(filter);
 	}
-	
-	  @Override
-	    public void save(IPageItem... entities) {
-	        Date modified = new Date();
-	        for (IPageItem iPage : entities) {
 
-	            iPage.setUpdated(modified);
-	            iPage.setCreated(modified);
+	@Override
+	public void save(IPageItem... entities) {
+		Date modified = new Date();
+		for (IPageItem iPage : entities) {
 
-	        }
+			iPage.setUpdated(modified);
+			iPage.setCreated(modified);
 
-	        dao.save(entities);
-	    }
+		}
+
+		dao.save(entities);
+	}
 
 	@Override
 	public IPageItem getFullInfo(Integer id) {
 		return dao.getFullInfo(id);
 	}
-	
-	
-	
 
+	@Override
+	public void refreshItemPositions(Integer pageId) {
+		PageItemFilter filter = new PageItemFilter();
+		filter.setPageId(pageId);
+		filter.setSortColumn("id");
+		filter.setSortOrder(true);
+		
+		List<IPageItem> items = dao.find(filter);
+
+		int position = 1;
+		for (IPageItem iPageItem : items) {
+			iPageItem.setPosition(position);
+			dao.update(iPageItem);
+			position++;
+		}
+	}
+
+	@Override
+	public Integer getNextPosition(Integer pageId) {
+		PageItemFilter filter = new PageItemFilter();
+		filter.setPageId(pageId);
+		filter.setSortColumn("position");
+		filter.setSortOrder(true);
+
+		List<IPageItem> items = dao.find(filter);
+		
+		if (items.isEmpty()) {
+			return 10;
+		}
+		
+		
+		IPageItem lastElement = items.get(items.size()-1);
+		return lastElement.getPosition()+10;
+	}
 
 }
-

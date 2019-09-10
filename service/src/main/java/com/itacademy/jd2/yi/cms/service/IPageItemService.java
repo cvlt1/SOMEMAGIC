@@ -10,6 +10,9 @@ import com.itacademy.jd2.yi.cms.dao.api.filter.PageItemFilter;
 
 public interface IPageItemService {
 	
+	@Transactional
+	void refreshItemPositions(Integer pageId) ;
+	
 	IPageItem get(Integer id);
 
     List<IPageItem> getAll();
@@ -31,6 +34,8 @@ public interface IPageItemService {
 
 
 	IPageItem getFullInfo(Integer id);
+
+	Integer getNextPosition(Integer pageId);
 
 
 }

@@ -165,15 +165,11 @@ public class PageController extends AbstractController {
 		hashMap.put("page", dto);
 		hashMap.put("applicableItems", applicableItemsDtos);
 		hashMap.put("selectedItems", selectedItemsDtos);
-		
-		
-		
-		
-		
-		
-		// loadCommonFormModels(hashMap);
 		return new ModelAndView("page.items", hashMap);
 	}
+	
+	
+	
 	@RequestMapping(value = "/{pageId}/items/{itemId}/delete", method = RequestMethod.GET)
 	public String deleteItem(@PathVariable(name = "pageId", required = true) final Integer pageId,
 			@PathVariable(name = "itemId", required = true) final Integer itemId) {
@@ -183,11 +179,41 @@ public class PageController extends AbstractController {
 		return String.format("redirect:/page/%s/items", pageId);
 	}
 	
+	@RequestMapping(value = "/{id}/items/refresh", method = RequestMethod.GET)
+	public ModelAndView refresh(@PathVariable(name = "id", required = true) final Integer id) {
+		IPage page = pageService.getFullInfo(id);
+		final PageDTO dto = toDtoConverter.apply(page);
+		
+		//IPageItem item = pageItemService.refreshItemPositions();
+
+		List<? extends IContentItem> applicableItems = contentItemService.getApplicableItems(id,
+				page.getSite().getId());
+
+		List<ContentItemDTO> applicableItemsDtos = applicableItems.stream().map(contentItemToDTOConverter)
+				.collect(Collectors.toList());
+		
+		PageItemFilter filter = new PageItemFilter();
+		filter.setPageId(id);
+		List<IPageItem> selectedItems = pageItemService.find(filter);
+		
+		
+		List<PageItemDTO> selectedItemsDtos = selectedItems.stream().map(pageItemToDTOConverter)
+				.collect(Collectors.toList());
+
+		final Map<String, Object> hashMap = new HashMap<>();
+		hashMap.put("page", dto);
+		hashMap.put("applicableItems", applicableItemsDtos);
+		hashMap.put("selectedItems", selectedItemsDtos);
+		return new ModelAndView("page.items", hashMap);
+	}
+	
+	
 	@RequestMapping(value = "/{pageId}/items/{itemId}/add2page", method = RequestMethod.GET)
 	public String addItemToPage(@PathVariable(name = "pageId", required = true) final Integer pageId,
-			@PathVariable(name = "itemId", required = true) final Integer itemId) {
+			@PathVariable(name = "itemId", required = true) Integer itemId) {
 
 		IPageItem entity = pageItemService.createEntity();
+		
 		IPage page = pageService.createEntity();
 		page.setId(pageId);
 
@@ -196,12 +222,16 @@ public class PageController extends AbstractController {
 
 		entity.setPage(page);
 		entity.setContentItem(contentItem);
-		entity.setPosition(0); // TODO calculate next position
-
+		entity.setPosition(pageItemService.getNextPosition(pageId));
+		
 		pageItemService.save(entity);
 
 		return String.format("redirect:/page/%s/items", pageId);
+		
+		
 	}
+	
+
 
 	@RequestMapping(value = "/{id}/delete", method = RequestMethod.GET)
 	public String delete(@PathVariable(name = "id", required = true) final Integer id) {
