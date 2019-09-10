@@ -42,6 +42,9 @@
 				<td class="right"><a class="btn-floating red"
 					href="${pagesPage}/${page.id}/items/${item.id}/delete"><i
 						class="material-icons">delete</i></a></td>
+				<td class="right"><a class="btn-floating"
+					href="${pagesPageItem}/${item.id}/edit"><i
+						class="material-icons">edit</i></a></td>
 			</tr>
 		</c:forEach>
 	</tbody>

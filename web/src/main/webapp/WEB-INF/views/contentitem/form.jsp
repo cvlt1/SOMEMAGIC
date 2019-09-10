@@ -1,5 +1,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<script src="${contextPath}/resources/trumbowyg/dist/trumbowyg.min.js"></script>
+<link rel="stylesheet" href="${contextPath}/resources/trumbowyg/dist/ui/trumbowyg.min.css">
+
+
 
 <h4 class="header">Edit content</h4>
 <div class="row">
@@ -8,7 +12,7 @@
 		<form:input path="id" type="hidden" />
 		<div class="row">
 			<div class="input-field col s12">
-				<form:input path="html" type="text" disabled="${readonly}" />
+				<form:textarea path="html" type="text" disabled="${readonly}" />
 				<form:errors path="html" cssClass="red-text" />
 				<label for="html">html</label>
 
@@ -42,3 +46,13 @@
 		</div>
 	</form:form>
 </div>
+
+
+<script>
+
+$('#html').trumbowyg({
+ /*    btns: [['strong', 'em',], ['insertImage']], */
+    autogrow: true
+});
+
+</script>

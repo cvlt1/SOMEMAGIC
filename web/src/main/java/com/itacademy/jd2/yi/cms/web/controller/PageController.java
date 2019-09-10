@@ -180,7 +180,8 @@ public class PageController extends AbstractController {
 	}
 	
 	@RequestMapping(value = "/{id}/items/refresh", method = RequestMethod.GET)
-	public ModelAndView refresh(@PathVariable(name = "id", required = true) final Integer id) {
+	public ModelAndView refresh(@PathVariable(name = "id", required = true) final Integer id,
+			@PathVariable(name = "position", required = true) final Integer position) {
 		IPage page = pageService.getFullInfo(id);
 		final PageDTO dto = toDtoConverter.apply(page);
 		
@@ -195,6 +196,7 @@ public class PageController extends AbstractController {
 		PageItemFilter filter = new PageItemFilter();
 		filter.setPageId(id);
 		List<IPageItem> selectedItems = pageItemService.find(filter);
+		
 		
 		
 		List<PageItemDTO> selectedItemsDtos = selectedItems.stream().map(pageItemToDTOConverter)

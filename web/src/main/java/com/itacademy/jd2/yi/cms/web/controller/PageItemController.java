@@ -87,9 +87,16 @@ public class PageItemController extends AbstractController {
 			loadCommonFormModels(hashMap);
 			return new ModelAndView("pageItem.edit", hashMap);
 		} else {
-			final IPageItem entity = fromDtoConverter.apply(formModel);
-			pageItemService.save(entity);
-			return "redirect:/pageitem";
+			//final IPageItem entity = fromDtoConverter.apply(formModel);
+			
+			IPageItem iPageItem = pageItemService.getFullInfo(formModel.getId());
+			iPageItem.setPosition(formModel.getPosition());
+			
+			pageItemService.save(iPageItem);
+			
+			
+			Integer pageId = iPageItem.getPage().getId();
+			return String.format( "redirect:/page/%s/items", pageId);
 		}
 	}
 

@@ -6022,3 +6022,197 @@ Caused by: java.lang.IllegalStateException: Ambiguous handler methods mapped for
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.5.RELEASE.jar:5.1.5.RELEASE]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) ~[spring-webmvc-5.1.5.RELEASE.jar:5.1.5.RELEASE]
 	... 54 more
+23:04:14.559 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @683ms
+23:04:14.657 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+23:04:14.936 [main] INFO  /cms - Initializing Spring root WebApplicationContext
+23:04:14.946 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+23:04:16.085 [main] INFO  org.springframework.security.config.SecurityNamespaceHandler - Spring Security 'config' module version is 5.1.5.RELEASE
+23:04:16.121 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasRole('ADMIN')' for /template/**
+23:04:16.122 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasAnyRole('BASIC','ADMIN')' for /page/**
+23:04:16.122 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasRole('ADMIN')' for /useraccount/**
+23:04:16.122 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasAnyRole('BASIC','ADMIN')' for /site/**
+23:04:16.122 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasRole('ADMIN')' for /contentitem/**
+23:04:16.123 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasAnyRole('BASIC','ADMIN')' for /pagehistory/**
+23:04:16.123 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasRole('ADMIN')' for /cssitem/**
+23:04:16.123 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasRole('ADMIN')' for /pageitem/**
+23:04:16.146 [main] INFO  org.springframework.security.config.http.HttpSecurityBeanDefinitionParser - Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, Root bean: class [org.springframework.security.web.header.HeaderWriterFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 500, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 800, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1900, Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.security.config.http.HttpConfigurationBuilder$SecurityContextHolderAwareRequestFilterBeanFactory#0; factoryMethodName=getBean; initMethodName=null; destroyMethodName=null, order = 2000, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2300, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2400, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2500, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2600]
+23:04:16.496 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: my-unit
+	...]
+23:04:16.581 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.8.Final}
+23:04:16.583 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+23:04:16.584 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+23:04:16.743 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+23:04:17.070 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+23:04:17.080 [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+23:04:17.174 [main] WARN  org.hibernate.cfg.AnnotationBinder - HHH000136: Inapropriate use of @OnDelete on entity, annotation ignored: com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page
+23:04:17.243 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+23:04:17.333 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.4.3.Final
+23:04:17.583 [main] INFO  org.hibernate.search.engine.Version - HSEARCH000034: Hibernate Search 5.0.1.Final
+23:04:17.840 [main] WARN  org.hibernate.search.engine.impl.ConfigContext - HSEARCH000075: Configuration setting hibernate.search.lucene_version was not specified: using LUCENE_CURRENT.
+23:04:18.110 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'my-unit'
+23:04:18.134 [main] INFO  com.itacademy.jd2.yi.cms.dao.orm.impl.HibernateSearchInitializer - index intialization started.
+23:04:18.452 [Hibernate Search: identifierloader-1] INFO  org.hibernate.search.batchindexing.impl.SimpleIndexingProgressMonitor - HSEARCH000027: Going to reindex 2 entities
+23:04:18.848 [main] INFO  org.hibernate.search.batchindexing.impl.SimpleIndexingProgressMonitor - HSEARCH000028: Reindexed 2 entities
+23:04:18.849 [main] INFO  com.itacademy.jd2.yi.cms.dao.orm.impl.HibernateSearchInitializer - index intialization completed.
+23:04:19.168 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.SecurityContextPersistenceFilter@235c997d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@552cede7, org.springframework.security.web.header.HeaderWriterFilter@f5a7226, org.springframework.security.web.authentication.logout.LogoutFilter@52ca2652, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@50085d9c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@160e99e0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4877919f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ea00de, org.springframework.security.web.session.SessionManagementFilter@715f45c6, org.springframework.security.web.access.ExceptionTranslationFilter@32227215, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5d352de0]
+23:04:19.179 [main] INFO  org.springframework.security.config.http.DefaultFilterChainValidator - Checking whether login URL '/login' is accessible with your configuration
+23:04:19.205 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext initialized in 4258 ms
+23:04:19.301 [main] INFO  /cms - Initializing Spring DispatcherServlet 'dispatcher'
+23:04:19.301 [main] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcher'
+23:04:20.116 [main] INFO  org.apache.tiles.access.TilesAccess - Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+23:04:20.134 [main] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 833 ms
+23:04:20.135 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@5c1a8622{/cms,file:/D:/JD02-iyatsevich/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+23:04:20.151 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@634aa81e{HTTP/1.1}{0.0.0.0:8081}
+23:04:20.151 [main] INFO  org.eclipse.jetty.server.Server - Started @6282ms
+23:04:41.958 [qtp243745864-15] WARN  org.hibernate.hql.internal.ast.HqlSqlWalker - [DEPRECATION] Encountered positional parameter near line 1, column 114.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+23:04:41.962 [qtp243745864-15] WARN  org.hibernate.hql.internal.ast.HqlSqlWalker - [DEPRECATION] Encountered positional parameter near line 1, column 242.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+23:15:38.232 [qtp243745864-20] WARN  org.eclipse.jetty.servlet.ServletHandler - /cms/pageitem//edit
+org.springframework.security.web.firewall.RequestRejectedException: The request was rejected because the URL was not normalized.
+	at org.springframework.security.web.firewall.StrictHttpFirewall.getFirewalledRequest(StrictHttpFirewall.java:296) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:194) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1652) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:585) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:577) [jetty-security-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) [jetty-io-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_181]
+23:15:58.880 [qtp243745864-15] WARN  org.eclipse.jetty.servlet.ServletHandler - /cms/pageitem//edit
+org.springframework.security.web.firewall.RequestRejectedException: The request was rejected because the URL was not normalized.
+	at org.springframework.security.web.firewall.StrictHttpFirewall.getFirewalledRequest(StrictHttpFirewall.java:296) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:194) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1652) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:585) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:577) [jetty-security-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) [jetty-io-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_181]
+23:16:37.873 [qtp243745864-14] WARN  org.eclipse.jetty.servlet.ServletHandler - /cms/pageitem//edit
+org.springframework.security.web.firewall.RequestRejectedException: The request was rejected because the URL was not normalized.
+	at org.springframework.security.web.firewall.StrictHttpFirewall.getFirewalledRequest(StrictHttpFirewall.java:296) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:194) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1652) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:585) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:577) [jetty-security-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) [jetty-io-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_181]
+23:16:58.278 [qtp243745864-18] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "edit"]
+23:17:33.589 [qtp243745864-18] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "edit"]
+23:17:49.802 [qtp243745864-15] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "edit"]
+23:18:17.226 [qtp243745864-18] WARN  org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "edit"]
+23:18:20.496 [qtp243745864-18] WARN  org.eclipse.jetty.servlet.ServletHandler - /cms/pageitem//edit
+org.springframework.security.web.firewall.RequestRejectedException: The request was rejected because the URL was not normalized.
+	at org.springframework.security.web.firewall.StrictHttpFirewall.getFirewalledRequest(StrictHttpFirewall.java:296) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:194) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270) ~[spring-web-5.1.5.RELEASE.jar:5.1.5.RELEASE]
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1652) ~[jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:585) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:577) [jetty-security-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:223) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1127) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:515) [jetty-servlet-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1061) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) [jetty-server-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) [jetty-io-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) [jetty-util-9.2.15.v20160210.jar:9.2.15.v20160210]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_181]
+23:23:11.521 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @665ms
+23:23:11.618 [main] INFO  org.eclipse.jetty.server.Server - jetty-9.2.15.v20160210
+23:23:11.893 [main] INFO  /cms - Initializing Spring root WebApplicationContext
+23:23:11.908 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
+23:23:13.095 [main] INFO  org.springframework.security.config.SecurityNamespaceHandler - Spring Security 'config' module version is 5.1.5.RELEASE
+23:23:13.128 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasRole('ADMIN')' for /template/**
+23:23:13.128 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasAnyRole('BASIC','ADMIN')' for /page/**
+23:23:13.128 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasRole('ADMIN')' for /useraccount/**
+23:23:13.129 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasAnyRole('BASIC','ADMIN')' for /site/**
+23:23:13.129 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasRole('ADMIN')' for /contentitem/**
+23:23:13.129 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasAnyRole('BASIC','ADMIN')' for /pagehistory/**
+23:23:13.129 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasRole('ADMIN')' for /cssitem/**
+23:23:13.129 [main] INFO  org.springframework.security.config.http.FilterInvocationSecurityMetadataSourceParser - Creating access control expression attribute 'hasRole('ADMIN')' for /pageitem/**
+23:23:13.148 [main] INFO  org.springframework.security.config.http.HttpSecurityBeanDefinitionParser - Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, Root bean: class [org.springframework.security.web.header.HeaderWriterFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 500, Root bean: class [org.springframework.security.web.authentication.logout.LogoutFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 800, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 1200, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1900, Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.security.config.http.HttpConfigurationBuilder$SecurityContextHolderAwareRequestFilterBeanFactory#0; factoryMethodName=getBean; initMethodName=null; destroyMethodName=null, order = 2000, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2300, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2400, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2500, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2600]
+23:23:13.467 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: my-unit
+	...]
+23:23:13.554 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {4.3.8.Final}
+23:23:13.555 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+23:23:13.557 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+23:23:13.716 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+23:23:14.068 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL9Dialect
+23:23:14.079 [main] INFO  org.hibernate.engine.jdbc.internal.LobCreatorBuilder - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+23:23:14.167 [main] WARN  org.hibernate.cfg.AnnotationBinder - HHH000136: Inapropriate use of @OnDelete on entity, annotation ignored: com.itacademy.jd2.yi.cms.dao.orm.impl.entity.Page
+23:23:14.224 [main] INFO  org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory - HHH000397: Using ASTQueryTranslatorFactory
+23:23:14.282 [main] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.4.3.Final
+23:23:14.555 [main] INFO  org.hibernate.search.engine.Version - HSEARCH000034: Hibernate Search 5.0.1.Final
+23:23:14.844 [main] WARN  org.hibernate.search.engine.impl.ConfigContext - HSEARCH000075: Configuration setting hibernate.search.lucene_version was not specified: using LUCENE_CURRENT.
+23:23:15.143 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'my-unit'
+23:23:15.167 [main] INFO  com.itacademy.jd2.yi.cms.dao.orm.impl.HibernateSearchInitializer - index intialization started.
+23:23:15.530 [Hibernate Search: identifierloader-1] INFO  org.hibernate.search.batchindexing.impl.SimpleIndexingProgressMonitor - HSEARCH000027: Going to reindex 2 entities
+23:23:15.858 [main] INFO  org.hibernate.search.batchindexing.impl.SimpleIndexingProgressMonitor - HSEARCH000028: Reindexed 2 entities
+23:23:15.858 [main] INFO  com.itacademy.jd2.yi.cms.dao.orm.impl.HibernateSearchInitializer - index intialization completed.
+23:23:16.189 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.SecurityContextPersistenceFilter@235c997d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@552cede7, org.springframework.security.web.header.HeaderWriterFilter@f5a7226, org.springframework.security.web.authentication.logout.LogoutFilter@52ca2652, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@50085d9c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@160e99e0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4877919f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ea00de, org.springframework.security.web.session.SessionManagementFilter@715f45c6, org.springframework.security.web.access.ExceptionTranslationFilter@32227215, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5d352de0]
+23:23:16.204 [main] INFO  org.springframework.security.config.http.DefaultFilterChainValidator - Checking whether login URL '/login' is accessible with your configuration
+23:23:16.232 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext initialized in 4323 ms
+23:23:16.338 [main] INFO  /cms - Initializing Spring DispatcherServlet 'dispatcher'
+23:23:16.338 [main] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcher'
+23:23:17.181 [main] INFO  org.apache.tiles.access.TilesAccess - Publishing TilesContext for context: org.springframework.web.servlet.view.tiles3.SpringWildcardServletTilesApplicationContext
+23:23:17.196 [main] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 858 ms
+23:23:17.197 [main] INFO  org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@5c1a8622{/cms,file:/D:/JD02-iyatsevich/SOMEMAGIC/web/src/main/webapp/,AVAILABLE}{src/main/webapp}
+23:23:17.214 [main] INFO  org.eclipse.jetty.server.ServerConnector - Started ServerConnector@634aa81e{HTTP/1.1}{0.0.0.0:8081}
+23:23:17.214 [main] INFO  org.eclipse.jetty.server.Server - Started @6366ms
+23:23:31.667 [qtp243745864-14] WARN  org.hibernate.hql.internal.ast.HqlSqlWalker - [DEPRECATION] Encountered positional parameter near line 1, column 114.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+23:23:31.670 [qtp243745864-14] WARN  org.hibernate.hql.internal.ast.HqlSqlWalker - [DEPRECATION] Encountered positional parameter near line 1, column 242.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.

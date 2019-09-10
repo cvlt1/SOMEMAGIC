@@ -14,13 +14,13 @@
 				<form:errors path="position" cssClass="red-text" />
 				<label for="position">position</label>
 			</div>
-			<div class="input-field col s12">
+			<!--  <div class="input-field col s12">
 				<form:select path="contentItemId" disabled="${readonly}">
 					<form:options items="${contentItemChoices}" />
 				</form:select>
 				<form:errors path="contentItemId" cssClass="red-text" />
 				<label for="contentItemId">contentItemId by</label>
-			</div>
+			</div>-->
 		</div>
 		<div class="row">
 			<div class="col s6"></div>
